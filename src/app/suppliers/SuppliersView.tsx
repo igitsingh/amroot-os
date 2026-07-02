@@ -278,7 +278,10 @@ export default function SuppliersView({ initialSuppliers }: SuppliersViewProps) 
                                   <span className="truncate">{supp.primaryContact.name}</span>
                                 </div>
                                 <div className="text-white/40 ml-4 truncate">
-                                  {supp.primaryContact.email} | {supp.primaryContact.phone}
+                                  {supp.primaryContact.email}
+                                </div>
+                                <div className="text-white/40 ml-4 truncate">
+                                  {supp.primaryContact.phone}
                                 </div>
                               </div>
                             ) : supp.contact ? (

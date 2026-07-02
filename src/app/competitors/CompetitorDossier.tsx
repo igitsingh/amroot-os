@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Search, Crosshair, HelpCircle, Shield, ShieldAlert, ArrowRight, Activity, MapPin, Building, Target, Globe, Box, CheckCircle, CheckCircle2, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { X, Search, Crosshair, HelpCircle, Shield, ShieldAlert, ArrowRight, Activity, MapPin, Building, Target, Globe, Box, CheckCircle, CheckCircle2, ArrowUpRight, ArrowDownRight, ExternalLink, ShoppingCart, Package } from 'lucide-react';
 import { getCompetitorIntel } from "@/data/competitorIntel";
+import productLinks from "@/db/intelligence/products/product-links.json";
 
 const SECTIONS = [
   "1. Company Profile",
   "2. Product Portfolio",
+  "2b. Products Intelligence",
   "3. Curcumin Information",
   "4. Packaging Intelligence",
   "5. Pricing Intelligence",
@@ -150,8 +152,186 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
               </div>
             )}
 
+            {/* DOMAIN 2b: PRODUCTS INTELLIGENCE */}
+            {activeSection === "2b. Products Intelligence" && (() => {
+              const brandId = competitor.id;
+              const linkedProducts = (productLinks as any[]).filter(
+                (p) => p.brandId === brandId || p.brandId === competitor.brandId
+              );
+              return (
+                <div>
+                  {linkedProducts.length > 0 ? (
+                    <div className="space-y-4">
+                      <div className="text-[10px] uppercase font-mono text-white/30 tracking-widest mb-4">
+                        {linkedProducts.length} product{linkedProducts.length !== 1 ? 's' : ''} mapped · One-click access to all marketplace listings
+                      </div>
+                      {linkedProducts.map((prod: any, idx: number) => (
+                        <div key={idx} className="border border-white/10 bg-white/[0.02] rounded-xl p-5 hover:border-white/20 transition-colors">
+                          <div className="flex items-start justify-between mb-3">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 rounded-md bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                                <Package className="w-4 h-4 text-blue-400" />
+                              </div>
+                              <div>
+                                <div className="font-semibold text-white text-sm">{prod.productName}</div>
+                                <div className="text-[10px] font-mono text-white/40 mt-0.5">{prod.productType} · {prod.variant}</div>
+                              </div>
+                            </div>
+                            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                              {prod.verificationStatus}
+                            </span>
+                          </div>
+
+                          {/* Specs Grid */}
+                          <div className="grid grid-cols-3 gap-3 mb-4">
+                            <div className="bg-black/30 rounded-lg p-2.5">
+                              <div className="text-[9px] uppercase font-mono text-white/30 tracking-widest mb-1">Curcumin</div>
+                              <div className="text-xs font-mono text-yellow-400 font-bold">{prod.claimedCurcuminPercent}</div>
+                            </div>
+                            <div className="bg-black/30 rounded-lg p-2.5">
+                              <div className="text-[9px] uppercase font-mono text-white/30 tracking-widest mb-1">Origin</div>
+                              <div className="text-xs font-mono text-white/80">{prod.originRegion || 'Unknown'}</div>
+                            </div>
+                            <div className="bg-black/30 rounded-lg p-2.5">
+                              <div className="text-[9px] uppercase font-mono text-white/30 tracking-widest mb-1">Weights</div>
+                              <div className="text-xs font-mono text-white/80">{prod.weightOptions?.join(', ') || 'Unknown'}</div>
+                            </div>
+                          </div>
+
+                          {/* Pricing */}
+                          {prod.pricing && (
+                            <div className="mb-4 p-3 bg-black/20 rounded-lg border border-white/5">
+                              <div className="text-[9px] uppercase font-mono text-white/30 tracking-widest mb-2">Pricing Intelligence</div>
+                              <div className="grid grid-cols-2 gap-2">
+                                {prod.pricing.websitePrice && (
+                                  <div className="text-xs font-mono">
+                                    <span className="text-white/40">Website: </span>
+                                    <span className="text-emerald-400 font-bold">{prod.pricing.websitePrice}</span>
+                                  </div>
+                                )}
+                                {prod.pricing.amazonPrice && prod.pricing.amazonPrice !== 'Not Available' && prod.pricing.amazonPrice !== 'Unknown' && (
+                                  <div className="text-xs font-mono">
+                                    <span className="text-white/40">Amazon: </span>
+                                    <span className="text-orange-400">{prod.pricing.amazonPrice}</span>
+                                  </div>
+                                )}
+                                {prod.pricing.flipkartPrice && prod.pricing.flipkartPrice !== 'Not Available' && prod.pricing.flipkartPrice !== 'Unknown' && (
+                                  <div className="text-xs font-mono">
+                                    <span className="text-white/40">Flipkart: </span>
+                                    <span className="text-blue-400">{prod.pricing.flipkartPrice}</span>
+                                  </div>
+                                )}
+                                {prod.pricing.bigBasketPrice && (
+                                  <div className="text-xs font-mono">
+                                    <span className="text-white/40">BigBasket: </span>
+                                    <span className="text-green-400">{prod.pricing.bigBasketPrice}</span>
+                                  </div>
+                                )}
+                              </div>
+                              <div className="text-[9px] font-mono text-white/20 mt-2">Collected: {prod.pricing.dateCollected?.split('T')[0]}</div>
+                            </div>
+                          )}
+
+                          {/* Certifications */}
+                          {prod.certifications && prod.certifications.length > 0 && (
+                            <div className="flex flex-wrap gap-1.5 mb-4">
+                              {prod.certifications.map((cert: string, cidx: number) => (
+                                <span key={cidx} className="px-2 py-0.5 bg-green-500/10 border border-green-500/20 text-green-400 rounded text-[9px] font-mono">
+                                  {cert}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* One-Click Marketplace Buttons */}
+                          <div className="flex flex-wrap gap-2">
+                            {prod.links?.officialWebsite && (
+                              <a
+                                href={prod.links.officialWebsite}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-lg text-[10px] font-mono text-white/70 hover:text-white transition-all"
+                              >
+                                <Globe className="w-3 h-3" />
+                                Official Website
+                              </a>
+                            )}
+                            {prod.links?.amazon && (
+                              <a
+                                href={prod.links.amazon}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20 hover:border-orange-500/40 rounded-lg text-[10px] font-mono text-orange-400 hover:text-orange-300 transition-all"
+                              >
+                                <ShoppingCart className="w-3 h-3" />
+                                Amazon
+                              </a>
+                            )}
+                            {prod.links?.flipkart && (
+                              <a
+                                href={prod.links.flipkart}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 hover:border-blue-500/40 rounded-lg text-[10px] font-mono text-blue-400 hover:text-blue-300 transition-all"
+                              >
+                                <ShoppingCart className="w-3 h-3" />
+                                Flipkart
+                              </a>
+                            )}
+                            {prod.links?.bigbasket && (
+                              <a
+                                href={prod.links.bigbasket}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 hover:border-green-500/40 rounded-lg text-[10px] font-mono text-green-400 hover:text-green-300 transition-all"
+                              >
+                                <ShoppingCart className="w-3 h-3" />
+                                BigBasket
+                              </a>
+                            )}
+                            {prod.links?.indiamart && (
+                              <a
+                                href={prod.links.indiamart}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 hover:border-purple-500/40 rounded-lg text-[10px] font-mono text-purple-400 hover:text-purple-300 transition-all"
+                              >
+                                <ShoppingCart className="w-3 h-3" />
+                                IndiaMART
+                              </a>
+                            )}
+                            {prod.links?.walmart && (
+                              <a
+                                href={prod.links.walmart}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-600/20 hover:border-blue-600/40 rounded-lg text-[10px] font-mono text-blue-300 hover:text-blue-200 transition-all"
+                              >
+                                <ShoppingCart className="w-3 h-3" />
+                                Walmart
+                              </a>
+                            )}
+                          </div>
+
+                          <div className="mt-3 text-[9px] font-mono text-white/20">
+                            Source: {prod.sourceUrl} · Confidence: {prod.confidenceScore}% · Verified: {prod.dateLastVerified?.split('T')[0]}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
+                      <Package className="w-8 h-8 text-white/20 mb-3" />
+                      <div className="text-white/60 font-mono text-sm">No product links found for this competitor</div>
+                      <div className="text-white/30 font-mono text-xs mt-1">Run product discovery to populate marketplace links</div>
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
+
             {/* DOMAIN 2: PRODUCT PORTFOLIO */}
-            {activeSection.includes("Product Portfolio") && (
+            {activeSection === "2. Product Portfolio" && (
               <div>
                 {intel?.portfolio && intel.portfolio.length > 0 ? (
                   <div className="border border-white/10 rounded-lg overflow-hidden">

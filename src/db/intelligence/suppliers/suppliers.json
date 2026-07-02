@@ -142,40 +142,6 @@
     "importers": []
   },
   {
-    "id": "supplier-pr-exports",
-    "name": "P.R. Exports Ltd.",
-    "country": "India",
-    "location": "Jaintia Hills, Meghalaya / Kalyani, WB",
-    "contact": "Unknown",
-    "primaryContact": {
-      "name": "Unknown",
-      "title": "Sales",
-      "phone": "+91 983054559",
-      "email": "Unknown"
-    },
-    "discoveryMethod": "Outbound AI Research",
-    "entityType": "Supplier / Processor",
-    "marketTier": "Bulk Commodity",
-    "curcuminContent": "7.0 - 9.0",
-    "qualitySpecs": "High curcumin Lakadong turmeric, lab-tested, unpolished",
-    "certifications": [
-      "FSSAI",
-      "ISO 9001:2015"
-    ],
-    "heavyMetalsDyes": "Unknown",
-    "source": "Web Search / IndiaMart",
-    "socialMedia": {
-      "website": "https://prel.in",
-      "linkedin": "https://www.linkedin.com/search/results/all/?keywords=PR+Exports+Ltd.",
-      "facebook": "https://facebook.com/PRExportsLtd",
-      "instagram": "https://instagram.com/masala_mundi"
-    },
-    "intelligenceScore": 88,
-    "labReports": [],
-    "shipments": [],
-    "importers": []
-  },
-  {
     "id": "supplier-spitex-exports",
     "name": "Spitex Exports",
     "country": "India",
@@ -358,5 +324,666 @@
       "Export Quality"
     ],
     "coreNarrative": "Reliable bulk supplier and manufacturer of processed spices including high-curcumin Lakadong and Assam Black Turmeric."
+  },
+  {
+    "id": "supplier-nahar-organics",
+    "name": "Nahar Organics",
+    "country": "India",
+    "location": "Corporate: Guwahati, Assam | Branch: Lucknow, UP",
+    "contact": "Suraj Baruah",
+    "primaryContact": {
+      "name": "Suraj Baruah",
+      "title": "Business Development Associate",
+      "phone": "+91-9287501662 / +91-8840243048 / +91-7417001236",
+      "email": "bassociate45@gmail.com / info@naharorganics.com"
+    },
+    "discoveryMethod": "Inbound WhatsApp",
+    "entityType": "Supplier",
+    "marketTier": "Premium",
+    "curcuminContent": "Unknown",
+    "qualitySpecs": "Premium range of spices & herbs, NPOP/NOP products | Turmeric (Curcuma Longa) - Organic, Whole, Sun-Dried. Ethically sourced via contract farming from North East India. Available in bulk & custom packing.",
+    "certifications": [
+      "GST",
+      "NPOP/NOP",
+      "FSSAI",
+      "APEDA",
+      "Spices Board India",
+      "India Organic",
+      "USDA Organic",
+      "REACH Compliant",
+      "HACCP Certified"
+    ],
+    "heavyMetalsDyes": "Unknown",
+    "source": "WhatsApp Lead & GST Certificate",
+    "socialMedia": {
+      "website": "https://www.naharorganics.com",
+      "youtube": "https://youtube.com/@naharorganics3798",
+      "facebook": "https://facebook.com/NaharOrganics",
+      "instagram": "https://instagram.com/nahar_organics"
+    },
+    "intelligenceScore": 85,
+    "labReports": [],
+    "shipments": [],
+    "importers": [],
+    "pricing": {
+      "premiumPositioning": "Wholesale",
+      "Lakadong Turmeric Slice": "340/kg (ex factory)",
+      "Lakadong Turmeric Powder": "480/kg (ex factory)"
+    },
+    "bio": "Nahar Organics is engaged in providing the quality products Spices, Herbs, Staple foods/grains, Essential Oil and fruits/Nuts. Deals in exotic spices and herbs.",
+    "addresses": [
+      {
+        "type": "Corporate Office",
+        "address": "Office No-103, 1st Floor, DN Tower, Basistha Chariali, NH-37, PS- Baisistha, Guwahati, Assam 781029, India"
+      },
+      {
+        "type": "Branch Office",
+        "address": "304, Oel Shalimar Apartment, Old Hyderabad, Near Hanuman Setu, Lucknow, UP 226007, India"
+      }
+    ],
+    "additionalContacts": [
+      {
+        "department": "Purchase (Business Development Manager)",
+        "phone": "+91 92879 96189",
+        "email": "purchase@naharorganics.com"
+      },
+      {
+        "department": "Sale To Nahar (Sourcing - Manager)",
+        "phone": "+91 92879 99650",
+        "email": "sales@naharorganics.com"
+      },
+      {
+        "department": "Documentation (Manager - Operations & Accounts Head)",
+        "phone": "+91 93955 46193",
+        "email": "sales@naharorganics.com"
+      },
+      {
+        "department": "General Enquiries",
+        "phone": "+91 92879 81708 / +91 361 2735142",
+        "email": "info@naharorganics.com"
+      }
+    ]
+  },
+  {
+    "id": "supplier_wacker",
+    "name": "WackerChemie AG",
+    "country": "Global",
+    "location": "Munich, Germany",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+49 89 6279-0",
+      "email": "info@wacker.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": "Highly Bioavailable Complex",
+    "qualitySpecs": "Produces CAVACURMIN®, a highly bioavailable curcumin complex using proprietary gamma-cyclodextrin encapsulation.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "https://www.wacker.com"
+    },
+    "intelligenceScore": 98,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_biomax",
+    "name": "BioMaxLifesciences Ltd.",
+    "country": "India",
+    "location": "Hyderabad, India",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-40-2337 4000",
+      "email": "info@biomaxls.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": 95,
+    "qualitySpecs": "Indian manufacturer of high-potency herbal extracts, including Curcumin >95% and water-soluble curcumin granules.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "https://www.biomaxls.com"
+    },
+    "intelligenceScore": 92,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_synthite",
+    "name": "Synthite Industries Ltd.",
+    "country": "Global",
+    "location": "Kochi, Kerala, India",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-484-2866600",
+      "email": "info@synthite.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": "Standardized Oleoresins",
+    "qualitySpecs": "Major global manufacturer of spice and botanical extracts. Also operates the NatXtra consumer nutraceutical brand.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "https://www.synthite.com"
+    },
+    "intelligenceScore": 95,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_hindustan_mint",
+    "name": "Hindustan Mint & Agro Products Pvt. Ltd.",
+    "country": "Global",
+    "location": "Chandausi, UP, India",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-5921-250540",
+      "email": "hindustan@hindustanmint.in"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": 95,
+    "qualitySpecs": "Manufacturer of various herbal extracts, including Turmeric Dry Extract (50% and 95% Curcuminoids).",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "http://www.hindustanmint.com"
+    },
+    "intelligenceScore": 88,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_arjuna",
+    "name": "Arjuna Natural Extracts Ltd.",
+    "country": "Global",
+    "location": "Kerala, India",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-484-4080400",
+      "email": "info@arjunanatural.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": "BCM-95 Complex",
+    "qualitySpecs": "Creators of BCM-95® (Curcugreen®), a patented extract combining curcuminoids with turmeric essential oil (45% Ar-turmerone).",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "https://arjunanatural.com"
+    },
+    "intelligenceScore": 99,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_svagrofood",
+    "name": "SV Agrofood",
+    "country": "Global",
+    "location": "Mumbai, India / USA",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-9769880079",
+      "email": "vn@svagrofood.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": 95,
+    "qualitySpecs": "Manufacturer, exporter, and supplier of herbal extracts, including Curcumin 95% extracts, with facilities in India and the US.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "http://svagrofood.com"
+    },
+    "intelligenceScore": 85,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_starhi",
+    "name": "Star Hi Herbs Pvt. Ltd.",
+    "country": "India",
+    "location": "Bangalore, India",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-9886422452",
+      "email": "starhi@starhiherbs.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": 95,
+    "qualitySpecs": "Bangalore-based supplier of Curcumin 95% and other herbal extracts.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "http://starhiherbs.com"
+    },
+    "intelligenceScore": 82,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_herboveda",
+    "name": "Herboveda India Pvt. Ltd.",
+    "country": "Global",
+    "location": "Delhi, India",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-9717971852",
+      "email": "herbovedaonline@gmail.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": 95,
+    "qualitySpecs": "Offers curcumin extract powder (95%) along with various API raw materials.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "http://herbovedacare.in"
+    },
+    "intelligenceScore": 80,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_helmigs",
+    "name": "Helmigs Prima Sehejtera PT",
+    "country": "Indonesia",
+    "location": "Surabaya, Indonesia",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+62 31 9920 4388",
+      "email": "mail@helmigs.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": "Water-soluble Beverage Extract",
+    "qualitySpecs": "Indonesian manufacturer specializing in curcumin-based health drinks and supplements.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "https://www.helmigs.com"
+    },
+    "intelligenceScore": 89,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_javaplant",
+    "name": "Javaplant",
+    "country": "Indonesia",
+    "location": "Jakarta, Indonesia",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "Available via website",
+      "email": "info@javaplant.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": "Botanical Extract",
+    "qualitySpecs": "Indonesian-based manufacturer of botanical extracts including turmeric and curcumin.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "https://www.javaplant.com"
+    },
+    "intelligenceScore": 86,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_konark",
+    "name": "Konark Herbals & Healthcare Pvt. Ltd.",
+    "country": "India",
+    "location": "Mumbai, India",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-22-6147-5383",
+      "email": "herbalsales@konarkgroup.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": 95,
+    "qualitySpecs": "Mumbai-based company with dedicated production lines for Curcumin 95% extraction.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "http://konarkherbals.com"
+    },
+    "intelligenceScore": 87,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_rosun",
+    "name": "Rosun Natural Products Pvt. Ltd.",
+    "country": "Global",
+    "location": "Chennai, India / Singapore",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+91-90250-44607",
+      "email": "info@rosungroups.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": "Standardized Extract",
+    "qualitySpecs": "Supplier of various herbal extracts, nutraceutical, and food ingredients, with global marketing in Singapore.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "http://www.rosuncoconutproducts.com"
+    },
+    "intelligenceScore": 84,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_sabinsa",
+    "name": "Sabinsa Corporation",
+    "country": "Global",
+    "location": "East Windsor, NJ, USA / India",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "+1-732-777-1111",
+      "email": "info@sabinsa.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "entityType": "Manufacturer",
+    "marketTier": "Premium Extract",
+    "curcuminContent": "95% (C3 Complex)",
+    "qualitySpecs": "Pioneers of Curcumin C3 Complex®, one of the most clinically studied curcumin ingredients in the world.",
+    "certifications": [],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Competitor DB",
+    "socialMedia": {
+      "website": "https://sabinsa.com"
+    },
+    "intelligenceScore": 99,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_fuchs",
+    "name": "Fuchs Group",
+    "country": "Global",
+    "location": "Unknown",
+    "contact": "Unknown",
+    "entityType": "Manufacturer",
+    "marketTier": "Industrial",
+    "curcuminContent": "Unknown",
+    "qualitySpecs": "Global culinary spice manufacturer.",
+    "source": "https://fuchsgruppe.com",
+    "socialMedia": {
+      "website": "https://fuchsgruppe.com"
+    },
+    "discoveryMethod": "Competitor Shift",
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier-jaintia-gold",
+    "name": "Jaintia Gold",
+    "country": "Unknown",
+    "location": "Jaintia Hills, Meghalaya",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "Unknown",
+      "email": "Unknown"
+    },
+    "entityType": "Wholesale / B2B Brand",
+    "marketTier": "Premium",
+    "curcuminContent": "7.0 - 12.0",
+    "qualitySpecs": "",
+    "source": "https://www.indiamart.com",
+    "socialMedia": {
+      "website": "https://www.indiamart.com"
+    },
+    "intelligenceScore": 85,
+    "discoveryMethod": "Competitor Shift",
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier-frontier-co-op",
+    "name": "Frontier Co-op",
+    "country": "Unknown",
+    "location": "Norway, Iowa, USA",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "Unknown",
+      "email": "Unknown"
+    },
+    "entityType": "Cooperatively Owned Wholesaler",
+    "marketTier": "Premium",
+    "curcuminContent": "Minimum 5.0",
+    "qualitySpecs": "",
+    "source": "https://frontiercoop.com",
+    "socialMedia": {
+      "website": "https://frontiercoop.com"
+    },
+    "intelligenceScore": 85,
+    "discoveryMethod": "Competitor Shift",
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_lees_mumi",
+    "name": "Lee's Mumi Botanical Extracts",
+    "country": "China",
+    "location": "Shanghai, China",
+    "contact": "Unknown",
+    "primaryContact": {
+      "name": "Unknown",
+      "title": "Sales / Info",
+      "phone": "Unknown",
+      "email": "Unknown"
+    },
+    "entityType": "Botanical Extracts Supplier",
+    "marketTier": "B2B / Industrial",
+    "curcuminContent": "N/A",
+    "qualitySpecs": "LEE'S MUM (SHANGHAI) INDUSTRY DEVELOPMENT CO., LTD.",
+    "source": "https://leesmum.com",
+    "socialMedia": {
+      "website": "https://leesmum.com"
+    },
+    "intelligenceScore": 85,
+    "discoveryMethod": "Competitor Shift",
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_lakadong_coop_union",
+    "name": "Lakadong Turmeric Cooperative Union Limited",
+    "country": "India",
+    "location": "Jowai, West Jaintia Hills, Meghalaya",
+    "contact": "Directorate of Horticulture / 1917 (Meghalaya Helpline)",
+    "primaryContact": {
+      "name": "Directorate of Horticulture",
+      "title": "Government Helpline",
+      "phone": "1917",
+      "email": "odopinvestindiameghalaya@gmail.com"
+    },
+    "discoveryMethod": "Outbound AI Research (Government & GI Databases)",
+    "entityType": "Farmer Producer Organization (FPO) / Cooperative Union",
+    "marketTier": "Premium",
+    "curcuminContent": "7.0 - 12.0%",
+    "qualitySpecs": "Registered proprietor of the Geographical Indication (GI) tag (No. 741) for Lakadong Turmeric. Grown using traditional organic farming practices.",
+    "certifications": [
+      "GI Tagged (No. 741)",
+      "Organic"
+    ],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Government of Meghalaya (Mission Lakadong), Geographical Indications Registry",
+    "socialMedia": {
+      "website": "https://megagriculture.gov.in/"
+    },
+    "intelligenceScore": 100,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_life_spice_coop",
+    "name": "Life Spice Cooperative Society Ltd",
+    "country": "India",
+    "location": "Laskein block, West Jaintia Hills, Meghalaya",
+    "contact": "Meghalaya Basin Management Agency (MBMA) / 1917",
+    "primaryContact": {
+      "name": "MBMA",
+      "title": "Government Support",
+      "phone": "1917",
+      "email": "Unknown"
+    },
+    "discoveryMethod": "Outbound AI Research (Meghalaya Collectives)",
+    "entityType": "Farmer Cooperative Society",
+    "marketTier": "Premium",
+    "curcuminContent": "7.0 - 12.0%",
+    "qualitySpecs": "Federation of Self-Help Groups (SHGs). Equipped with powdering and oleoresin extraction facilities.",
+    "certifications": [
+      "Organic"
+    ],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Meghalaya Collectives (MBMA), Mission Lakadong",
+    "socialMedia": {
+      "website": "https://meghalayacollectives.in/"
+    },
+    "intelligenceScore": 95,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_shangpung_farmers_coop",
+    "name": "Shangpung Turmeric Lakadong Farmers' Co-operative Society Ltd",
+    "country": "India",
+    "location": "Shangpung, West Jaintia Hills, Meghalaya",
+    "contact": "District Horticulture Officer, West Jaintia Hills",
+    "primaryContact": {
+      "name": "District Horticulture Officer",
+      "title": "Government Official",
+      "phone": "1917",
+      "email": "Unknown"
+    },
+    "discoveryMethod": "Outbound AI Research",
+    "entityType": "Farmer Cooperative Society",
+    "marketTier": "Premium",
+    "curcuminContent": "7.0 - 12.0%",
+    "qualitySpecs": "Local village cooperative driving bulk production of Lakadong Turmeric in the Shangpung cluster.",
+    "certifications": [
+      "Organic"
+    ],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Meghalaya State Agriculture Marketing Board (MSAMB)",
+    "socialMedia": {
+      "website": "https://megamb.gov.in/"
+    },
+    "intelligenceScore": 92,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
+  },
+  {
+    "id": "supplier_ieinskhem_spice_coop",
+    "name": "Ieinskhem Spice Producers Industrial Co-operative Society Ltd",
+    "country": "India",
+    "location": "Mulieh Village, West Jaintia Hills, Meghalaya",
+    "contact": "Trinity Saioo / Mission Lakadong",
+    "primaryContact": {
+      "name": "Mission Lakadong",
+      "title": "Government Support",
+      "phone": "1917",
+      "email": "Unknown"
+    },
+    "discoveryMethod": "Outbound AI Research",
+    "entityType": "Industrial Cooperative Society",
+    "marketTier": "Premium",
+    "curcuminContent": "7.0 - 12.0%",
+    "qualitySpecs": "Established in Mulieh Village, connected to the 'Turmeric Trinity' movement led by Padma Shri Trinity Saioo.",
+    "certifications": [
+      "Organic"
+    ],
+    "heavyMetalsDyes": "Unknown",
+    "source": "Meghalaya State Agriculture Marketing Board (MSAMB)",
+    "socialMedia": {
+      "website": "https://megamb.gov.in/"
+    },
+    "intelligenceScore": 98,
+    "labReports": [],
+    "shipments": [],
+    "importers": []
   }
 ]

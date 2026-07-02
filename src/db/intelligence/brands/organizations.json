@@ -45,21 +45,6 @@
     ]
   },
   {
-    "id": "brand-jaintiagold",
-    "name": "Jaintia Gold",
-    "marketPositioning": "Premium",
-    "source": "Various Retailers",
-    "sourceUrl": "https://www.indiamart.com",
-    "sourceType": "Third-Party",
-    "dateCollected": "2026-06-29T00:00:00Z",
-    "dateLastVerified": "2026-06-29T00:00:00Z",
-    "confidenceScore": 85,
-    "verificationStatus": "Verified",
-    "roles": [
-      "Competitor Brand"
-    ]
-  },
-  {
     "id": "brand-tribalfactory",
     "name": "Tribal Factory",
     "marketPositioning": "Premium",
@@ -115,21 +100,6 @@
     "dateLastVerified": "2026-06-28T21:14:01.767Z",
     "confidenceScore": 85,
     "verificationStatus": "Verified",
-    "roles": [
-      "Competitor Brand"
-    ]
-  },
-  {
-    "id": "brand_y0httvartq56lwe1ybimy",
-    "name": "Lee's Mumi Botanical Extracts",
-    "marketPositioning": "Unknown",
-    "source": "Google Search",
-    "sourceUrl": "https://google.com",
-    "sourceType": "Official / Third-Party Analysis",
-    "dateCollected": "2026-06-28T21:14:01.767Z",
-    "dateLastVerified": "2026-06-28T21:14:01.767Z",
-    "confidenceScore": 0,
-    "verificationStatus": "Requires Manual Verification",
     "roles": [
       "Competitor Brand"
     ]
@@ -270,41 +240,11 @@
     ]
   },
   {
-    "id": "brand_w9iokkmdkn9s7mdbo8ozc",
-    "name": "Frontier Co-op",
-    "marketPositioning": "Global Benchmark Co-op",
-    "source": "frontiercoop.com",
-    "sourceUrl": "https://frontiercoop.com",
-    "sourceType": "Official / Third-Party Analysis",
-    "dateCollected": "2026-06-28T21:14:01.767Z",
-    "dateLastVerified": "2026-06-28T21:14:01.767Z",
-    "confidenceScore": 95,
-    "verificationStatus": "Verified",
-    "roles": [
-      "Competitor Brand"
-    ]
-  },
-  {
     "id": "brand_i4878u974vfypauccriy",
     "name": "Schwartz",
     "marketPositioning": "Global Benchmark Culinary",
     "source": "schwartz.co.uk",
     "sourceUrl": "https://schwartz.co.uk",
-    "sourceType": "Official / Third-Party Analysis",
-    "dateCollected": "2026-06-28T21:14:01.767Z",
-    "dateLastVerified": "2026-06-28T21:14:01.767Z",
-    "confidenceScore": 95,
-    "verificationStatus": "Verified",
-    "roles": [
-      "Competitor Brand"
-    ]
-  },
-  {
-    "id": "brand_5agiamwjrrssggaovhktg",
-    "name": "Fuchs Group",
-    "marketPositioning": "Global Benchmark Industrial/Culinary",
-    "source": "fuchsgruppe.com",
-    "sourceUrl": "https://fuchsgruppe.com",
     "sourceType": "Official / Third-Party Analysis",
     "dateCollected": "2026-06-28T21:14:01.767Z",
     "dateLastVerified": "2026-06-28T21:14:01.767Z",
@@ -358,21 +298,6 @@
     "confidenceScore": 85,
     "verificationStatus": "Verified",
     "notes": "Cryogenic processing at -196C."
-  },
-  {
-    "id": "org-lee-s-mumi-botanical-extracts",
-    "name": "Lee's Mumi Botanical Extracts",
-    "roles": [
-      "Competitor Brand"
-    ],
-    "source": "Web Search",
-    "sourceUrl": "https://google.com",
-    "sourceType": "Unknown",
-    "dateCollected": "2026-06-28T21:55:16.353Z",
-    "dateLastVerified": "2026-06-28T21:55:16.353Z",
-    "confidenceScore": 0,
-    "verificationStatus": "Unknown",
-    "notes": "No recognized presence found."
   },
   {
     "id": "org-trinay-ayurveda",
@@ -538,20 +463,5 @@
     "confidenceScore": 85,
     "verificationStatus": "Verified",
     "notes": "BioSchwartz supplements. Not culinary."
-  },
-  {
-    "id": "org-fuchs-group",
-    "name": "Fuchs Group",
-    "roles": [
-      "Competitor Brand"
-    ],
-    "source": "Official / Retailers",
-    "sourceUrl": "https://google.com",
-    "sourceType": "Third-Party",
-    "dateCollected": "2026-06-28T21:55:16.353Z",
-    "dateLastVerified": "2026-06-28T21:55:16.353Z",
-    "confidenceScore": 85,
-    "verificationStatus": "Verified",
-    "notes": "Global culinary spice manufacturer."
   }
 ]
