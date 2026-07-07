@@ -99,7 +99,7 @@ export default function MarketIntelligenceDashboard() {
               </h3>
               
               <div className="flex items-end justify-between gap-1 h-48 px-1">
-                {historicalGrowth.map((data) => (
+                {historicalGrowth.map((data: any) => (
                   <div key={data.year} className="flex flex-col items-center justify-end h-full w-full group">
                     <span className="text-[8px] sm:text-[9px] font-mono text-[#034F46]/80 mb-2 transition-colors group-hover:text-emerald-300 opacity-0 group-hover:opacity-100 absolute -top-6">
                       ${data.val}M
@@ -138,7 +138,7 @@ export default function MarketIntelligenceDashboard() {
               </h3>
               <p className="text-xs text-[#2D3142]/40 mb-4">Leading companies dictating market trends and holding the largest market share.</p>
               <div className="flex flex-wrap gap-2">
-                {keyCompanies.map((company, i) => (
+                {keyCompanies.map((company: any, i: number) => (
                   <span key={i} className="text-[10px] px-2.5 py-1 bg-[#2D3142]/5 text-[#2D3142]/70 border border-[#2D3142]/10 rounded-md hover:bg-[#2D3142]/10 hover:text-[#2D3142] transition-colors cursor-default">
                     {company}
                   </span>

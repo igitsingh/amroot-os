@@ -1,4 +1,4 @@
-export const competitorData: Record<string, CompetitorIntel> = {
+export const competitorData: Record<string, any> = {
 
   "tulua": {
     "idKeys": ["brand-tulua"],
@@ -3329,7 +3329,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
   }
 };
 
-export const getCompetitorIntel = (id: string): CompetitorIntel | null => {
+export const getCompetitorIntel = (id: string): any | null => {
   for (const key in competitorData) {
     if (competitorData[key].idKeys.includes(id)) return competitorData[key];
   }

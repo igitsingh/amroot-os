@@ -38,7 +38,7 @@ export default function InstitutionalResources() {
 
       {isOpen && (
         <div className="p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {resources.map((res) => (
+          {resources.map((res: any) => (
             <div key={res.id} className="bg-white/[0.02] border border-[#2D3142]/10 rounded-xl p-4 hover:bg-white/[0.04] transition-colors flex flex-col h-full group relative overflow-hidden">
               <div className="absolute top-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                 <a href={res.url} target="_blank" rel="noopener noreferrer" className="text-[#2D3142]/40 hover:text-[#2D3142] transition-colors">

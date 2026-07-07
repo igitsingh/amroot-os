@@ -149,7 +149,7 @@ export default function RequirementsView() {
         {isGlobalOpen && (
           <div className="p-6">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-              {certifications.map((region) => (
+              {certifications.map((region: any) => (
                 <div key={region.id} className="bg-[#F4F1EA]/20 border border-[#2D3142]/5 rounded-2xl overflow-hidden flex flex-col">
                   <div className={`px-5 py-4 border-b border-[#2D3142]/5 flex items-center gap-3 ${region.theme.split(' ')[0]}`}>
                     <div className="p-1.5 rounded-lg bg-[#F4F1EA]/20">
@@ -159,7 +159,7 @@ export default function RequirementsView() {
                   </div>
                   
                   <div className="p-5 flex-1 flex flex-col gap-3">
-                    {region.tests.map((test, i) => (
+                    {region.tests.map((test: any, i: number) => (
                       <div key={i} className="bg-[#2D3142]/5 border border-[#2D3142]/10 rounded-xl p-4 hover:border-white/20 transition-all group flex flex-col">
                         <div className="flex justify-between items-start mb-2">
                           <h4 className="text-[#2D3142]/90 font-medium text-sm">{test.name}</h4>
@@ -218,7 +218,7 @@ export default function RequirementsView() {
         {isRegistrationOpen && (
           <div className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {registrations.map((reg) => (
+              {registrations.map((reg: any) => (
                 <div key={reg.id} className="bg-[#F4F1EA]/20 border border-[#2D3142]/5 rounded-2xl p-5 hover:border-[#2D3142]/10 transition-all flex flex-col group">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">

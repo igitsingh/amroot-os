@@ -94,7 +94,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
             <span className="text-[10px] font-mono uppercase text-[#2D3142]/30 tracking-widest">Intelligence Domains</span>
           </div>
           <div className="flex flex-col">
-            {SECTIONS.map((section) => (
+            {SECTIONS.map((section: any) => (
               <button
                 key={section}
                 onClick={() => setActiveSection(section)}
@@ -346,7 +346,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-white/5">
-                        {intel.portfolio.map((prod, idx) => (
+                        {intel.portfolio.map((prod: any, idx: number) => (
                           <tr key={idx} className="hover:bg-white/[0.02]">
                             <td className="px-4 py-3 text-[#2D3142]/90">{prod.name}</td>
                             <td className="px-4 py-3">{prod.variant}</td>
@@ -441,7 +441,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                   <div className="mb-6">
                     <div className="text-[10px] uppercase font-mono text-[#2D3142]/40 tracking-widest mb-3">Core Identity Tags</div>
                     <div className="flex flex-wrap gap-2">
-                      {intel.positioningTags.map((tag, idx) => (
+                      {intel.positioningTags.map((tag: string, idx: number) => (
                         <span key={idx} className="px-3 py-1 bg-[#2D3142]/5 border border-[#2D3142]/10 rounded text-xs text-[#2D3142]/80 font-mono">{tag}</span>
                       ))}
                     </div>

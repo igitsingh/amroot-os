@@ -231,7 +231,7 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
         case 'entityType': return intel?.entityType ? intel.entityType.toLowerCase() : (isTrinay ? 'ayurvedic wellness brand' : isTwoBrothers ? 'regenerative dtc brand' : isMaatru ? 'artisanal dtc brand' : isNiraam ? 'dtc brand' : (isPahadi ? 'd2c marketplace' : (isDiaspora ? 'dtc brand / importer' : 'unknown')));
         case 'location': return intel?.location ? intel.location.toLowerCase() : (isTrinay ? 'hyderabad, telangana' : isTwoBrothers ? 'pune, maharashtra' : isMaatru ? 'prayagraj, uttar pradesh' : isNiraam ? 'kolkata, west bengal' : (isPahadi ? 'roorkee, uttarakhand' : (isDiaspora ? 'oakland, california' : 'unknown')));
         case 'marketTier': return intel?.marketTier ? intel.marketTier.toLowerCase() : (isTrinay ? 'unknown' : isTwoBrothers ? 'premium mass' : isMaatru ? 'premium artisanal' : isNiraam ? 'premium' : (isPahadi ? 'premium' : (isDiaspora ? 'ultra premium' : (comp.marketTier || 'unknown').toLowerCase())));
-        case 'curcumin': return getCurcuminVal(comp, intel);
+        case 'curcumin': return getCurcuminRange(comp, intel).min;
         default: return '';
       }
     };
@@ -510,9 +510,9 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                 {sortedCompetitors.map((comp) => {
                   const intel = getCompetitorIntel(comp.id);
                   const company = intel?.company?.toUpperCase() || 'UNKNOWN';
-                  const entityType = intel?.entityType?.replace(/ \w/g, l => l.toUpperCase()) || 'Unknown';
-                  const location = intel?.location?.replace(/ \w/g, l => l.toUpperCase()) || 'Unknown';
-                  const marketTier = intel?.marketTier?.replace(/ \w/g, l => l.toUpperCase()) || 'Unknown';
+                  const entityType = intel?.entityType?.replace(/ \w/g, (l: string) => l.toUpperCase()) || 'Unknown';
+                  const location = intel?.location?.replace(/ \w/g, (l: string) => l.toUpperCase()) || 'Unknown';
+                  const marketTier = intel?.marketTier?.replace(/ \w/g, (l: string) => l.toUpperCase()) || 'Unknown';
                   const curcuminDisplay = intel?.curcuminDisplay || 'Unknown';
                   const websiteDisplay = intel?.websiteDisplay && intel.websiteDisplay !== "unknown" ? intel.websiteDisplay : 'website.com';
                   const websiteUrl = intel?.websiteUrl && intel.websiteUrl !== "#" ? intel.websiteUrl : 'https://website.com';
