@@ -54,7 +54,7 @@ tribalfactory_new = """  "tribalfactory": {
     },
     "strategy": {
       "title": "How to beat Tribal Factory?",
-      "content": "Tribal Factory has a phenomenal social impact story. Paradise OS cannot simply 'beat' them on ethics; Paradise must differentiate on *target audience*. Tribal Factory targets the conscious, ethical consumer. Paradise OS targets the bio-hacker, the luxury health fanatic, and the clinical purist, offering an elite product that happens to be ethically sourced."
+      "content": "Tribal Factory has a phenomenal social impact story. AmrootOS cannot simply 'beat' them on ethics; Amroot must differentiate on *target audience*. Tribal Factory targets the conscious, ethical consumer. AmrootOS targets the bio-hacker, the luxury health fanatic, and the clinical purist, offering an elite product that happens to be ethically sourced."
     }
   }
 };"""

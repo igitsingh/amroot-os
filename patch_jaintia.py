@@ -75,7 +75,7 @@ jaintia_new = """  "jaintiagold": {
     },
     "strategy": {
       "title": "How to beat Jaintia Gold?",
-      "content": "Jaintia Gold acts more as a regional identifier/cooperative brand for Lakadong. They have immense authenticity but lack national D2C brand equity and modern premium packaging. Paradise OS can leverage the same geographic authenticity but wrap it in an ultra-premium, trusted, clinically-tested brand."
+      "content": "Jaintia Gold acts more as a regional identifier/cooperative brand for Lakadong. They have immense authenticity but lack national D2C brand equity and modern premium packaging. AmrootOS can leverage the same geographic authenticity but wrap it in an ultra-premium, trusted, clinically-tested brand."
     }
   },"""
 

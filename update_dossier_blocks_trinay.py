@@ -91,14 +91,14 @@ content = content.replace(
     'isTwoBrothers ? "Regenerative Organic, Chemical-free, Fourth-Generation Farmers, Village-made" : isTrinay ? "100% Natural, Ayurvedic, 95% Curcuminoids, Pesticide-free" : null'
 )
 
-# Paradise Strategy 
-tb_strat_end = """                        Additionally, we can beat them on aesthetic luxury. Their branding is premium but earthy; Paradise should aim for a sleek, modern, ultra-premium look that feels like a high-end supplement or cosmetic, rather than a farm product.
+# Amroot Strategy 
+tb_strat_end = """                        Additionally, we can beat them on aesthetic luxury. Their branding is premium but earthy; Amroot should aim for a sleek, modern, ultra-premium look that feels like a high-end supplement or cosmetic, rather than a farm product.
                       </p>
                     </div>
                   </div>
                 ) : ("""
 
-trinay_strat = """                        Additionally, we can beat them on aesthetic luxury. Their branding is premium but earthy; Paradise should aim for a sleek, modern, ultra-premium look that feels like a high-end supplement or cosmetic, rather than a farm product.
+trinay_strat = """                        Additionally, we can beat them on aesthetic luxury. Their branding is premium but earthy; Amroot should aim for a sleek, modern, ultra-premium look that feels like a high-end supplement or cosmetic, rather than a farm product.
                       </p>
                     </div>
                   </div>
@@ -110,7 +110,7 @@ trinay_strat = """                        Additionally, we can beat them on aest
                         How to beat Trinay Ayurveda?
                       </h4>
                       <p className="mt-2 text-sm text-white/70 leading-relaxed">
-                        Trinay competes in the standard Ayurvedic supplement market. They do not have the high-end luxury appeal or the verifiable Lakadong GI story. Paradise can out-position them purely on brand aesthetics, modern science, and absolute premium quality, treating turmeric as an advanced nutraceutical rather than a basic herbal powder.
+                        Trinay competes in the standard Ayurvedic supplement market. They do not have the high-end luxury appeal or the verifiable Lakadong GI story. Amroot can out-position them purely on brand aesthetics, modern science, and absolute premium quality, treating turmeric as an advanced nutraceutical rather than a basic herbal powder.
                       </p>
                     </div>
                   </div>

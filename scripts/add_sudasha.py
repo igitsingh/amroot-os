@@ -3,7 +3,7 @@ import os
 import uuid
 from datetime import datetime
 
-base_dir = "/Users/isachinsingh/Desktop/PARADISE-OS/src/db/intelligence"
+base_dir = "/Users/isachinsingh/Desktop/AMROOTOS/src/db/intelligence"
 suppliers_file = os.path.join(base_dir, "suppliers/suppliers.json")
 products_file = os.path.join(base_dir, "products/products.json")
 

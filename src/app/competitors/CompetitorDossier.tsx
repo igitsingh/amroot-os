@@ -22,13 +22,13 @@ const SECTIONS = [
   "13. Customer Intel",
   "14. Export Intel",
   "15. SWOT",
-  "16. Paradise Strategy"
+  "16. Amroot Strategy"
 ];
 
 const renderLink = (val: string | undefined) => {
   if (!val || val === "Unknown" || val === "Not Publicly Available") return val;
   if (val.startsWith("http")) {
-    return <a href={val} target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">{val.replace('https://www.', '').replace('https://', '')}</a>;
+    return <a href={val} target="_blank" rel="noreferrer" className="text-[#F16775] hover:underline">{val.replace('https://www.', '').replace('https://', '')}</a>;
   }
   return val;
 };
@@ -36,18 +36,18 @@ const renderLink = (val: string | undefined) => {
 const Field = ({ label, value, verified = false }: { label: string, value: string | React.ReactNode | null, verified?: boolean }) => (
   <div className="flex flex-col mb-4">
     <div className="flex items-center gap-1.5 mb-1">
-      <span className="text-[10px] uppercase font-mono text-white/40 tracking-widest">{label}</span>
-      {verified && <Shield className="w-3 h-3 text-emerald-500/70" />}
+      <span className="text-[10px] uppercase font-mono text-[#2D3142]/40 tracking-widest">{label}</span>
+      {verified && <Shield className="w-3 h-3 text-[#034F46]/70" />}
       {!verified && value && (
         <div title="Pending Verification">
-          <HelpCircle className="w-3 h-3 text-white/20 cursor-help" />
+          <HelpCircle className="w-3 h-3 text-[#2D3142]/20 cursor-help" />
         </div>
       )}
     </div>
     {value ? (
-      <div className="text-sm font-medium text-white/90 font-mono tracking-tight">{value}</div>
+      <div className="text-sm font-medium text-[#2D3142]/90 font-mono tracking-tight">{value}</div>
     ) : (
-      <div className="text-sm font-medium text-white/20 font-mono italic">[ Not Yet Verified ]</div>
+      <div className="text-sm font-medium text-[#2D3142]/20 font-mono italic">[ Not Yet Verified ]</div>
     )}
   </div>
 );
@@ -60,19 +60,19 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
   const hasData = !!intel;
 
   return (
-    <div className="fixed inset-y-0 right-0 z-50 w-full max-w-[1200px] bg-[#0A0A0A] border-l border-white/10 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col">
+    <div className="fixed inset-y-0 right-0 z-50 w-full max-w-[1200px] bg-white border-l border-[#2D3142]/10 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between p-6 border-b border-white/10 shrink-0 bg-[#0F0F0F]">
+      <div className="flex items-center justify-between p-6 border-b border-[#2D3142]/10 shrink-0 bg-[#F4F1EA]">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded border border-white/10 bg-black flex items-center justify-center shrink-0">
-            <Crosshair className="w-6 h-6 text-white/50" />
+          <div className="w-12 h-12 rounded border border-[#2D3142]/10 bg-[#F4F1EA] flex items-center justify-center shrink-0">
+            <Crosshair className="w-6 h-6 text-[#2D3142]/50" />
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h2 className="text-2xl font-bold text-white tracking-tight">{intel?.name || competitor.name}</h2>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">{hasData ? 'Verified Entity' : 'Pending Review'}</span>
+              <h2 className="text-2xl font-bold text-[#2D3142] tracking-tight">{intel?.name || competitor.name}</h2>
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-[#034F46]/10 text-[#034F46] border border-[#034F46]/20">{hasData ? 'Verified Entity' : 'Pending Review'}</span>
             </div>
-            <div className="text-xs font-mono text-white/40 mt-1 flex items-center gap-4">
+            <div className="text-xs font-mono text-[#2D3142]/40 mt-1 flex items-center gap-4">
               <span>ID: {competitor.id}</span>
               <span>SCORE: {competitor.intelligenceScore?.toFixed(1) || '0.0'}%</span>
               <span>UPDATED: {new Date().toISOString().split('T')[0]}</span>
@@ -81,7 +81,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
         </div>
         <button 
           onClick={onClose}
-          className="w-10 h-10 rounded-md bg-white/5 hover:bg-white/10 text-white/50 hover:text-white flex items-center justify-center transition-colors border border-white/10"
+          className="w-10 h-10 rounded-md bg-[#2D3142]/5 hover:bg-[#2D3142]/10 text-[#2D3142]/50 hover:text-[#2D3142] flex items-center justify-center transition-colors border border-[#2D3142]/10"
         >
           <X className="w-5 h-5" />
         </button>
@@ -89,9 +89,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
 
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar Navigation */}
-        <div className="w-64 border-r border-white/10 bg-[#0F0F0F] flex flex-col overflow-y-auto scrollbar-hide py-4">
+        <div className="w-64 border-r border-[#2D3142]/10 bg-[#F4F1EA] flex flex-col overflow-y-auto scrollbar-hide py-4">
           <div className="px-4 mb-4">
-            <span className="text-[10px] font-mono uppercase text-white/30 tracking-widest">Intelligence Domains</span>
+            <span className="text-[10px] font-mono uppercase text-[#2D3142]/30 tracking-widest">Intelligence Domains</span>
           </div>
           <div className="flex flex-col">
             {SECTIONS.map((section) => (
@@ -100,8 +100,8 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                 onClick={() => setActiveSection(section)}
                 className={`px-4 py-2.5 text-left text-xs font-mono transition-colors ${
                   activeSection === section 
-                    ? 'bg-blue-500/10 text-blue-400 border-r-2 border-blue-500' 
-                    : 'text-white/50 hover:bg-white/[0.02] hover:text-white'
+                    ? 'bg-[#F16775]/10 text-[#F16775] border-r-2 border-[#F16775]' 
+                    : 'text-[#2D3142]/50 hover:bg-white/[0.02] hover:text-[#2D3142]'
                 }`}
               >
                 {section}
@@ -111,7 +111,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto bg-[#0A0A0A] p-8">
+        <div className="flex-1 overflow-y-auto bg-white p-8">
           
           <div className="max-w-4xl mx-auto">
             {/* DOMAIN 1: COMPANY PROFILE */}
@@ -127,7 +127,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                       <div className="flex flex-col">
                         <span>{intel.founder}</span>
                         {(intel)?.founderSocialUrl && (
-                          <a href={(intel)?.founderSocialUrl} target="_blank" rel="noreferrer" className="text-blue-400 hover:underline mt-1 text-[10px] uppercase font-mono tracking-widest flex items-center gap-1">
+                          <a href={(intel)?.founderSocialUrl} target="_blank" rel="noreferrer" className="text-[#F16775] hover:underline mt-1 text-[10px] uppercase font-mono tracking-widest flex items-center gap-1">
                             <ArrowUpRight className="w-3 h-3" /> View LinkedIn Profile
                           </a>
                         )}
@@ -162,73 +162,73 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                 <div>
                   {linkedProducts.length > 0 ? (
                     <div className="space-y-4">
-                      <div className="text-[10px] uppercase font-mono text-white/30 tracking-widest mb-4">
+                      <div className="text-[10px] uppercase font-mono text-[#2D3142]/30 tracking-widest mb-4">
                         {linkedProducts.length} product{linkedProducts.length !== 1 ? 's' : ''} mapped · One-click access to all marketplace listings
                       </div>
                       {linkedProducts.map((prod: any, idx: number) => (
-                        <div key={idx} className="border border-white/10 bg-white/[0.02] rounded-xl p-5 hover:border-white/20 transition-colors">
+                        <div key={idx} className="border border-[#2D3142]/10 bg-white/[0.02] rounded-xl p-5 hover:border-white/20 transition-colors">
                           <div className="flex items-start justify-between mb-3">
                             <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-md bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-                                <Package className="w-4 h-4 text-blue-400" />
+                              <div className="w-8 h-8 rounded-md bg-[#F16775]/10 border border-[#F16775]/20 flex items-center justify-center shrink-0">
+                                <Package className="w-4 h-4 text-[#F16775]" />
                               </div>
                               <div>
-                                <div className="font-semibold text-white text-sm">{prod.productName}</div>
-                                <div className="text-[10px] font-mono text-white/40 mt-0.5">{prod.productType} · {prod.variant}</div>
+                                <div className="font-semibold text-[#2D3142] text-sm">{prod.productName}</div>
+                                <div className="text-[10px] font-mono text-[#2D3142]/40 mt-0.5">{prod.productType} · {prod.variant}</div>
                               </div>
                             </div>
-                            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#034F46]/10 text-[#034F46] border border-[#034F46]/20">
                               {prod.verificationStatus}
                             </span>
                           </div>
 
                           {/* Specs Grid */}
                           <div className="grid grid-cols-3 gap-3 mb-4">
-                            <div className="bg-black/30 rounded-lg p-2.5">
-                              <div className="text-[9px] uppercase font-mono text-white/30 tracking-widest mb-1">Curcumin</div>
+                            <div className="bg-[#F4F1EA]/30 rounded-lg p-2.5">
+                              <div className="text-[9px] uppercase font-mono text-[#2D3142]/30 tracking-widest mb-1">Curcumin</div>
                               <div className="text-xs font-mono text-yellow-400 font-bold">{prod.claimedCurcuminPercent}</div>
                             </div>
-                            <div className="bg-black/30 rounded-lg p-2.5">
-                              <div className="text-[9px] uppercase font-mono text-white/30 tracking-widest mb-1">Origin</div>
-                              <div className="text-xs font-mono text-white/80">{prod.originRegion || 'Unknown'}</div>
+                            <div className="bg-[#F4F1EA]/30 rounded-lg p-2.5">
+                              <div className="text-[9px] uppercase font-mono text-[#2D3142]/30 tracking-widest mb-1">Origin</div>
+                              <div className="text-xs font-mono text-[#2D3142]/80">{prod.originRegion || 'Unknown'}</div>
                             </div>
-                            <div className="bg-black/30 rounded-lg p-2.5">
-                              <div className="text-[9px] uppercase font-mono text-white/30 tracking-widest mb-1">Weights</div>
-                              <div className="text-xs font-mono text-white/80">{prod.weightOptions?.join(', ') || 'Unknown'}</div>
+                            <div className="bg-[#F4F1EA]/30 rounded-lg p-2.5">
+                              <div className="text-[9px] uppercase font-mono text-[#2D3142]/30 tracking-widest mb-1">Weights</div>
+                              <div className="text-xs font-mono text-[#2D3142]/80">{prod.weightOptions?.join(', ') || 'Unknown'}</div>
                             </div>
                           </div>
 
                           {/* Pricing */}
                           {prod.pricing && (
-                            <div className="mb-4 p-3 bg-black/20 rounded-lg border border-white/5">
-                              <div className="text-[9px] uppercase font-mono text-white/30 tracking-widest mb-2">Pricing Intelligence</div>
+                            <div className="mb-4 p-3 bg-[#F4F1EA]/20 rounded-lg border border-[#2D3142]/5">
+                              <div className="text-[9px] uppercase font-mono text-[#2D3142]/30 tracking-widest mb-2">Pricing Intelligence</div>
                               <div className="grid grid-cols-2 gap-2">
                                 {prod.pricing.websitePrice && (
                                   <div className="text-xs font-mono">
-                                    <span className="text-white/40">Website: </span>
-                                    <span className="text-emerald-400 font-bold">{prod.pricing.websitePrice}</span>
+                                    <span className="text-[#2D3142]/40">Website: </span>
+                                    <span className="text-[#034F46] font-bold">{prod.pricing.websitePrice}</span>
                                   </div>
                                 )}
                                 {prod.pricing.amazonPrice && prod.pricing.amazonPrice !== 'Not Available' && prod.pricing.amazonPrice !== 'Unknown' && (
                                   <div className="text-xs font-mono">
-                                    <span className="text-white/40">Amazon: </span>
+                                    <span className="text-[#2D3142]/40">Amazon: </span>
                                     <span className="text-orange-400">{prod.pricing.amazonPrice}</span>
                                   </div>
                                 )}
                                 {prod.pricing.flipkartPrice && prod.pricing.flipkartPrice !== 'Not Available' && prod.pricing.flipkartPrice !== 'Unknown' && (
                                   <div className="text-xs font-mono">
-                                    <span className="text-white/40">Flipkart: </span>
-                                    <span className="text-blue-400">{prod.pricing.flipkartPrice}</span>
+                                    <span className="text-[#2D3142]/40">Flipkart: </span>
+                                    <span className="text-[#F16775]">{prod.pricing.flipkartPrice}</span>
                                   </div>
                                 )}
                                 {prod.pricing.bigBasketPrice && (
                                   <div className="text-xs font-mono">
-                                    <span className="text-white/40">BigBasket: </span>
+                                    <span className="text-[#2D3142]/40">BigBasket: </span>
                                     <span className="text-green-400">{prod.pricing.bigBasketPrice}</span>
                                   </div>
                                 )}
                               </div>
-                              <div className="text-[9px] font-mono text-white/20 mt-2">Collected: {prod.pricing.dateCollected?.split('T')[0]}</div>
+                              <div className="text-[9px] font-mono text-[#2D3142]/20 mt-2">Collected: {prod.pricing.dateCollected?.split('T')[0]}</div>
                             </div>
                           )}
 
@@ -250,7 +250,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                                 href={prod.links.officialWebsite}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-lg text-[10px] font-mono text-white/70 hover:text-white transition-all"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-[#2D3142]/5 hover:bg-[#2D3142]/10 border border-[#2D3142]/10 hover:border-white/20 rounded-lg text-[10px] font-mono text-[#2D3142]/70 hover:text-[#2D3142] transition-all"
                               >
                                 <Globe className="w-3 h-3" />
                                 Official Website
@@ -272,7 +272,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                                 href={prod.links.flipkart}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 hover:border-blue-500/40 rounded-lg text-[10px] font-mono text-blue-400 hover:text-blue-300 transition-all"
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F16775]/10 hover:bg-[#F16775]/20 border border-[#F16775]/20 hover:border-[#F16775]/40 rounded-lg text-[10px] font-mono text-[#F16775] hover:text-blue-300 transition-all"
                               >
                                 <ShoppingCart className="w-3 h-3" />
                                 Flipkart
@@ -313,17 +313,17 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                             )}
                           </div>
 
-                          <div className="mt-3 text-[9px] font-mono text-white/20">
+                          <div className="mt-3 text-[9px] font-mono text-[#2D3142]/20">
                             Source: {prod.sourceUrl} · Confidence: {prod.confidenceScore}% · Verified: {prod.dateLastVerified?.split('T')[0]}
                           </div>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                      <Package className="w-8 h-8 text-white/20 mb-3" />
-                      <div className="text-white/60 font-mono text-sm">No product links found for this competitor</div>
-                      <div className="text-white/30 font-mono text-xs mt-1">Run product discovery to populate marketplace links</div>
+                    <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                      <Package className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                      <div className="text-[#2D3142]/60 font-mono text-sm">No product links found for this competitor</div>
+                      <div className="text-[#2D3142]/30 font-mono text-xs mt-1">Run product discovery to populate marketplace links</div>
                     </div>
                   )}
                 </div>
@@ -334,9 +334,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
             {activeSection === "2. Product Portfolio" && (
               <div>
                 {intel?.portfolio && intel.portfolio.length > 0 ? (
-                  <div className="border border-white/10 rounded-lg overflow-hidden">
-                    <table className="w-full text-left text-sm font-mono text-white/70">
-                      <thead className="bg-[#0F0F0F] text-[10px] uppercase text-white/40 tracking-widest">
+                  <div className="border border-[#2D3142]/10 rounded-lg overflow-hidden">
+                    <table className="w-full text-left text-sm font-mono text-[#2D3142]/70">
+                      <thead className="bg-[#F4F1EA] text-[10px] uppercase text-[#2D3142]/40 tracking-widest">
                         <tr>
                           <th className="px-4 py-3 font-medium">Product Name</th>
                           <th className="px-4 py-3 font-medium">Variant</th>
@@ -348,12 +348,12 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                       <tbody className="divide-y divide-white/5">
                         {intel.portfolio.map((prod, idx) => (
                           <tr key={idx} className="hover:bg-white/[0.02]">
-                            <td className="px-4 py-3 text-white/90">{prod.name}</td>
+                            <td className="px-4 py-3 text-[#2D3142]/90">{prod.name}</td>
                             <td className="px-4 py-3">{prod.variant}</td>
                             <td className="px-4 py-3">{prod.weight}</td>
-                            <td className="px-4 py-3 text-emerald-400">{prod.mrp}</td>
+                            <td className="px-4 py-3 text-[#034F46]">{prod.mrp}</td>
                             <td className="px-4 py-3">
-                              <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">{prod.status}</span>
+                              <span className="px-2 py-0.5 rounded text-[10px] bg-[#034F46]/10 text-[#034F46] border border-[#034F46]/20">{prod.status}</span>
                             </td>
                           </tr>
                         ))}
@@ -361,10 +361,10 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     </table>
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Box className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Portfolio mapping required</div>
-                    <div className="text-white/30 font-mono text-xs mt-1">Run data acquisition script to populate</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Box className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Portfolio mapping required</div>
+                    <div className="text-[#2D3142]/30 font-mono text-xs mt-1">Run data acquisition script to populate</div>
                   </div>
                 )}
               </div>
@@ -407,9 +407,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     <Field label="Unboxing Experience" value={intel.packaging.unboxingExperience} />
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Box className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Packaging analysis pending</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Box className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Packaging analysis pending</div>
                   </div>
                 )}
               </div>
@@ -426,9 +426,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     <Field label="Cost Per 100g" value={intel.pricing.costPer100g} />
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Box className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Pricing data pending</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Box className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Pricing data pending</div>
                   </div>
                 )}
               </div>
@@ -439,10 +439,10 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
               <div>
                 {intel?.positioningTags && intel.positioningTags.length > 0 ? (
                   <div className="mb-6">
-                    <div className="text-[10px] uppercase font-mono text-white/40 tracking-widest mb-3">Core Identity Tags</div>
+                    <div className="text-[10px] uppercase font-mono text-[#2D3142]/40 tracking-widest mb-3">Core Identity Tags</div>
                     <div className="flex flex-wrap gap-2">
                       {intel.positioningTags.map((tag, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-white/80 font-mono">{tag}</span>
+                        <span key={idx} className="px-3 py-1 bg-[#2D3142]/5 border border-[#2D3142]/10 rounded text-xs text-[#2D3142]/80 font-mono">{tag}</span>
                       ))}
                     </div>
                   </div>
@@ -450,43 +450,43 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                 
                 {intel?.coreNarrative ? (
                   <div className="mb-6">
-                    <div className="text-[10px] uppercase font-mono text-white/40 tracking-widest mb-3">Core Narrative / Hero Message</div>
-                    <div className="p-4 border border-white/10 bg-white/[0.02] rounded-lg text-sm text-white/80 leading-relaxed italic">
+                    <div className="text-[10px] uppercase font-mono text-[#2D3142]/40 tracking-widest mb-3">Core Narrative / Hero Message</div>
+                    <div className="p-4 border border-[#2D3142]/10 bg-white/[0.02] rounded-lg text-sm text-[#2D3142]/80 leading-relaxed italic">
                       "{intel.coreNarrative}"
                     </div>
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Target className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Positioning analysis pending</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Target className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Positioning analysis pending</div>
                   </div>
                 )}
               </div>
             )}
 
             {/* DOMAIN 16: Strategy */}
-            {activeSection.includes("Paradise Strategy") && (
+            {activeSection.includes("Amroot Strategy") && (
               <div>
                 {intel?.strategy ? (
-                  <div className="border border-blue-500/30 bg-blue-500/5 rounded-lg p-6 relative overflow-hidden">
+                  <div className="border border-[#F16775]/30 bg-[#F16775]/10 rounded-lg p-6 relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-4">
-                      <Target className="w-24 h-24 text-blue-500/10" />
+                      <Target className="w-24 h-24 text-[#F16775]/10" />
                     </div>
                     <div className="relative z-10">
                       <div className="flex items-center gap-2 mb-4">
-                        <Crosshair className="w-5 h-5 text-blue-400" />
-                        <h3 className="text-lg font-bold text-white font-mono tracking-tight">{intel.strategy.title}</h3>
+                        <Crosshair className="w-5 h-5 text-[#F16775]" />
+                        <h3 className="text-lg font-bold text-[#2D3142] font-mono tracking-tight">{intel.strategy.title}</h3>
                       </div>
-                      <div className="text-sm text-white/80 leading-relaxed font-mono">
+                      <div className="text-sm text-[#2D3142]/80 leading-relaxed font-mono">
                         {intel.strategy.content}
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <ShieldAlert className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Strategic analysis required</div>
-                    <div className="text-white/30 font-mono text-xs mt-1">Assign analyst agent to generate competitive takedown</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <ShieldAlert className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Strategic analysis required</div>
+                    <div className="text-[#2D3142]/30 font-mono text-xs mt-1">Assign analyst agent to generate competitive takedown</div>
                   </div>
                 )}
               </div>
@@ -504,9 +504,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     <Field label="Followers" value={intel.socialMedia.followers} verified={intel.socialMedia.followers !== "Unknown"} />
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Search className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Social Media data pending</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Search className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Social Media data pending</div>
                   </div>
                 )}
               </div>
@@ -522,9 +522,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     <Field label="UX Score" value={intel.websiteIntel.uxScore} />
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Search className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Website intelligence pending</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Search className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Website intelligence pending</div>
                   </div>
                 )}
               </div>
@@ -543,9 +543,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     ))}
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Search className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">No certifications verified</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Search className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">No certifications verified</div>
                   </div>
                 )}
               </div>
@@ -560,9 +560,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     <Field label="Source" value={intel.labReports.source} />
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Search className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Lab Reports data pending</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Search className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Lab Reports data pending</div>
                   </div>
                 )}
               </div>
@@ -578,9 +578,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     <Field label="IndiaMart" value={renderLink(intel.marketplace.indiamart)} verified />
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Search className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">Marketplace data pending</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Search className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">Marketplace data pending</div>
                   </div>
                 )}
               </div>
@@ -595,7 +595,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                       <div className="text-[10px] uppercase font-mono text-green-400 tracking-widest mb-3 flex items-center gap-2"><ArrowUpRight className="w-3 h-3" /> Strengths</div>
                       <ul className="space-y-2">
                         {intel.swot.strengths.map((s: string, idx: number) => (
-                          <li key={idx} className="text-sm text-white/70 flex items-start gap-2">
+                          <li key={idx} className="text-sm text-[#2D3142]/70 flex items-start gap-2">
                             <span className="text-green-500 mt-1">•</span> {s}
                           </li>
                         ))}
@@ -605,18 +605,18 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                       <div className="text-[10px] uppercase font-mono text-red-400 tracking-widest mb-3 flex items-center gap-2"><ArrowDownRight className="w-3 h-3" /> Weaknesses</div>
                       <ul className="space-y-2">
                         {intel.swot.weaknesses.map((s: string, idx: number) => (
-                          <li key={idx} className="text-sm text-white/70 flex items-start gap-2">
+                          <li key={idx} className="text-sm text-[#2D3142]/70 flex items-start gap-2">
                             <span className="text-red-500 mt-1">•</span> {s}
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div className="p-4 bg-blue-500/5 border border-blue-500/10 rounded-lg">
-                      <div className="text-[10px] uppercase font-mono text-blue-400 tracking-widest mb-3 flex items-center gap-2"><Crosshair className="w-3 h-3" /> Opportunities</div>
+                    <div className="p-4 bg-[#F16775]/10 border border-[#F16775]/10 rounded-lg">
+                      <div className="text-[10px] uppercase font-mono text-[#F16775] tracking-widest mb-3 flex items-center gap-2"><Crosshair className="w-3 h-3" /> Opportunities</div>
                       <ul className="space-y-2">
                         {intel.swot.opportunities.map((s: string, idx: number) => (
-                          <li key={idx} className="text-sm text-white/70 flex items-start gap-2">
-                            <span className="text-blue-500 mt-1">•</span> {s}
+                          <li key={idx} className="text-sm text-[#2D3142]/70 flex items-start gap-2">
+                            <span className="text-[#F16775] mt-1">•</span> {s}
                           </li>
                         ))}
                       </ul>
@@ -625,7 +625,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                       <div className="text-[10px] uppercase font-mono text-orange-400 tracking-widest mb-3 flex items-center gap-2"><ShieldAlert className="w-3 h-3" /> Threats</div>
                       <ul className="space-y-2">
                         {intel.swot.threats.map((s: string, idx: number) => (
-                          <li key={idx} className="text-sm text-white/70 flex items-start gap-2">
+                          <li key={idx} className="text-sm text-[#2D3142]/70 flex items-start gap-2">
                             <span className="text-orange-500 mt-1">•</span> {s}
                           </li>
                         ))}
@@ -633,9 +633,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                     </div>
                   </div>
                 ) : (
-                  <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                    <Search className="w-8 h-8 text-white/20 mb-3" />
-                    <div className="text-white/60 font-mono text-sm">SWOT analysis pending</div>
+                  <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                    <Search className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                    <div className="text-[#2D3142]/60 font-mono text-sm">SWOT analysis pending</div>
                   </div>
                 )}
               </div>
@@ -646,10 +646,10 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
             {[
               "Marketing Claims", "Customer Intel", "Export Intel"
             ].some(s => activeSection.includes(s)) && (
-              <div className="p-12 border border-dashed border-white/10 rounded-lg flex flex-col items-center justify-center text-center">
-                <Search className="w-8 h-8 text-white/20 mb-3" />
-                <div className="text-white/60 font-mono text-sm">Data extraction pending</div>
-                <div className="text-white/30 font-mono text-xs mt-1">Run OS scraper to populate this domain</div>
+              <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">
+                <Search className="w-8 h-8 text-[#2D3142]/20 mb-3" />
+                <div className="text-[#2D3142]/60 font-mono text-sm">Data extraction pending</div>
+                <div className="text-[#2D3142]/30 font-mono text-xs mt-1">Run OS scraper to populate this domain</div>
               </div>
             )}
 
@@ -659,3 +659,4 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
     </div>
   );
 }
+// Force cache invalidation Tue Jul  7 16:12:01 IST 2026

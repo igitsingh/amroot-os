@@ -1,108 +1,527 @@
-export interface CompetitorIntel {
-  idKeys: string[];
-  name: string;
-  company: string;
-  entityType: string;
-  location: string;
-  marketTier: string;
-  curcuminValue: number;
-  websiteDisplay: string;
-  websiteUrl: string;
-  instagramUrl?: string | null;
-  instagramHandle?: string | null;
-  facebookUrl?: string | null;
-  facebookHandle?: string | null;
-  linkedinUrl?: string | null;
-  linkedinHandle?: string | null;
-  
-  parentCompany: string | null;
-  legalEntity: string | null;
-  founder: string | null;
-  founderSocialUrl?: string;
-  foundingYear: string | null;
-  headquarters: string | null;
-  country: string | null;
-  manufacturingLocations: string | null;
-  processingLocations: string | null;
-  exportMarkets: string | null;
-  countriesSold: string | null;
-  officialEmail: string | null;
-  officialPhone?: string | null;
-  companyRegistration?: string | null;
-  gst?: string | null;
-  fssai?: string | null;
-  
-  curcuminDisplay: string | null;
-  heavyMetalsTested: string | null;
-  organic: string | null;
-  giTagged: string | null;
-  singleOrigin: string | null;
-  
-  packaging?: {
-    primaryMaterial: string;
-    luxuryScore: string;
-    shelfImpact: string;
-    ecoScore: string;
-    labelDesign: string;
-    brandColors: string;
-    unboxingExperience: string;
-  };
-  
-  positioningTags: string[];
-  coreNarrative: string | null;
-  
-  pricing?: {
-    premiumPositioning: string;
-    websitePrice: string;
-    retailPrice: string;
-    costPer100g: string;
-  };
-  
-  strategy?: {
-    title: string;
-    content: string;
-  };
-  
-  portfolio?: {
-    name: string;
-    variant: string;
-    weight: string;
-    mrp: string;
-    status: string;
-  }[];
-  socialMedia?: {
-    instagram?: string;
-    facebook?: string;
-    linkedin?: string;
-    youtube?: string;
-    twitter?: string;
-    followers?: string;
-    [key: string]: string | undefined;
-  };
-  websiteIntel?: {
-    traffic: string;
-    ecommercePlatform: string;
-    uxScore: string;
-  };
-  certifications?: string[];
-  labReports?: {
-    available: boolean;
-    source: string;
-  };
-  marketplace?: {
-    amazon?: string;
-    flipkart?: string;
-    indiamart?: string;
-  };
-  swot?: {
-    strengths: string[];
-    weaknesses: string[];
-    opportunities: string[];
-    threats: string[];
-  };
-}
-
 export const competitorData: Record<string, CompetitorIntel> = {
+
+  "tulua": {
+    "idKeys": ["brand-tulua"],
+    "name": "Tulua",
+    "company": "Tulua",
+    "entityType": "DTC Brand",
+    "location": "India",
+    "marketTier": "premium",
+    "curcuminValue": 9.3,
+    "websiteDisplay": "tulua.shop",
+    "websiteUrl": "https://tulua.shop",
+    "instagramUrl": "Not Publicly Available",
+    "instagramHandle": "Not Publicly Available",
+    "facebookUrl": "Not Publicly Available",
+    "facebookHandle": "Not Publicly Available",
+    "parentCompany": "Tulua",
+    "legalEntity": "Tulua",
+    "founder": "Unknown",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "Unknown",
+    "headquarters": "India",
+    "country": "India",
+    "manufacturingLocations": "India",
+    "processingLocations": "India",
+    "exportMarkets": "India",
+    "countriesSold": "India",
+    "officialEmail": "Hello@eattulua.com",
+    "officialPhone": "+91 9082730822",
+    "companyRegistration": "Unknown",
+    "gst": "Unknown",
+    "fssai": "Unknown",
+    "curcuminDisplay": "9.3%",
+    "heavyMetalsTested": "Unknown",
+    "organic": "Unknown",
+    "giTagged": "Unknown",
+    "singleOrigin": "Yes",
+    "packaging": {
+      "primaryMaterial": "Cardboard Box",
+      "luxuryScore": "6.5 / 10",
+      "shelfImpact": "High",
+      "ecoScore": "7.0 / 10",
+      "labelDesign": "Modern, Die-cut window",
+      "brandColors": "Orange, White, Yellow",
+      "unboxingExperience": "Standard"
+    },
+    "positioningTags": ["Single Origin", "High Curcumin"],
+    "coreNarrative": "Single Origin Spice Range. As seen on Shark Tank India S4. Specialty Spices & Ready-to-cook Pastes. Lakadong Turmeric Powder with exactly 9.3% Curcumin.",
+    "pricing": {
+      "premiumPositioning": "Premium",
+      "websitePrice": "₹152 (100g)",
+      "retailPrice": "₹160",
+      "costPer100g": "₹152"
+    },
+    "strategy": {
+      "title": "How to beat Tulua?",
+      "content": "Tulua has excellent shelf impact with its die-cut box and explicit 9.3% claim. AmrootOS needs to exceed this transparency by providing batch-wise clinical reports and utilizing heavier, more luxurious packaging like glass."
+    },
+    "portfolio": [
+      {
+        "name": "Lakadong Turmeric Powder",
+        "variant": "Powder",
+        "weight": "100g",
+        "mrp": "₹160",
+        "status": "Active"
+      },
+      {
+        "name": "Lakadong Turmeric Powder",
+        "variant": "Powder",
+        "weight": "300g",
+        "mrp": "Unknown",
+        "status": "Active"
+      },
+      {
+        "name": "Lakadong Turmeric Powder",
+        "variant": "Powder",
+        "weight": "500g",
+        "mrp": "Unknown",
+        "status": "Active"
+      },
+      {
+        "name": "Lakadong Turmeric Powder",
+        "variant": "Powder",
+        "weight": "1kg",
+        "mrp": "Unknown",
+        "status": "Active"
+      }
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/eattulua",
+      "facebook": "https://facebook.com/eattulua",
+      "linkedin": "Not Publicly Available",
+      "followers": "17.7K (IG), 2.6K (FB)"
+    },
+    "websiteIntel": {
+      "traffic": "Medium",
+      "ecommercePlatform": "Shopify",
+      "uxScore": "Good"
+    },
+    "certifications": ["USDA Organic", "FSSAI"],
+    "labReports": {
+      "available": false,
+      "source": "None"
+    },
+    "marketplace": {
+      "amazon": "Unknown",
+      "flipkart": "Unknown",
+      "indiamart": "Unknown",
+      "blinkit": "Unknown"
+    },
+    "swot": {
+      "strengths": ["Bold packaging with die-cut window", "Specific 9.3% curcumin claim", "Single origin"],
+      "weaknesses": ["Cardboard box may not feel as premium as glass for long-term storage"],
+      "opportunities": ["Gifting", "Premium retail"],
+      "threats": ["Higher curcumin competitors"]
+    }
+  },
+
+
+  "koh-foods": {
+    "idKeys": ["brand-koh-foods"],
+    "name": "koh! foods",
+    "company": "koh! foods",
+    "entityType": "DTC Brand",
+    "location": "India",
+    "marketTier": "premium",
+    "curcuminValue": 0,
+    "websiteDisplay": "kohfoods.in",
+    "websiteUrl": "https://kohfoods.in",
+    "instagramUrl": "https://instagram.com/kohfoods.in",
+    "instagramHandle": "@kohfoods.in",
+    "facebookUrl": "Not Publicly Available",
+    "facebookHandle": "Not Publicly Available",
+    "parentCompany": "koh! foods",
+    "legalEntity": "koh! foods",
+    "founder": "BITS Pilani & IIM Alumni",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "Unknown",
+    "headquarters": "India",
+    "country": "India",
+    "manufacturingLocations": "India",
+    "processingLocations": "India",
+    "exportMarkets": "India",
+    "countriesSold": "India",
+    "officialEmail": "Hello@eattulua.com",
+    "officialPhone": "+91 9082730822",
+    "companyRegistration": "Unknown",
+    "gst": "Unknown",
+    "fssai": "Unknown",
+    "curcuminDisplay": "Unknown",
+    "heavyMetalsTested": "Unknown",
+    "organic": "Unknown",
+    "giTagged": "Unknown",
+    "singleOrigin": "Unknown",
+    "packaging": {
+      "primaryMaterial": "PET Jar",
+      "luxuryScore": "6.0 / 10",
+      "shelfImpact": "Medium",
+      "ecoScore": "4.0 / 10",
+      "labelDesign": "Playful, Clean",
+      "brandColors": "Purple, White",
+      "unboxingExperience": "Standard"
+    },
+    "positioningTags": ["Clean Food", "Alumni Founded", "Superfoods"],
+    "coreNarrative": "A clean food venture by BITS Pilani & IIM Alumni. Making mealtimes joyful for the child in you. We create delicious, clean superfood vegetable powders that nourish your body.",
+    "pricing": {
+      "premiumPositioning": "Premium",
+      "websitePrice": "₹199 (100g)",
+      "retailPrice": "₹199",
+      "costPer100g": "₹199"
+    },
+    "strategy": {
+      "title": "How to beat koh! foods?",
+      "content": "koh! focuses on joyful, clean eating and lifestyle marketing. AmrootOS can beat them by pivoting hard into clinical efficacy, high curcumin extraction, and superior eco-friendly luxury packaging rather than plastic jars."
+    },
+    "portfolio": [
+      {
+        "name": "koh! Turmeric Powder",
+        "variant": "Powder",
+        "weight": "100g",
+        "mrp": "₹199",
+        "status": "Active"
+      }
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/kohfoods.in",
+      "facebook": "Not Publicly Available",
+      "linkedin": "Not Publicly Available",
+      "youtube": "https://youtube.com/@Kohfoods",
+      "followers": "37.7K (IG), 1.94K (YT)"
+    },
+    "websiteIntel": {
+      "traffic": "Medium",
+      "ecommercePlatform": "Shopify",
+      "uxScore": "Good"
+    },
+    "certifications": ["USDA Organic", "FSSAI"],
+    "labReports": {
+      "available": false,
+      "source": "None"
+    },
+    "marketplace": {
+      "amazon": "Unknown",
+      "flipkart": "Unknown",
+      "indiamart": "Unknown",
+      "blinkit": "Unknown"
+    },
+    "swot": {
+      "strengths": ["Strong alumni network backing", "High Instagram following (37k+)", "Playful brand identity"],
+      "weaknesses": ["Plastic PET jars", "No specific curcumin claims on front label"],
+      "opportunities": ["Strong D2C marketing"],
+      "threats": ["Established organic spice brands"]
+    }
+  },
+
+
+  "miresi": {
+    "idKeys": ["brand-miresi"],
+    "name": "Miresi",
+    "company": "Yana Industries LLP",
+    "entityType": "DTC Brand",
+    "location": "Bangalore, Karnataka",
+    "marketTier": "mass-premium",
+    "curcuminValue": 7.0,
+    "websiteDisplay": "miresi.in",
+    "websiteUrl": "https://miresi.in",
+    "instagramUrl": "Not Publicly Available",
+    "instagramHandle": "Not Publicly Available",
+    "facebookUrl": "Not Publicly Available",
+    "facebookHandle": "Not Publicly Available",
+    "parentCompany": "Yana Industries LLP",
+    "legalEntity": "Yana Industries LLP",
+    "founder": "Unknown",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "Unknown",
+    "headquarters": "Bangalore, India",
+    "country": "India",
+    "manufacturingLocations": "India",
+    "processingLocations": "India",
+    "exportMarkets": "India",
+    "countriesSold": "India",
+    "officialEmail": "care@yanaindustries.com",
+    "officialPhone": "+91 76196 28378",
+    "companyRegistration": "LLP",
+    "gst": "Unknown",
+    "fssai": "Unknown",
+    "curcuminDisplay": "Lakadong (High)",
+    "heavyMetalsTested": "Unknown",
+    "organic": "Unknown",
+    "giTagged": "Unknown",
+    "singleOrigin": "Unknown",
+    "packaging": {
+      "primaryMaterial": "Resealable Pouch",
+      "luxuryScore": "4.5 / 10",
+      "shelfImpact": "Medium",
+      "ecoScore": "5.0 / 10",
+      "labelDesign": "Clean, Modern",
+      "brandColors": "White, Green",
+      "unboxingExperience": "Standard"
+    },
+    "positioningTags": ["Plant-based", "Women Farmers", "Convenience"],
+    "coreNarrative": "At Miresi, we believe that being healthy shouldn't be difficult. That's why we bring you plant-based superfoods in the most convenient, easy-to-use forms. Carefully cultivated by women farmers.",
+    "pricing": {
+      "premiumPositioning": "Mass-Premium",
+      "websitePrice": "₹410 (450g)",
+      "retailPrice": "₹455",
+      "costPer100g": "₹91"
+    },
+    "strategy": {
+      "title": "How to beat Miresi?",
+      "content": "Miresi competes heavily on price (₹410 for 450g is quite affordable for Lakadong). AmrootOS should not compete on price but rather position itself as the undisputed luxury and clinical-grade leader, focusing on extreme transparency and superior packaging."
+    },
+    "portfolio": [
+      {
+        "name": "Lakadong Turmeric Powder",
+        "variant": "Powder",
+        "weight": "450g",
+        "mrp": "₹410",
+        "status": "Active"
+      },
+      {
+        "name": "Lakadong Turmeric Powder",
+        "variant": "Powder",
+        "weight": "200g (100g x 2)",
+        "mrp": "Unknown",
+        "status": "Active"
+      }
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/eattulua",
+      "facebook": "https://facebook.com/eattulua",
+      "linkedin": "Not Publicly Available",
+      "followers": "17.7K (IG), 2.6K (FB)"
+    },
+    "websiteIntel": {
+      "traffic": "Medium",
+      "ecommercePlatform": "Shopify",
+      "uxScore": "Good"
+    },
+    "certifications": ["USDA Organic", "FSSAI"],
+    "labReports": {
+      "available": false,
+      "source": "None"
+    },
+    "marketplace": {
+      "amazon": "Unknown",
+      "flipkart": "Unknown",
+      "indiamart": "Unknown",
+      "blinkit": "Unknown"
+    },
+    "swot": {
+      "strengths": ["Highly competitive pricing", "Women farmer social angle"],
+      "weaknesses": ["Pouch packaging lacks premium feel", "No explicit curcumin % or lab reports visible upfront"],
+      "opportunities": ["Mass market penetration"],
+      "threats": ["Price wars with other mass Lakadong sellers"]
+    }
+  },
+
+
+  "nira-kitchen": {
+    "idKeys": ["brand-nira-kitchen"],
+    "name": "Nira Kitchen",
+    "company": "Breathe Again India Pvt. Ltd.",
+    "entityType": "DTC Brand",
+    "location": "Kolkata, India",
+    "marketTier": "premium",
+    "curcuminValue": 7.5,
+    "websiteDisplay": "nirabalance.com",
+    "websiteUrl": "https://nirabalance.com",
+    "instagramUrl": "Not Publicly Available",
+    "instagramHandle": "Not Publicly Available",
+    "facebookUrl": "Not Publicly Available",
+    "facebookHandle": "Not Publicly Available",
+    "parentCompany": "Breathe Again India Pvt. Ltd.",
+    "legalEntity": "Breathe Again India Pvt. Ltd.",
+    "founder": "Unknown",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "Unknown",
+    "headquarters": "Kolkata, India",
+    "country": "India",
+    "manufacturingLocations": "India",
+    "processingLocations": "India",
+    "exportMarkets": "India",
+    "countriesSold": "India",
+    "officialEmail": "Unknown",
+    "officialPhone": "Not Publicly Available",
+    "companyRegistration": "Unknown",
+    "gst": "19AAHCB4948E1ZI",
+    "fssai": "12821013001243",
+    "curcuminDisplay": "7.5%",
+    "heavyMetalsTested": "Unknown",
+    "organic": "Unknown",
+    "giTagged": "Unknown",
+    "singleOrigin": "Yes",
+    "packaging": {
+      "primaryMaterial": "Glass Jar",
+      "luxuryScore": "8.0 / 10",
+      "shelfImpact": "High",
+      "ecoScore": "8.0 / 10",
+      "labelDesign": "Premium, Elegant, Minimalist",
+      "brandColors": "Black, Gold, Yellow",
+      "unboxingExperience": "Premium"
+    },
+    "positioningTags": ["Single-Origin", "Small-Batch", "Lab-Tested"],
+    "coreNarrative": "A pantry built by hand, from single-origin provenance, at our Kolkata atelier. Premium Turmeric · 7.5% Curcumin Lakadong from Meghalaya.",
+    "pricing": {
+      "premiumPositioning": "Premium",
+      "websitePrice": "Unknown (150g)",
+      "retailPrice": "Unknown",
+      "costPer100g": "Unknown"
+    },
+    "strategy": {
+      "title": "How to beat Nira Kitchen?",
+      "content": "Nira Kitchen focuses on aesthetics and a premium 'atelier' narrative. AmrootOS can beat them by matching the glass packaging luxury while dominating on clinical transparency, lab reports, and higher curcumin yields."
+    },
+    "portfolio": [
+      {
+        "name": "Premium Turmeric 7.5% Curcumin",
+        "variant": "Powder",
+        "weight": "150g",
+        "mrp": "Unknown",
+        "status": "Active"
+      }
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/eattulua",
+      "facebook": "https://facebook.com/eattulua",
+      "linkedin": "Not Publicly Available",
+      "followers": "17.7K (IG), 2.6K (FB)"
+    },
+    "websiteIntel": {
+      "traffic": "Low",
+      "ecommercePlatform": "Shopify",
+      "uxScore": "Excellent"
+    },
+    "certifications": ["Vegan", "Gluten-Free", "Dairy-Free"],
+    "labReports": {
+      "available": true,
+      "source": "Website claim (Lab-tested 7.5%+)"
+    },
+    "marketplace": {
+      "amazon": "Unknown",
+      "flipkart": "Unknown",
+      "indiamart": "Unknown",
+      "blinkit": "Unknown"
+    },
+    "swot": {
+      "strengths": ["Premium glass jar packaging", "Atelier narrative", "Lab-tested claim"],
+      "weaknesses": ["Small product size (150g)", "Less brand recognition"],
+      "opportunities": ["Niche luxury gifting"],
+      "threats": ["Established premium brands like Diaspora"]
+    }
+  },
+
+
+  "amyra": {
+    "idKeys": ["brand-amyra-farms"],
+    "name": "Amyra Farms",
+    "company": "Amyra Farms",
+    "entityType": "DTC Brand",
+    "location": "India",
+    "marketTier": "premium",
+    "curcuminValue": 7.0,
+    "websiteDisplay": "amyrafarms.in",
+    "websiteUrl": "https://amyrafarms.in",
+    "instagramUrl": "Not Publicly Available",
+    "instagramHandle": "Not Publicly Available",
+    "facebookUrl": "Not Publicly Available",
+    "facebookHandle": "Not Publicly Available",
+    "parentCompany": "Amyra Farms",
+    "legalEntity": "Amyra Farms",
+    "founder": "Unknown",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "Unknown",
+    "headquarters": "India",
+    "country": "India",
+    "manufacturingLocations": "India",
+    "processingLocations": "India",
+    "exportMarkets": "India",
+    "countriesSold": "India",
+    "officialEmail": "farm@amyrafarms.com",
+    "officialPhone": "Not Publicly Available",
+    "companyRegistration": "Unknown",
+    "gst": "Unknown",
+    "fssai": "Unknown",
+    "curcuminDisplay": "7-12%",
+    "heavyMetalsTested": "Unknown",
+    "organic": "Unknown",
+    "giTagged": "Unknown",
+    "singleOrigin": "Unknown",
+    "packaging": {
+      "primaryMaterial": "Pouch",
+      "luxuryScore": "6.0 / 10",
+      "shelfImpact": "Medium",
+      "ecoScore": "5.0 / 10",
+      "labelDesign": "Modern, Illustration",
+      "brandColors": "Purple, Yellow, Green",
+      "unboxingExperience": "Standard"
+    },
+    "positioningTags": ["Direct from Estates", "High Curcumin"],
+    "coreNarrative": "Lakadong turmeric from the Jaintia hills — one of the world's highest curcumin varietals at 7-12%. Deep orange, peppery, real.",
+    "pricing": {
+      "premiumPositioning": "Premium",
+      "websitePrice": "₹350 (250g)",
+      "retailPrice": "₹350",
+      "costPer100g": "₹140"
+    },
+    "strategy": {
+      "title": "How to beat Amyra Farms?",
+      "content": "Amyra Farms emphasizes high curcumin and quick delivery through platforms like Blinkit and Amazon. AmrootOS can position higher in luxury appeal, detailed clinical transparency, and superior packaging."
+    },
+    "portfolio": [
+      {
+        "name": "Lakadong Turmeric",
+        "variant": "Powder",
+        "weight": "250g",
+        "mrp": "₹350",
+        "status": "Active"
+      },
+      {
+        "name": "Lakadong Turmeric",
+        "variant": "Powder",
+        "weight": "500g",
+        "mrp": "₹600",
+        "status": "Active"
+      },
+      {
+        "name": "Lakadong Turmeric Pantry Pack",
+        "variant": "Powder",
+        "weight": "1kg (500g x 2)",
+        "mrp": "₹1,200",
+        "status": "Active"
+      }
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/eattulua",
+      "facebook": "https://facebook.com/eattulua",
+      "linkedin": "Not Publicly Available",
+      "followers": "17.7K (IG), 2.6K (FB)"
+    },
+    "websiteIntel": {
+      "traffic": "Medium",
+      "ecommercePlatform": "Shopify",
+      "uxScore": "Good"
+    },
+    "certifications": ["USDA Organic", "FSSAI"],
+    "labReports": {
+      "available": false,
+      "source": "None"
+    },
+    "marketplace": {
+      "amazon": "Yes",
+      "flipkart": "Unknown",
+      "indiamart": "Unknown",
+      "blinkit": "Yes"
+    },
+    "swot": {
+      "strengths": ["High Curcumin Claim (7-12%)", "Quick commerce presence (Blinkit 10-min)", "Amazon Next-Day"],
+      "weaknesses": ["Pouch packaging lacks luxury feel", "Little transparency on exact farm location"],
+      "opportunities": ["B2B Wholesale / White-label"],
+      "threats": ["Premium brands with glass packaging"]
+    }
+  },
+
   "frontier": {
     "idKeys": ["org-frontier-co-op", "brand-frontier", "brand_w9iokkmdkn9s7mdbo8ozc"],
     "name": "Frontier Co-op",
@@ -157,7 +576,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Frontier Co-op?",
-      "content": "Frontier focuses on bulk, ethical, and organic supply for everyday use. Paradise OS can beat them in the luxury and clinical segments by offering vastly superior potency, premium glass packaging, and a highly refined consumer brand experience."
+      "content": "Frontier focuses on bulk, ethical, and organic supply for everyday use. AmrootOS can beat them in the luxury and clinical segments by offering vastly superior potency, premium glass packaging, and a highly refined consumer brand experience."
     },
     "portfolio": [
       {
@@ -250,7 +669,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Burlap & Barrel?",
-      "content": "Burlap & Barrel excels at the ethical sourcing and single-origin narrative. Paradise OS can beat them by demonstrating superior product potency (10%+ curcumin vs their 4%) and positioning as a clinical-grade luxury product rather than just an ethical culinary ingredient."
+      "content": "Burlap & Barrel excels at the ethical sourcing and single-origin narrative. AmrootOS can beat them by demonstrating superior product potency (10%+ curcumin vs their 4%) and positioning as a clinical-grade luxury product rather than just an ethical culinary ingredient."
     },
     "portfolio": [
       {
@@ -343,7 +762,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Bon Organo?",
-      "content": "Bon Organo relies on the 'raw and unprocessed' narrative. Paradise OS can beat them by elevating the product to a clinical luxury standard, offering transparency through blockchain verifiable lab reports and superior unboxing experiences."
+      "content": "Bon Organo relies on the 'raw and unprocessed' narrative. AmrootOS can beat them by elevating the product to a clinical luxury standard, offering transparency through blockchain verifiable lab reports and superior unboxing experiences."
     },
     "portfolio": [
       {
@@ -473,7 +892,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat GetFitSquad?",
-      "content": "GetFitSquad is not a direct product competitor but an ecosystem. Paradise OS can partner with fitness influencers or focus on pure premium supplement delivery."
+      "content": "GetFitSquad is not a direct product competitor but an ecosystem. AmrootOS can partner with fitness influencers or focus on pure premium supplement delivery."
     }
   },
   "diaspora": {
@@ -526,7 +945,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Diaspora Co?",
-      "content": "Diaspora Co. relies entirely on their brand narrative (de-colonization, living wages). Their actual product specs (4.7% curcumin) are vastly inferior to Meghalaya Lakadong turmeric. Paradise OS can destroy their value proposition by highlighting the massive gap in Curcumin % while maintaining an equally ethical (if not better) direct-to-farmer model. They sell a story; Paradise sells empirical superiority wrapped in a story."
+      "content": "Diaspora Co. relies entirely on their brand narrative (de-colonization, living wages). Their actual product specs (4.7% curcumin) are vastly inferior to Meghalaya Lakadong turmeric. AmrootOS can destroy their value proposition by highlighting the massive gap in Curcumin % while maintaining an equally ethical (if not better) direct-to-farmer model. They sell a story; Amroot sells empirical superiority wrapped in a story."
     },
     "portfolio": [
       {
@@ -601,7 +1020,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat My Pahadi Dukan?",
-      "content": "My Pahadi Dukan is an aggregator/marketplace, not a single-brand entity. Their weakness is brand dilution. They sell multiple brands, meaning they cannot guarantee single-origin consistency across their entire catalog. Paradise OS can win by being a vertically integrated, hyper-focused brand with superior clinical aesthetics."
+      "content": "My Pahadi Dukan is an aggregator/marketplace, not a single-brand entity. Their weakness is brand dilution. They sell multiple brands, meaning they cannot guarantee single-origin consistency across their entire catalog. AmrootOS can win by being a vertically integrated, hyper-focused brand with superior clinical aesthetics."
     },
     "portfolio": [
       {
@@ -675,7 +1094,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Niraam Superfoods?",
-      "content": "Niraam is a generic 'clean superfood' brand. Their branding lacks the deep heritage or the extreme scientific rigor needed for ultra-premium positioning. Paradise can outperform them by offering complete supply chain transparency (COAs on blockchain) and a much higher luxury brand appeal."
+      "content": "Niraam is a generic 'clean superfood' brand. Their branding lacks the deep heritage or the extreme scientific rigor needed for ultra-premium positioning. Amroot can outperform them by offering complete supply chain transparency (COAs on blockchain) and a much higher luxury brand appeal."
     },
     "portfolio": [
       {
@@ -743,7 +1162,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Maatru Rasah?",
-      "content": "Maatru Rasah focuses entirely on nostalgia and 'handmade' heritage. They are extremely strong in the 'traditional purity' segment but lack modern clinical validation. Paradise OS can beat them by combining traditional sourcing with modern clinical validation (lab tests, precise curcumin profiling, heavy metal testing) to capture the modern, science-driven consumer."
+      "content": "Maatru Rasah focuses entirely on nostalgia and 'handmade' heritage. They are extremely strong in the 'traditional purity' segment but lack modern clinical validation. AmrootOS can beat them by combining traditional sourcing with modern clinical validation (lab tests, precise curcumin profiling, heavy metal testing) to capture the modern, science-driven consumer."
     },
     "portfolio": [
       {
@@ -811,7 +1230,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Two Brothers Organic Farms?",
-      "content": "Two Brothers dominates the regenerative/organic mass-premium market in India. Their strength is their massive distribution and authentic farmer story. However, their branding is still highly 'farm-centric'. To beat them, Paradise must pivot away from 'farm aesthetics' and lean entirely into 'Clinical Luxury'. We don't compete as farmers; we compete as an elite, science-backed neutraceutical brand."
+      "content": "Two Brothers dominates the regenerative/organic mass-premium market in India. Their strength is their massive distribution and authentic farmer story. However, their branding is still highly 'farm-centric'. To beat them, Amroot must pivot away from 'farm aesthetics' and lean entirely into 'Clinical Luxury'. We don't compete as farmers; we compete as an elite, science-backed neutraceutical brand."
     },
     "portfolio": [
       {
@@ -883,7 +1302,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Trinay Ayurveda?",
-      "content": "Trinay competes in the standard Ayurvedic supplement market. They do not have the high-end luxury appeal or the verifiable Lakadong GI story. Paradise can out-position them purely on brand aesthetics, modern science, and absolute premium quality, treating turmeric as an advanced nutraceutical rather than a basic herbal powder."
+      "content": "Trinay competes in the standard Ayurvedic supplement market. They do not have the high-end luxury appeal or the verifiable Lakadong GI story. Amroot can out-position them purely on brand aesthetics, modern science, and absolute premium quality, treating turmeric as an advanced nutraceutical rather than a basic herbal powder."
     },
     "portfolio": [
       {
@@ -974,7 +1393,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Jaintia Gold?",
-      "content": "Jaintia Gold acts more as a regional identifier/cooperative brand for Lakadong. They have immense authenticity but lack national D2C brand equity and modern premium packaging. Paradise OS can leverage the same geographic authenticity but wrap it in an ultra-premium, trusted, clinically-tested brand."
+      "content": "Jaintia Gold acts more as a regional identifier/cooperative brand for Lakadong. They have immense authenticity but lack national D2C brand equity and modern premium packaging. AmrootOS can leverage the same geographic authenticity but wrap it in an ultra-premium, trusted, clinically-tested brand."
     }
   },
   "naki": {
@@ -1057,7 +1476,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat NAKI?",
-      "content": "NAKI has a strong authentic founder story (Dawhoi Dhar) directly from the region. Paradise OS can beat them by out-branding them on luxury appeal, scientific formulation (piperine pairing), and clinical transparency, taking Lakadong from a 'regional specialty' to an 'elite bio-hacking supplement'."
+      "content": "NAKI has a strong authentic founder story (Dawhoi Dhar) directly from the region. AmrootOS can beat them by out-branding them on luxury appeal, scientific formulation (piperine pairing), and clinical transparency, taking Lakadong from a 'regional specialty' to an 'elite bio-hacking supplement'."
     }
   },
   "neetacha": {
@@ -1106,7 +1525,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Neetacha Spices?",
-      "content": "Neetacha wins on processing tech (cryogenic grinding). Paradise OS can counter this by emphasizing the actual raw material superiority (Lakadong GI vs generic Himalayan) and matching their processing claims, while offering a vastly superior luxury brand experience."
+      "content": "Neetacha wins on processing tech (cryogenic grinding). AmrootOS can counter this by emphasizing the actual raw material superiority (Lakadong GI vs generic Himalayan) and matching their processing claims, while offering a vastly superior luxury brand experience."
     },
     "socialMedia": {
       "instagram": "https://instagram.com/neetachaspices",
@@ -1194,7 +1613,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Organic Mandya?",
-      "content": "Organic Mandya has strong grassroots authenticity but operates heavily in the regional mass-premium space. Paradise OS should differentiate by positioning as an elite, science-backed global brand, appealing to the top 1% of health-conscious consumers."
+      "content": "Organic Mandya has strong grassroots authenticity but operates heavily in the regional mass-premium space. AmrootOS should differentiate by positioning as an elite, science-backed global brand, appealing to the top 1% of health-conscious consumers."
     },
     "marketplace": {
       "amazon": "https://www.amazon.in/s?k=Organic+Mandya",
@@ -1255,7 +1674,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Simply Organic?",
-      "content": "Simply Organic is a culinary spice brand with low curcumin content (~4%), not a clinical supplement. Paradise OS targets a different market (health/wellness/supplements). Paradise OS wins by educating the consumer that culinary turmeric is insufficient for clinical health benefits, upselling them to a 10%+ curcumin Lakadong product."
+      "content": "Simply Organic is a culinary spice brand with low curcumin content (~4%), not a clinical supplement. AmrootOS targets a different market (health/wellness/supplements). AmrootOS wins by educating the consumer that culinary turmeric is insufficient for clinical health benefits, upselling them to a 10%+ curcumin Lakadong product."
     },
     "marketplace": {
       "amazon": "https://www.amazon.in/s?k=Simply+Organic",
@@ -1316,7 +1735,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat TatvaHills Superfoods?",
-      "content": "TatvaHills correctly incorporates black pepper (piperine) for bioavailability. Paradise OS MUST include a piperine/lipid absorption matrix in its formulation to compete functionally, while vastly outperforming TatvaHills in brand aesthetics, luxury perception, and clinical transparency."
+      "content": "TatvaHills correctly incorporates black pepper (piperine) for bioavailability. AmrootOS MUST include a piperine/lipid absorption matrix in its formulation to compete functionally, while vastly outperforming TatvaHills in brand aesthetics, luxury perception, and clinical transparency."
     },
     "marketplace": {
       "amazon": "https://www.amazon.in/s?k=TatvaHills+Superfoods",
@@ -1379,7 +1798,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Tribal Factory?",
-      "content": "Tribal Factory has a phenomenal social impact story. Paradise OS cannot simply 'beat' them on ethics; Paradise must differentiate on *target audience*. Tribal Factory targets the conscious, ethical consumer. Paradise OS targets the bio-hacker, the luxury health fanatic, and the clinical purist, offering an elite product that happens to be ethically sourced."
+      "content": "Tribal Factory has a phenomenal social impact story. AmrootOS cannot simply 'beat' them on ethics; Amroot must differentiate on *target audience*. Tribal Factory targets the conscious, ethical consumer. AmrootOS targets the bio-hacker, the luxury health fanatic, and the clinical purist, offering an elite product that happens to be ethically sourced."
     },
     "marketplace": {
       "amazon": "https://www.amazon.in/s?k=Tribal+Factory",
@@ -1478,7 +1897,7 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "strategy": {
       "title": "How to beat Lee's Mumi?",
-      "content": "Not applicable as they are primarily an extracts supplier, but Paradise OS can distinguish itself through higher consumer-facing transparency and a luxury brand narrative."
+      "content": "Not applicable as they are primarily an extracts supplier, but AmrootOS can distinguish itself through higher consumer-facing transparency and a luxury brand narrative."
     }
   },
   "fuchsgroup": {
@@ -1829,8 +2248,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["New highly-bioavailable curcumin formulations from synthetic or nano competitors"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Arjuna",
-      "content": "Arjuna is the B2B titan of clinical efficacy with BCM-95. Paradise OS cannot beat them in bulk B2B clinical supply. Instead, Paradise must use their raw materials or differentiate by targeting the ultra-premium luxury D2C market where Arjuna has no footprint."
+      "title": "Amroot Strategy vs Arjuna",
+      "content": "Arjuna is the B2B titan of clinical efficacy with BCM-95. AmrootOS cannot beat them in bulk B2B clinical supply. Instead, Amroot must use their raw materials or differentiate by targeting the ultra-premium luxury D2C market where Arjuna has no footprint."
     }
   },
   "biomax": {
@@ -1887,10 +2306,10 @@ export const competitorData: Record<string, CompetitorIntel> = {
       }
     ],
     "socialMedia": {
-      "instagram": "Not Publicly Available",
-      "facebook": "Not Publicly Available",
+      "instagram": "https://instagram.com/eattulua",
+      "facebook": "https://facebook.com/eattulua",
       "linkedin": "Not Publicly Available",
-      "followers": "Unknown"
+      "followers": "17.7K (IG), 2.6K (FB)"
     },
     "websiteIntel": {
       "traffic": "Low",
@@ -1919,8 +2338,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Pricing pressure from global generic suppliers"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs BioMax",
-      "content": "BioMax is a bulk API/extract manufacturer. Paradise OS does not compete with them directly, but rather may leverage them as a secondary supply chain fallback. Paradise's brand positioning is in a completely different sphere (Luxury D2C)."
+      "title": "Amroot Strategy vs BioMax",
+      "content": "BioMax is a bulk API/extract manufacturer. AmrootOS does not compete with them directly, but rather may leverage them as a secondary supply chain fallback. Amroot's brand positioning is in a completely different sphere (Luxury D2C)."
     }
   },
   "helmigs": {
@@ -1995,8 +2414,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Rise of kombucha and other established gut-health drinks"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Helmigs",
-      "content": "Helmigs owns the functional beverage space in Southeast Asia. Paradise OS can compete by introducing ultra-luxury, clinically-dosed curcumin elixirs targeted at the high-end Western wellness market, positioning Helmigs as a mass-market alternative."
+      "title": "Amroot Strategy vs Helmigs",
+      "content": "Helmigs owns the functional beverage space in Southeast Asia. AmrootOS can compete by introducing ultra-luxury, clinically-dosed curcumin elixirs targeted at the high-end Western wellness market, positioning Helmigs as a mass-market alternative."
     }
   },
   "herboveda": {
@@ -2039,10 +2458,10 @@ export const competitorData: Record<string, CompetitorIntel> = {
       }
     ],
     "socialMedia": {
-      "instagram": "Not Publicly Available",
-      "facebook": "Not Publicly Available",
+      "instagram": "https://instagram.com/eattulua",
+      "facebook": "https://facebook.com/eattulua",
       "linkedin": "Not Publicly Available",
-      "followers": "Unknown"
+      "followers": "17.7K (IG), 2.6K (FB)"
     },
     "websiteIntel": {
       "traffic": "Low",
@@ -2071,8 +2490,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Consolidation among Indian extract manufacturers"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Herboveda",
-      "content": "Herboveda is a mass-market domestic API supplier. They do not compete with Paradise OS in the luxury consumer segment. We can monitor them as a proxy for wholesale curcumin commodity pricing in North India."
+      "title": "Amroot Strategy vs Herboveda",
+      "content": "Herboveda is a mass-market domestic API supplier. They do not compete with AmrootOS in the luxury consumer segment. We can monitor them as a proxy for wholesale curcumin commodity pricing in North India."
     }
   },
   "hindustanmint": {
@@ -2168,8 +2587,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Specialized curcumin manufacturers taking market share"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Hindustan Mint",
-      "content": "Hindustan Mint's strength is their US logistics. Paradise OS can learn from their US warehousing model to establish a fast-fulfillment B2B arm, while completely outclassing them in the premium D2C space."
+      "title": "Amroot Strategy vs Hindustan Mint",
+      "content": "Hindustan Mint's strength is their US logistics. AmrootOS can learn from their US warehousing model to establish a fast-fulfillment B2B arm, while completely outclassing them in the premium D2C space."
     }
   },
   "javaplant": {
@@ -2251,8 +2670,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Indian suppliers dominating the curcumin narrative"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Javaplant",
-      "content": "Javaplant pushes Indonesian botanicals. Paradise OS must reinforce the narrative of Meghalaya/Indian Lakadong turmeric as the ultimate gold standard, contrasting our high-curcumin Lakadong strain against their regional varieties."
+      "title": "Amroot Strategy vs Javaplant",
+      "content": "Javaplant pushes Indonesian botanicals. AmrootOS must reinforce the narrative of Meghalaya/Indian Lakadong turmeric as the ultimate gold standard, contrasting our high-curcumin Lakadong strain against their regional varieties."
     }
   },
   "wacker": {
@@ -2328,8 +2747,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Natural whole-root extraction gaining consumer preference over synthetic complexes"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Wacker",
-      "content": "Wacker is a chemical conglomerate. Paradise OS should emphasize 'natural, whole-matrix, farm-to-jar' Lakadong turmeric to counter their highly engineered, cyclodextrin-encapsulated narrative."
+      "title": "Amroot Strategy vs Wacker",
+      "content": "Wacker is a chemical conglomerate. AmrootOS should emphasize 'natural, whole-matrix, farm-to-jar' Lakadong turmeric to counter their highly engineered, cyclodextrin-encapsulated narrative."
     }
   },
   "synthite": {
@@ -2400,13 +2819,13 @@ export const competitorData: Record<string, CompetitorIntel> = {
     },
     "swot": {
       "strengths": ["World's largest producer of value-added spices", "Massive global supply chain"],
-      "weaknesses": ["Consumer brand (NatXtra) lacks the luxury positioning of Paradise"],
+      "weaknesses": ["Consumer brand (NatXtra) lacks the luxury positioning of Amroot"],
       "opportunities": ["D2C nutraceutical expansion"],
       "threats": ["Climate change affecting spice yields in Kerala"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Synthite",
-      "content": "Synthite is the king of bulk spice extracts. We cannot compete on volume. Paradise OS must compete entirely on luxury D2C brand equity, extreme high-curcumin Lakadong provenance, and specialized clinical positioning."
+      "title": "Amroot Strategy vs Synthite",
+      "content": "Synthite is the king of bulk spice extracts. We cannot compete on volume. AmrootOS must compete entirely on luxury D2C brand equity, extreme high-curcumin Lakadong provenance, and specialized clinical positioning."
     }
   },
   "svagrofood": {
@@ -2496,8 +2915,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Intense competition from Indian extractors"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs SV Agrofood",
-      "content": "SV Agrofood is a standard bulk supplier. Paradise OS can use them as a benchmark for baseline 95% extract commodity pricing."
+      "title": "Amroot Strategy vs SV Agrofood",
+      "content": "SV Agrofood is a standard bulk supplier. AmrootOS can use them as a benchmark for baseline 95% extract commodity pricing."
     }
   },
   "starhi": {
@@ -2579,8 +2998,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Consolidation in the Indian API market"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Star Hi Herbs",
-      "content": "Star Hi Herbs represents the generic tier of the Indian curcumin extract market. Paradise OS exists in a completely different luxury D2C stratosphere."
+      "title": "Amroot Strategy vs Star Hi Herbs",
+      "content": "Star Hi Herbs represents the generic tier of the Indian curcumin extract market. AmrootOS exists in a completely different luxury D2C stratosphere."
     }
   },
   "konark": {
@@ -2656,8 +3075,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Margin compression from cheaper extractors"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Konark",
-      "content": "Konark's dedicated curcumin production makes them a strong B2B player, but they are invisible to consumers. Paradise OS will outmaneuver them by owning the consumer narrative."
+      "title": "Amroot Strategy vs Konark",
+      "content": "Konark's dedicated curcumin production makes them a strong B2B player, but they are invisible to consumers. AmrootOS will outmaneuver them by owning the consumer narrative."
     }
   },
   "rosun": {
@@ -2739,8 +3158,8 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Specialized curcumin manufacturers"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Rosun",
-      "content": "Rosun has a good Southeast Asian footprint via Singapore. Paradise OS can learn from their export structuring, while differentiating entirely on product quality and luxury branding."
+      "title": "Amroot Strategy vs Rosun",
+      "content": "Rosun has a good Southeast Asian footprint via Singapore. AmrootOS can learn from their export structuring, while differentiating entirely on product quality and luxury branding."
     }
   },
   "sabinsa": {
@@ -2816,8 +3235,96 @@ export const competitorData: Record<string, CompetitorIntel> = {
       "threats": ["Emergence of next-gen bioavailable formulations (nano, liposomal)"]
     },
     "strategy": {
-      "title": "Paradise Strategy vs Sabinsa",
-      "content": "Sabinsa is the most formidable B2B competitor in the clinical curcumin space due to C3 Complex. Paradise OS must avoid competing on B2B API supply and instead focus purely on the luxury D2C brand experience and the unique narrative of Meghalaya provenance."
+      "title": "Amroot Strategy vs Sabinsa",
+      "content": "Sabinsa is the most formidable B2B competitor in the clinical curcumin space due to C3 Complex. AmrootOS must avoid competing on B2B API supply and instead focus purely on the luxury D2C brand experience and the unique narrative of Meghalaya provenance."
+    }
+  }
+,
+"livingroots": {
+    "idKeys": ["org-livingroots", "brand-livingroots"],
+    "name": "Living Roots USA",
+    "company": "Living Roots",
+    "entityType": "dtc brand / importer",
+    "location": "Sacramento, California, USA",
+    "marketTier": "premium",
+    "curcuminValue": 7.61,
+    "websiteDisplay": "livingrootsusa.com",
+    "websiteUrl": "https://www.livingrootsusa.com",
+    "instagramUrl": "https://instagram.com/livingrootsusa",
+    "instagramHandle": "@livingrootsusa",
+    "facebookUrl": "https://facebook.com/livingrootsUS",
+    "facebookHandle": "Living Roots",
+    "parentCompany": "Living Roots",
+    "legalEntity": "Living Roots",
+    "founder": "Unknown",
+    "foundingYear": "Unknown",
+    "headquarters": "Sacramento, California, USA",
+    "country": "USA",
+    "manufacturingLocations": "Unknown",
+    "processingLocations": "India",
+    "exportMarkets": "USA",
+    "countriesSold": "USA",
+    "officialEmail": "support@livingrootsusa.com",
+    "curcuminDisplay": "7.61%",
+    "heavyMetalsTested": "Unknown",
+    "organic": "Unknown",
+    "giTagged": "Lakadong",
+    "singleOrigin": "Yes",
+    "packaging": {
+      "primaryMaterial": "Glass Jar / Tin Box",
+      "luxuryScore": "8.0 / 10",
+      "shelfImpact": "Medium",
+      "ecoScore": "8.0 / 10",
+      "labelDesign": "Clean, Modern",
+      "brandColors": "Green, Beige",
+      "unboxingExperience": "Premium"
+    },
+    "positioningTags": ["Single-Origin", "Direct Trade", "Premium"],
+    "coreNarrative": "Premium single-origin teas and spices sourced directly from small family farms.",
+    "pricing": {
+      "premiumPositioning": "Premium",
+      "websitePrice": "$11.00",
+      "retailPrice": "$11.00",
+      "costPer100g": "$22.91"
+    },
+    "strategy": {
+      "title": "How to beat Living Roots?",
+      "content": "Living Roots has a solid 7.61% curcumin proposition and clean branding. AmrootOS can beat them by pushing clinical verification further, emphasizing 10%+ curcumin, and offering a significantly more luxurious unboxing/brand experience."
+    },
+    "portfolio": [
+      {
+        "name": "Lakadong Turmeric",
+        "variant": "Jar",
+        "weight": "48g",
+        "mrp": "$11.00",
+        "status": "Active"
+      }
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/livingrootsusa",
+      "facebook": "https://facebook.com/livingrootsUS",
+      "pinterest": "https://pinterest.com/livingrootsusa/"
+    },
+    "websiteIntel": {
+      "traffic": "Medium",
+      "ecommercePlatform": "Shopify",
+      "uxScore": "Good"
+    },
+    "certifications": ["USDA Organic", "FSSAI"],
+    "labReports": {
+      "available": false,
+      "source": "None"
+    },
+    "marketplace": {
+      "amazon": "No",
+      "flipkart": "No",
+      "indiamart": "No"
+    },
+    "swot": {
+      "strengths": ["Clear 7.61% Curcumin messaging", "Clean packaging"],
+      "weaknesses": ["Limited product range", "No visible COAs"],
+      "opportunities": ["Clinical scaling"],
+      "threats": ["Ultra-premium clinical brands like Amroot"]
     }
   }
 };

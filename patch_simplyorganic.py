@@ -78,7 +78,7 @@ simplyorganic_new = """  "simplyorganic": {
     },
     "strategy": {
       "title": "How to beat Simply Organic?",
-      "content": "Simply Organic is the 'safe, premium mass-market' choice in the US. They win on distribution, but lose on product quality (standard curcumin levels, blended sourcing). Paradise OS must attack their lack of traceability. By highlighting our single-origin, lab-tested, high-curcumin Lakadong, we position Simply Organic as 'supermarket grade' while establishing ourselves as the true clinical-grade, connoisseur choice."
+      "content": "Simply Organic is the 'safe, premium mass-market' choice in the US. They win on distribution, but lose on product quality (standard curcumin levels, blended sourcing). AmrootOS must attack their lack of traceability. By highlighting our single-origin, lab-tested, high-curcumin Lakadong, we position Simply Organic as 'supermarket grade' while establishing ourselves as the true clinical-grade, connoisseur choice."
     }
   },"""
 

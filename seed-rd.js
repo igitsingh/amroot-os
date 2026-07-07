@@ -23,7 +23,7 @@ async function seed() {
       ($10, $11, $12, $13, $14, $15, $16, $17, $18, NOW()),
       ($19, $20, $21, $22, $23, $24, $25, $26, $27, NOW())
     `, [
-      uuid(), 'Ionic Liquid-Integrated Ultrasound-Assisted Enzymatic Extraction (IL-UAE-EE)', 'Currently the most cutting-edge "green" method. Can dramatically increase curcumin solubility (30–50x). Allows Paradise to produce pharmaceutical-grade curcumin without toxic organic solvents.', 38.0, 98.0, 'Ionic Liquids & Enzymes', 'Medium', 'High', 'High',
+      uuid(), 'Ionic Liquid-Integrated Ultrasound-Assisted Enzymatic Extraction (IL-UAE-EE)', 'Currently the most cutting-edge "green" method. Can dramatically increase curcumin solubility (30–50x). Allows Amroot to produce pharmaceutical-grade curcumin without toxic organic solvents.', 38.0, 98.0, 'Ionic Liquids & Enzymes', 'Medium', 'High', 'High',
       uuid(), 'Microwave-Assisted Extraction (MAE)', 'Fast, energy-efficient, and highly scalable for industrial use. Good middle-ground for scaling up extract production quickly.', 25.0, 85.0, 'Ethanol / Water', 'High', 'Medium', 'Medium',
       uuid(), 'Subcritical Water Extraction', 'Uses only water at specific temperatures/pressures. Extremely safe, 100% organic/food-grade compliant, making it perfect for European buyers who strictly audit for solvent residue.', 20.0, 80.0, 'Water', 'High', 'Low', 'Very High'
     ]);

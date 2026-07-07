@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         fieldName: 'Authenticity',
         value: 'Confirmed',
         valueType: 'BOOLEAN',
-        sourceName: 'Paradise OS AI Intelligence Engine',
+        sourceName: 'AmrootOS AI Intelligence Engine',
         sourceUrl: null,
         sourceTier: 1, // Highest tier for internal AI
         verificationStatus: 'VERIFIED',

@@ -87,7 +87,7 @@ const pricingAndPackaging = `
 content = content.replace('{/* DOMAIN 6: BRAND POSITIONING */}', pricingAndPackaging + '\n            {/* DOMAIN 6: BRAND POSITIONING */}');
 
 // Update the catch-all array
-content = content.replace('!["Company Profile", "Product Portfolio", "Curcumin Information", "Brand Positioning", "Paradise Strategy"].some(t => activeSection.includes(t))', 
-'!["Company Profile", "Product Portfolio", "Curcumin Information", "Packaging Intelligence", "Pricing Intelligence", "Brand Positioning", "Paradise Strategy"].some(t => activeSection.includes(t))');
+content = content.replace('!["Company Profile", "Product Portfolio", "Curcumin Information", "Brand Positioning", "Amroot Strategy"].some(t => activeSection.includes(t))', 
+'!["Company Profile", "Product Portfolio", "Curcumin Information", "Packaging Intelligence", "Pricing Intelligence", "Brand Positioning", "Amroot Strategy"].some(t => activeSection.includes(t))');
 
 fs.writeFileSync(path, content, 'utf8');

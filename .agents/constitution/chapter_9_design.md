@@ -1,9 +1,9 @@
-# Paradise OS Constitution v1.0
+# AmrootOS Constitution v1.0
 
 ## Chapter 9: Design System Constitution
 
 ### 9.1 Core Philosophy
-Paradise OS is an Intelligence Operating System. It must feel like an AI-native analyst workbench (akin to Claude, Cursor, Linear, or Stripe), not a traditional ERP or CRUD application.
+AmrootOS is an Intelligence Operating System. It must feel like an AI-native analyst workbench (akin to Claude, Cursor, Linear, or Stripe), not a traditional ERP or CRUD application.
 - **Minimalism over decoration:** Whitespace is preferred over clutter.
 - **Typography over color:** Information hierarchy is established through excellent typography (modern Google Fonts like Inter or Geist), not excessive coloring.
 - **Search-First:** Navigation is driven by a global command palette/search, not a massive sidebar tree.
@@ -25,7 +25,7 @@ Paradise OS is an Intelligence Operating System. It must feel like an AI-native 
 
 ### 9.5 AI Interaction Patterns
 1. **Contextual AI:** AI features must feel embedded into the workspace, not bolted on.
-2. **No Hallucination UI:** If the AI summarizes a supplier or generates risks/opportunities, it must cite the specific Paradise OS evidence used. The UI must render these citations as clickable links to the underlying Knowledge Graph node or Document.
+2. **No Hallucination UI:** If the AI summarizes a supplier or generates risks/opportunities, it must cite the specific AmrootOS evidence used. The UI must render these citations as clickable links to the underlying Knowledge Graph node or Document.
 
 ### 9.6 Search Behavior
 1. **Universal Command Center:** `Cmd+K` / `Ctrl+K` must instantly open global search spanning Brands, Products, Documents, Research Jobs, Labs, and Countries.

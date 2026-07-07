@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* Color System */
-  --color-bg-base: #080A10;
-  --color-bg-card: rgba(15, 22, 38, 0.5);
-  --color-bg-elevated: #0F1322;
-  --color-bg-hover: #171E36;
+  /* Color System - Amroot Organics Brand */
+  --color-bg-base: #F4F1EA; /* Dark Cream */
+  --color-bg-card: #FFFFFF;
+  --color-bg-elevated: #FAFAFA;
+  --color-bg-hover: rgba(45, 49, 66, 0.05);
   
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-text-subtle: #64748B;
+  --color-text-primary: #2D3142;
+  --color-text-secondary: rgba(45, 49, 66, 0.7);
+  --color-text-subtle: rgba(45, 49, 66, 0.5);
 
-  --color-brand-primary: #3B82F6;
-  --color-brand-secondary: #10B981;
+  --color-brand-primary: #034F46;
+  --color-brand-secondary: #F16775;
   --color-brand-danger: #EF4444;
   --color-brand-warning: #F59E0B;
 
   /* Border Colors */
-  --color-border-satin: rgba(255, 255, 255, 0.06);
-  --color-border-hover: rgba(59, 130, 246, 0.25);
+  --color-border-satin: rgba(45, 49, 66, 0.1);
+  --color-border-hover: rgba(3, 79, 70, 0.3);
 
   /* Radius Scales */
   --radius-xs: 6px;
@@ -27,8 +27,8 @@
   --radius-lg: 24px;
 
   /* Custom Glow Shadows */
-  --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.15);
-  --shadow-glow-green: 0 0 40px rgba(16, 185, 129, 0.15);
+  --shadow-glow: 0 0 40px rgba(3, 79, 70, 0.1);
+  --shadow-glow-green: 0 0 40px rgba(3, 79, 70, 0.15);
 
   /* Spring Physics Transitions */
   --transition-spring: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -51,16 +51,16 @@ body {
 
 /* Custom premium card border layout */
 .card {
-  background: rgba(15, 22, 38, 0.45);
+  background: var(--color-bg-card);
   backdrop-filter: blur(20px) saturate(120%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-satin);
   border-radius: var(--radius-md);
   transition: var(--transition-spring);
 }
 
 .card:hover {
-  border-color: rgba(59, 130, 246, 0.25);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(59, 130, 246, 0.1);
+  border-color: var(--color-border-hover);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(3, 79, 70, 0.2);
 }
 
 .card-border-glow {
@@ -90,7 +90,7 @@ body {
 
 .input:focus {
   border-color: var(--color-brand-primary);
-  box-shadow: 0 0 0 1px var(--color-brand-primary), 0 0 20px rgba(59, 130, 246, 0.18);
+  box-shadow: 0 0 0 1px var(--color-brand-primary), 0 0 20px rgba(3, 79, 70, 0.2);
   background-color: rgba(255, 255, 255, 0.04);
 }
 
@@ -112,16 +112,16 @@ body {
 }
 
 .nav-item.active {
-  background-color: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background-color: rgba(3, 79, 70, 0.15);
+  border: 1px solid rgba(3, 79, 70, 0.3);
   color: var(--color-text-primary);
 }
 
 /* Dashboard Metric Cards */
 .metric-card {
-  background: rgba(15, 22, 38, 0.45);
+  background: var(--color-bg-card);
   backdrop-filter: blur(20px) saturate(120%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-satin);
   border-radius: var(--radius-md);
   padding: 20px;
   display: flex;
@@ -131,8 +131,8 @@ body {
 }
 
 .metric-card:hover {
-  border-color: rgba(59, 130, 246, 0.25);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(59, 130, 246, 0.1);
+  border-color: var(--color-border-hover);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(3, 79, 70, 0.2);
 }
 
 .metric-value {
@@ -271,8 +271,8 @@ body {
 }
 
 @keyframes pulse-glow-brand {
-  0%, 100% { box-shadow: 0 0 12px rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.2); }
-  50% { box-shadow: 0 0 28px rgba(59, 130, 246, 0.45); border-color: rgba(59, 130, 246, 0.5); }
+  0%, 100% { box-shadow: 0 0 12px rgba(3, 79, 70, 0.15); border-color: rgba(3, 79, 70, 0.2); }
+  50% { box-shadow: 0 0 28px rgba(3, 79, 70, 0.45); border-color: rgba(3, 79, 70, 0.5); }
 }
 
 @keyframes pulse-glow-danger {
@@ -326,7 +326,7 @@ body {
   content: '';
   position: absolute;
   inset: -1px;
-  background: linear-gradient(90deg, #3B82F6, #10B981, #6366F1, #3B82F6);
+  background: linear-gradient(90deg, #034F46, #F16775, #034F46);
   background-size: 300% 300%;
   border-radius: inherit;
   z-index: -1;
@@ -338,7 +338,7 @@ body {
 /* Escrow Wizard - Attention Node */
 .attention-node-active {
   animation: pulse-glow-brand 2.5s infinite ease-in-out;
-  border-color: rgba(59, 130, 246, 0.4) !important;
+  border-color: rgba(3, 79, 70, 0.4) !important;
 }
 
 .attention-node-warning {
@@ -375,7 +375,7 @@ body {
 
 /* Shimmer Progress bar styling */
 .progress-shimmer-bar {
-  background: linear-gradient(270deg, #2563eb, #4f46e5, #10b981, #2563eb);
+  background: linear-gradient(270deg, #034F46, #F16775, #034F46);
   background-size: 600% 600%;
   animation: progress-shimmer-anim 8s ease infinite;
 }

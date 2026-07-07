@@ -9,7 +9,9 @@
     "variant": "Pragati (Heirloom)",
     "originRegion": "India",
     "claimedCurcuminPercent": "5.2%",
-    "weightOptions": ["48g"],
+    "weightOptions": [
+      "48g"
+    ],
     "packaging": "Everyday Tin",
     "pricing": {
       "websitePrice": "$12.50 (48g)",
@@ -25,7 +27,10 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["Single Origin", "Traceable"],
+    "certifications": [
+      "Single Origin",
+      "Traceable"
+    ],
     "source": "diasporaco.com",
     "sourceUrl": "https://diasporaco.com/products/pragati-turmeric",
     "sourceType": "Official",
@@ -44,7 +49,9 @@
     "variant": "Single Origin",
     "originRegion": "Satara, India",
     "claimedCurcuminPercent": "3.34% - 4%",
-    "weightOptions": ["Not specified on official page"],
+    "weightOptions": [
+      "Not specified on official page"
+    ],
     "packaging": "Tin / Pouch",
     "pricing": {
       "websitePrice": "Check website for current pricing",
@@ -60,7 +67,10 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["Single Origin", "Traceable"],
+    "certifications": [
+      "Single Origin",
+      "Traceable"
+    ],
     "source": "burlapandbarrel.com",
     "sourceUrl": "https://www.burlapandbarrel.com/products/turmeric",
     "sourceType": "Official",
@@ -79,12 +89,14 @@
     "variant": "Lakadong, GI-Tagged",
     "originRegion": "West Jaintia Hills, Meghalaya",
     "claimedCurcuminPercent": "7-12% (Batch tested 10.68% - Winter 2025-26)",
-    "weightOptions": ["100g"],
-    "packaging": "Pouch (standard), Glass Jar (premium, +₹210)",
+    "weightOptions": [
+      "100g"
+    ],
+    "packaging": "Pouch (standard), Glass Jar (premium, +\u20b9210)",
     "pricing": {
-      "websitePrice": "₹159.00 (Pouch)",
+      "websitePrice": "\u20b9159.00 (Pouch)",
       "websitePriceCurrency": "INR",
-      "glasJarAddon": "+₹210",
+      "glasJarAddon": "+\u20b9210",
       "amazonPrice": "Not Available",
       "flipkartPrice": "Not Available",
       "dateCollected": "2026-07-02T00:00:00Z"
@@ -96,7 +108,10 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["GI-Tagged", "Organic"],
+    "certifications": [
+      "GI-Tagged",
+      "Organic"
+    ],
     "source": "maatrurasah.com",
     "sourceUrl": "https://maatrurasah.com/shop/lakadong-turmeric-single-origin-31",
     "sourceType": "Official",
@@ -112,13 +127,15 @@
     "brandName": "Neetacha Spices",
     "productName": "Premium Cryogenic Turmeric Powder",
     "productType": "Powder",
-    "variant": "Cryogenic Ground (-196°C)",
+    "variant": "Cryogenic Ground (-196\u00b0C)",
     "originRegion": "Unknown",
     "claimedCurcuminPercent": "3x higher than conventional (unquantified %)",
-    "weightOptions": ["100g"],
+    "weightOptions": [
+      "100g"
+    ],
     "packaging": "Pouch",
     "pricing": {
-      "websitePrice": "₹106.25 (Sale from ₹125.00)",
+      "websitePrice": "\u20b9106.25 (Sale from \u20b9125.00)",
       "websitePriceCurrency": "INR",
       "amazonPrice": "Unknown",
       "flipkartPrice": "Unknown",
@@ -131,7 +148,9 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["Cryogenic Processing"],
+    "certifications": [
+      "Cryogenic Processing"
+    ],
     "source": "neetacha.com",
     "sourceUrl": "https://neetacha.com/product/neetacha-premium-cryogenic-turmeric-powder-i-100g/",
     "sourceType": "Official",
@@ -150,12 +169,16 @@
     "variant": "Lakadong",
     "originRegion": "Meghalaya",
     "claimedCurcuminPercent": "10-12%",
-    "weightOptions": ["125g", "250g", "500g"],
+    "weightOptions": [
+      "125g",
+      "250g",
+      "500g"
+    ],
     "packaging": "Pouch",
     "pricing": {
-      "websitePrice": "₹375 (125g) / ₹790 (250g) / ₹990 (500g)",
+      "websitePrice": "\u20b9375 (125g) / \u20b9790 (250g) / \u20b9990 (500g)",
       "websitePriceCurrency": "INR",
-      "flipkartPrice": "₹525 (250g approx.)",
+      "flipkartPrice": "\u20b9525 (250g approx.)",
       "amazonPrice": "Unknown",
       "dateCollected": "2026-07-02T00:00:00Z"
     },
@@ -166,7 +189,9 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["Organic"],
+    "certifications": [
+      "Organic"
+    ],
     "source": "bonorgano.com",
     "sourceUrl": "https://bonorgano.com/shop/",
     "sourceType": "Official",
@@ -185,14 +210,16 @@
     "variant": "Lakadong, Single Origin",
     "originRegion": "Jaintia Hills, Meghalaya",
     "claimedCurcuminPercent": "10-12%",
-    "weightOptions": ["150g"],
+    "weightOptions": [
+      "150g"
+    ],
     "packaging": "Pouch",
     "pricing": {
-      "websitePrice": "₹265 (150g)",
+      "websitePrice": "\u20b9265 (150g)",
       "websitePriceCurrency": "INR",
-      "amazonPrice": "~₹265 (varies by seller)",
-      "flipkartPrice": "~₹265 (varies by seller)",
-      "bigBasketPrice": "₹265",
+      "amazonPrice": "~\u20b9265 (varies by seller)",
+      "flipkartPrice": "~\u20b9265 (varies by seller)",
+      "bigBasketPrice": "\u20b9265",
       "dateCollected": "2026-07-02T00:00:00Z"
     },
     "links": {
@@ -203,7 +230,11 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["Organic", "Single Origin", "Non-Boiled"],
+    "certifications": [
+      "Organic",
+      "Single Origin",
+      "Non-Boiled"
+    ],
     "source": "twobrothersindiashop.com",
     "sourceUrl": "https://twobrothersindiashop.com/products/lakadong-turmeric-powder",
     "sourceType": "Official",
@@ -222,12 +253,17 @@
     "variant": "Lakadong",
     "originRegion": "Meghalaya",
     "claimedCurcuminPercent": "8-10%",
-    "weightOptions": ["100g", "250g", "500g", "1kg"],
+    "weightOptions": [
+      "100g",
+      "250g",
+      "500g",
+      "1kg"
+    ],
     "packaging": "Pouch",
     "pricing": {
-      "websitePrice": "₹249 (100g) / ₹449 (250g) / ₹599 (500g) / ₹999 (1kg)",
+      "websitePrice": "\u20b9249 (100g) / \u20b9449 (250g) / \u20b9599 (500g) / \u20b9999 (1kg)",
       "websitePriceCurrency": "INR",
-      "salePrice": "₹249 (was ₹299 for 100g)",
+      "salePrice": "\u20b9249 (was \u20b9299 for 100g)",
       "amazonPrice": "Unknown",
       "flipkartPrice": "Unknown",
       "dateCollected": "2026-07-02T00:00:00Z"
@@ -239,7 +275,9 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["Organic"],
+    "certifications": [
+      "Organic"
+    ],
     "source": "mypahadidukan.com",
     "sourceUrl": "https://mypahadidukan.com",
     "sourceType": "Official",
@@ -258,10 +296,12 @@
     "variant": "Lakadong, Organic",
     "originRegion": "West Jaintia Hills, Meghalaya",
     "claimedCurcuminPercent": "7-8%",
-    "weightOptions": ["100g"],
+    "weightOptions": [
+      "100g"
+    ],
     "packaging": "Pouch",
     "pricing": {
-      "websitePrice": "₹149.00 (Sale from ₹180.00)",
+      "websitePrice": "\u20b9149.00 (Sale from \u20b9180.00)",
       "websitePriceCurrency": "INR",
       "amazonPrice": "Unknown",
       "flipkartPrice": "Unknown",
@@ -274,7 +314,10 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["Organic", "Indigenous Farmers Sourced"],
+    "certifications": [
+      "Organic",
+      "Indigenous Farmers Sourced"
+    ],
     "source": "nakistore.in",
     "sourceUrl": "https://www.nakistore.in/product-page/buy-lakadong-turmeric-powder-100g-gi-certified-high-curcumin-7-8",
     "sourceType": "Official",
@@ -293,7 +336,10 @@
     "variant": "Organic Ground",
     "originRegion": "Unknown (Alleppey sourced)",
     "claimedCurcuminPercent": "2-8% (Unstandardized, culinary grade)",
-    "weightOptions": ["13.25oz (375g)", "1.37oz (38g) Gourmet"],
+    "weightOptions": [
+      "13.25oz (375g)",
+      "1.37oz (38g) Gourmet"
+    ],
     "packaging": "Glass Jar / Tin",
     "pricing": {
       "websitePrice": "Check mccormick.com",
@@ -308,7 +354,9 @@
       "indiamart": null,
       "walmart": "https://www.walmart.com/search?q=mccormick+organic+turmeric"
     },
-    "certifications": ["USDA Organic"],
+    "certifications": [
+      "USDA Organic"
+    ],
     "source": "mccormick.com",
     "sourceUrl": "https://www.mccormick.com/search#q=ground+turmeric&t=All",
     "sourceType": "Official",
@@ -327,7 +375,10 @@
     "variant": "Organic Ground",
     "originRegion": "Unknown",
     "claimedCurcuminPercent": "Min 4%",
-    "weightOptions": ["2.38oz (67g)", "16oz (453g)"],
+    "weightOptions": [
+      "2.38oz (67g)",
+      "16oz (453g)"
+    ],
     "packaging": "Glass Jar",
     "pricing": {
       "websitePrice": "Check simplyorganic.com",
@@ -342,7 +393,11 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["USDA Organic", "Non-GMO", "Kosher"],
+    "certifications": [
+      "USDA Organic",
+      "Non-GMO",
+      "Kosher"
+    ],
     "source": "simplyorganic.com",
     "sourceUrl": "https://www.simplyorganic.com",
     "sourceType": "Official",
@@ -361,7 +416,11 @@
     "variant": "Organic Ground, Bulk",
     "originRegion": "Unknown",
     "claimedCurcuminPercent": "Min 5%",
-    "weightOptions": ["1lb (453g)", "5lb bulk", "25lb bulk"],
+    "weightOptions": [
+      "1lb (453g)",
+      "5lb bulk",
+      "25lb bulk"
+    ],
     "packaging": "Bag / Bulk",
     "pricing": {
       "websitePrice": "Check frontiercoop.com",
@@ -376,7 +435,11 @@
       "indiamart": null,
       "alibaba": null
     },
-    "certifications": ["USDA Organic", "Non-GMO", "Fair Trade Certified"],
+    "certifications": [
+      "USDA Organic",
+      "Non-GMO",
+      "Fair Trade Certified"
+    ],
     "source": "frontiercoop.com",
     "sourceUrl": "https://www.frontiercoop.com",
     "sourceType": "Official",
@@ -395,7 +458,9 @@
     "variant": "Culinary Ground",
     "originRegion": "Unknown",
     "claimedCurcuminPercent": "Unstandardized (culinary grade)",
-    "weightOptions": ["38g"],
+    "weightOptions": [
+      "38g"
+    ],
     "packaging": "Glass Jar",
     "pricing": {
       "websitePrice": "Check schwartz.co.uk",
@@ -418,5 +483,35 @@
     "dateLastVerified": "2026-07-02T00:00:00Z",
     "confidenceScore": 95,
     "verificationStatus": "Verified"
+  },
+  {
+    "id": "prod-livingroots-lakadong-48g",
+    "brandId": "org-livingroots",
+    "productName": "Lakadong High Curcumin Turmeric",
+    "productType": "Single-Origin Spice",
+    "variant": "Glass Jar",
+    "claimedCurcuminPercent": "7.61%",
+    "originRegion": "Jaintia Hills, Meghalaya",
+    "weightOptions": [
+      "48g"
+    ],
+    "pricing": {
+      "websitePrice": "$11.00",
+      "amazonPrice": "Not Available",
+      "flipkartPrice": "Not Available",
+      "bigBasketPrice": "Not Available",
+      "dateCollected": "2026-07-07T00:00:00.000Z"
+    },
+    "certifications": [
+      "Single-Origin",
+      "Direct Trade"
+    ],
+    "links": {
+      "officialWebsite": "https://www.livingrootsusa.com/products/lakadong-high-curcumin-turmeric"
+    },
+    "sourceUrl": "https://www.livingrootsusa.com",
+    "confidenceScore": 95,
+    "verificationStatus": "Verified",
+    "dateLastVerified": "2026-07-07T00:00:00.000Z"
   }
 ]

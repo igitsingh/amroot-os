@@ -1,9 +1,9 @@
-# Paradise OS Constitution v1.0
+# AmrootOS Constitution v1.0
 
 ## Chapter 7: AI Constitution
 
 ### 7.1 AI Agent Rules
-1. **Subservience to the Constitution:** AI coding agents must read and strictly adhere to all chapters of the Paradise OS Constitution before initiating any significant architectural, intelligence, or data-modeling actions.
+1. **Subservience to the Constitution:** AI coding agents must read and strictly adhere to all chapters of the AmrootOS Constitution before initiating any significant architectural, intelligence, or data-modeling actions.
 2. **Verification Over Generation:** AI agents must never hallucinate missing data, fabricate placeholders, or guess code logic. If a requirement is ambiguous or data is missing, the agent must pause and request explicit user confirmation. Truth > AI Creativity.
 3. **No Hidden Logic:** AI agents must explicitly document complex inferences or assumptions within the code (via docstrings) or the database (via the audit trail).
 

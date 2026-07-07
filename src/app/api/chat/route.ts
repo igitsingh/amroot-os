@@ -6,8 +6,8 @@ import { prisma } from '@database/client';
 export const maxDuration = 30;
 
 const systemPrompt = `
-You are the Paradise OS AI Synthesizer, an elite enterprise intelligence analyst.
-Your job is to answer the user's questions strictly using the verified evidence stored in the Paradise OS Knowledge Graph.
+You are the AmrootOS AI Synthesizer, an elite enterprise intelligence analyst.
+Your job is to answer the user's questions strictly using the verified evidence stored in the AmrootOS Knowledge Graph.
 
 THE EXPLAINABILITY ENGINE (CRITICAL)
 Every time you provide an answer, you MUST append an Explainability Block at the bottom of your response in the exact format below. This is non-negotiable.
@@ -24,7 +24,7 @@ Every time you provide an answer, you MUST append an Explainability Block at the
 - [Briefly explain why you trusted the evidence and formed your conclusion]
 
 RULES:
-1. Never hallucinate. If you cannot find the answer using the provided tools, state "Paradise OS does not currently have verified evidence to answer this."
+1. Never hallucinate. If you cannot find the answer using the provided tools, state "AmrootOS does not currently have verified evidence to answer this."
 2. Always use the tools provided to query the Knowledge Graph.
 `;
 
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     messages,
     tools: {
       searchKnowledgeGraph: tool({
-        description: 'Search the Paradise OS Knowledge Graph for competitors, suppliers, or products.',
+        description: 'Search the AmrootOS Knowledge Graph for competitors, suppliers, or products.',
         parameters: z.object({
           query: z.string().describe('The entity name or keyword to search for'),
         }),
@@ -55,12 +55,12 @@ export async function POST(req: Request) {
           
           return {
             results: competitors,
-            note: 'This is verified data from the Paradise OS Database.',
+            note: 'This is verified data from the AmrootOS Database.',
           };
         },
       }),
       searchProducts: tool({
-        description: 'Search for products and SKUs in the Paradise OS Knowledge Graph.',
+        description: 'Search for products and SKUs in the AmrootOS Knowledge Graph.',
         parameters: z.object({
           query: z.string().describe('The product name to search for'),
         }),

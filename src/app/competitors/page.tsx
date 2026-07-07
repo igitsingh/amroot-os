@@ -62,3 +62,4 @@ export default async function CompetitorsWorkspacePage() {
   return <CompetitorsView initialCompetitors={competitors} />;
 }
 // Force cache invalidation 1
+// Force cache invalidation Tue Jul  7 16:06:43 IST 2026

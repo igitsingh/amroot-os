@@ -1,9 +1,9 @@
-# Paradise OS Constitution v1.0
+# AmrootOS Constitution v1.0
 
 ## Chapter 4: Product Constitution
 
 ### 4.1 AI-Native User Experience Principle (Non-Negotiable)
-1. **Paradise OS shall be designed as an AI-native operating system** rather than a traditional enterprise application like SAP, Salesforce, or Zoho.
+1. **AmrootOS shall be designed as an AI-native operating system** rather than a traditional enterprise application like SAP, Salesforce, or Zoho.
 2. **Clarity over Structure:** The UI must prioritize clarity, speed, and decision-making over exposing raw database structures.
 3. **Decoupled Architecture:** The backend architecture, database schema, evidence engine, and knowledge graph are the source of truth. The UI is a presentation layer only. UI redesigns must never require changes to the data model.
 4. **Universal Accessibility:** Every screen must be capable of being replaced by another interface (desktop, mobile, AI chat, voice, API) without altering the underlying business logic. The same data must be accessible through dashboards, AI conversations, search, and reports.

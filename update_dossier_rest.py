@@ -107,16 +107,16 @@ tb_swot = """                      <ul className="list-disc pl-4 space-y-2 mt-2 
                 ) : ("""
 content = content.replace(maatru_swot, tb_swot, 1)
 
-# 16. Paradise Strategy
+# 16. Amroot Strategy
 maatru_strat = """                      <p className="mt-2 text-sm text-white/70 leading-relaxed">
-                        Their digital presence and packaging are outdated. Paradise can easily win on aesthetics, modern convenience, and scientific validation (lab reports), appealing to the younger, health-conscious demographic while respecting the heritage aspect.
+                        Their digital presence and packaging are outdated. Amroot can easily win on aesthetics, modern convenience, and scientific validation (lab reports), appealing to the younger, health-conscious demographic while respecting the heritage aspect.
                       </p>
                     </div>
                   </div>
                 ) : ("""
 
 tb_strat = """                      <p className="mt-2 text-sm text-white/70 leading-relaxed">
-                        Their digital presence and packaging are outdated. Paradise can easily win on aesthetics, modern convenience, and scientific validation (lab reports), appealing to the younger, health-conscious demographic while respecting the heritage aspect.
+                        Their digital presence and packaging are outdated. Amroot can easily win on aesthetics, modern convenience, and scientific validation (lab reports), appealing to the younger, health-conscious demographic while respecting the heritage aspect.
                       </p>
                     </div>
                   </div>
@@ -128,10 +128,10 @@ tb_strat = """                      <p className="mt-2 text-sm text-white/70 lea
                         How to beat Two Brothers Organic Farms?
                       </h4>
                       <p className="mt-2 text-sm text-white/70 leading-relaxed">
-                        Two Brothers excels in the "Farmer/Village" authenticity narrative. To compete, Paradise must lean heavily into the "Scientific/Lab-Verified" and "Clinical Grade" angle. While they sell rustic farm goods, we sell high-performance, precision-dosed wellness. 
+                        Two Brothers excels in the "Farmer/Village" authenticity narrative. To compete, Amroot must lean heavily into the "Scientific/Lab-Verified" and "Clinical Grade" angle. While they sell rustic farm goods, we sell high-performance, precision-dosed wellness. 
                       </p>
                       <p className="mt-4 text-sm text-white/70 leading-relaxed">
-                        Additionally, we can beat them on aesthetic luxury. Their branding is premium but earthy; Paradise should aim for a sleek, modern, ultra-premium look that feels like a high-end supplement or cosmetic, rather than a farm product.
+                        Additionally, we can beat them on aesthetic luxury. Their branding is premium but earthy; Amroot should aim for a sleek, modern, ultra-premium look that feels like a high-end supplement or cosmetic, rather than a farm product.
                       </p>
                     </div>
                   </div>

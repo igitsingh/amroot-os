@@ -211,7 +211,7 @@ const remainingDomains = `
 `;
 
 // Insert the remaining domains right before DOMAIN 16
-content = content.replace('{/* DOMAIN 16: PARADISE STRATEGIC ANALYSIS */}', remainingDomains + '\n            {/* DOMAIN 16: PARADISE STRATEGIC ANALYSIS */}');
+content = content.replace('{/* DOMAIN 16: AMROOT STRATEGIC ANALYSIS */}', remainingDomains + '\n            {/* DOMAIN 16: AMROOT STRATEGIC ANALYSIS */}');
 
 // Update the catch-all array to include all 16 sections so the evidence required block doesn't show up erroneously
 // We just need to replace the entire CATCH-ALL condition with a boolean false or just make sure all sections are tracked.

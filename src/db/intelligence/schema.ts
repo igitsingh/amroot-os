@@ -48,7 +48,7 @@ export interface Organization extends ProvenanceTracker {
     opportunities: string[];
     threats: string[];
   };
-  paradiseOpportunity?: string; // Analysis of how Paradise can win against this entity
+  paradiseOpportunity?: string; // Analysis of how Amroot can win against this entity
 }
 
 export interface Product extends ProvenanceTracker {

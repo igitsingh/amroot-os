@@ -58,7 +58,7 @@ burlap_data = """  "burlap": {
     },
     "strategy": {
       "title": "How to beat Burlap & Barrel?",
-      "content": "Burlap & Barrel excels at the ethical sourcing and single-origin narrative. Paradise OS can beat them by demonstrating superior product potency (10%+ curcumin vs their 4%) and positioning as a clinical-grade luxury product rather than just an ethical culinary ingredient."
+      "content": "Burlap & Barrel excels at the ethical sourcing and single-origin narrative. AmrootOS can beat them by demonstrating superior product potency (10%+ curcumin vs their 4%) and positioning as a clinical-grade luxury product rather than just an ethical culinary ingredient."
     },
     "portfolio": [
       {

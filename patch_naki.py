@@ -78,7 +78,7 @@ naki_new = """  "naki": {
     },
     "strategy": {
       "title": "How to beat NAKI?",
-      "content": "NAKI has a strong authentic founder story (Dawhoi Dhar) directly from the region. Paradise OS can beat them by out-branding them on luxury appeal, scientific formulation (piperine pairing), and clinical transparency, taking Lakadong from a 'regional specialty' to an 'elite bio-hacking supplement'."
+      "content": "NAKI has a strong authentic founder story (Dawhoi Dhar) directly from the region. AmrootOS can beat them by out-branding them on luxury appeal, scientific formulation (piperine pairing), and clinical transparency, taking Lakadong from a 'regional specialty' to an 'elite bio-hacking supplement'."
     }
   },"""
 

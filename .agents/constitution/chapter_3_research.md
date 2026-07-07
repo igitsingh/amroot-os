@@ -1,14 +1,14 @@
-# Paradise OS Constitution v1.0
+# AmrootOS Constitution v1.0
 
 ## Chapter 3: Research Constitution
 
 ### 3.1 Research Standards
-1. **Absolute Certainty Over Volume:** The goal of research within Paradise OS is to establish undeniable facts, not to aggregate noise. A single verified data point is worth more than a thousand unverified claims.
+1. **Absolute Certainty Over Volume:** The goal of research within AmrootOS is to establish undeniable facts, not to aggregate noise. A single verified data point is worth more than a thousand unverified claims.
 2. **Never Accept Marketing at Face Value:** Claims made by competitors or suppliers (e.g., "highest purity", "sustainably sourced") must be treated as hypotheses, not facts. They must be aggressively cross-referenced against empirical evidence.
 3. **Reproducibility:** Every conclusion drawn by the intelligence engine must be reproducible. Any agent or human must be able to follow the breadcrumbs of evidence and arrive at the exact same conclusion.
 
 ### 3.2 Source Hierarchy
-Paradise OS strictly enforces a four-tier hierarchy for all intelligence gathering. When sources conflict, the higher tier unconditionally wins.
+AmrootOS strictly enforces a four-tier hierarchy for all intelligence gathering. When sources conflict, the higher tier unconditionally wins.
 
 *   **Tier 1 (Unimpeachable):** Official primary sources. Government databases (FDA, Customs), peer-reviewed scientific journals (PubMed), accredited third-party laboratory reports (Eurofins), official certifications (USDA Organic), and audited public filings (SEC).
 *   **Tier 2 (Official Secondary):** Official brand or supplier websites, verified company LinkedIn profiles, and official press releases.
@@ -16,7 +16,7 @@ Paradise OS strictly enforces a four-tier hierarchy for all intelligence gatheri
 *   **Tier 4 (Public Sentiment):** Customer reviews, blogs, and public forums (Reddit). *Tier 4 intelligence provides qualitative context but must never override quantitative data from Tiers 1-3.*
 
 ### 3.3 Verification Framework
-1. **Guilty Until Proven Innocent:** All new data entering Paradise OS is marked `Verification Pending` by default.
+1. **Guilty Until Proven Innocent:** All new data entering AmrootOS is marked `Verification Pending` by default.
 2. **The Two-Source Rule:** To upgrade a data point to `Verified`, it must be corroborated by at least two independent public sources, OR backed by a single Tier 1 primary source.
 3. **Temporal Freshness:** Verification is not permanent. Certifications expire, formulations change, and prices fluctuate. The system must track the `Date Last Verified` and automatically trigger re-verification when the data ages past its half-life.
 

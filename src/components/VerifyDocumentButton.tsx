@@ -35,7 +35,7 @@ export default function VerifyDocumentButton({ documentId }: { documentId: strin
     <button 
       onClick={handleVerify}
       disabled={loading}
-      className="flex items-center gap-2 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 hover:text-emerald-300 border border-emerald-500/20 px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
+      className="flex items-center gap-2 bg-[#034F46]/10 text-[#034F46] hover:bg-[#034F46]/20 hover:text-emerald-300 border border-[#034F46]/20 px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
     >
       {loading ? (
         <>

@@ -463,5 +463,93 @@
     "confidenceScore": 85,
     "verificationStatus": "Verified",
     "notes": "BioSchwartz supplements. Not culinary."
+  },
+  {
+    "id": "org-livingroots",
+    "name": "Living Roots USA",
+    "legalName": "Living Roots",
+    "foundingYear": 0,
+    "headquarters": "Sacramento, California, USA",
+    "country": "USA",
+    "websiteUrl": "https://www.livingrootsusa.com",
+    "marketPositioning": "Premium",
+    "confidenceScore": 85,
+    "verificationStatus": "Verified",
+    "notes": "Premium single-origin teas and spices sourced directly from small family farms. 7.61% curcumin content."
+  },
+  {
+    "id": "brand-amyra-farms",
+    "name": "Amyra Farms",
+    "marketPositioning": "Premium",
+    "source": "Amyra Farms Official Website",
+    "sourceUrl": "https://amyrafarms.in",
+    "sourceType": "Official",
+    "dateCollected": "2026-07-07T00:00:00Z",
+    "dateLastVerified": "2026-07-07T00:00:00Z",
+    "confidenceScore": 100,
+    "verificationStatus": "Verified",
+    "roles": [
+      "Competitor Brand"
+    ]
+  },
+  {
+    "id": "brand-nira-kitchen",
+    "name": "Nira Kitchen",
+    "marketPositioning": "Premium",
+    "source": "Nira Kitchen Official Website",
+    "sourceUrl": "https://nirabalance.com",
+    "sourceType": "Official",
+    "dateCollected": "2026-07-07T00:00:00Z",
+    "dateLastVerified": "2026-07-07T00:00:00Z",
+    "confidenceScore": 100,
+    "verificationStatus": "Verified",
+    "roles": [
+      "Competitor Brand"
+    ]
+  },
+  {
+    "id": "brand-miresi",
+    "name": "Miresi",
+    "marketPositioning": "Mass-Premium",
+    "source": "Miresi Official Website",
+    "sourceUrl": "https://miresi.in",
+    "sourceType": "Official",
+    "dateCollected": "2026-07-07T00:00:00Z",
+    "dateLastVerified": "2026-07-07T00:00:00Z",
+    "confidenceScore": 100,
+    "verificationStatus": "Verified",
+    "roles": [
+      "Competitor Brand"
+    ]
+  },
+  {
+    "id": "brand-koh-foods",
+    "name": "koh! foods",
+    "marketPositioning": "Premium",
+    "source": "koh! foods Official Website",
+    "sourceUrl": "https://kohfoods.in",
+    "sourceType": "Official",
+    "dateCollected": "2026-07-07T00:00:00Z",
+    "dateLastVerified": "2026-07-07T00:00:00Z",
+    "confidenceScore": 100,
+    "verificationStatus": "Verified",
+    "roles": [
+      "Competitor Brand"
+    ]
+  },
+  {
+    "id": "brand-tulua",
+    "name": "Tulua",
+    "marketPositioning": "Premium",
+    "source": "Tulua Official Website",
+    "sourceUrl": "https://tulua.shop",
+    "sourceType": "Official",
+    "dateCollected": "2026-07-07T00:00:00Z",
+    "dateLastVerified": "2026-07-07T00:00:00Z",
+    "confidenceScore": 100,
+    "verificationStatus": "Verified",
+    "roles": [
+      "Competitor Brand"
+    ]
   }
 ]

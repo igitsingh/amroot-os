@@ -56,7 +56,7 @@ competitors = {
         
         "strategy": {
             "title": "How to beat Diaspora Co?",
-            "content": "Diaspora Co. relies entirely on their brand narrative (de-colonization, living wages). Their actual product specs (4.7% curcumin) are vastly inferior to Meghalaya Lakadong turmeric. Paradise OS can destroy their value proposition by highlighting the massive gap in Curcumin % while maintaining an equally ethical (if not better) direct-to-farmer model. They sell a story; Paradise sells empirical superiority wrapped in a story."
+            "content": "Diaspora Co. relies entirely on their brand narrative (de-colonization, living wages). Their actual product specs (4.7% curcumin) are vastly inferior to Meghalaya Lakadong turmeric. AmrootOS can destroy their value proposition by highlighting the massive gap in Curcumin % while maintaining an equally ethical (if not better) direct-to-farmer model. They sell a story; Amroot sells empirical superiority wrapped in a story."
         },
         
         "portfolio": [
@@ -120,7 +120,7 @@ competitors = {
         
         "strategy": {
             "title": "How to beat My Pahadi Dukan?",
-            "content": "My Pahadi Dukan is an aggregator/marketplace, not a single-brand entity. Their weakness is brand dilution. They sell multiple brands, meaning they cannot guarantee single-origin consistency across their entire catalog. Paradise OS can win by being a vertically integrated, hyper-focused brand with superior clinical aesthetics."
+            "content": "My Pahadi Dukan is an aggregator/marketplace, not a single-brand entity. Their weakness is brand dilution. They sell multiple brands, meaning they cannot guarantee single-origin consistency across their entire catalog. AmrootOS can win by being a vertically integrated, hyper-focused brand with superior clinical aesthetics."
         },
         
         "portfolio": [
@@ -183,7 +183,7 @@ competitors = {
         
         "strategy": {
             "title": "How to beat Niraam Superfoods?",
-            "content": "Niraam is a generic 'clean superfood' brand. Their branding lacks the deep heritage or the extreme scientific rigor needed for ultra-premium positioning. Paradise can outperform them by offering complete supply chain transparency (COAs on blockchain) and a much higher luxury brand appeal."
+            "content": "Niraam is a generic 'clean superfood' brand. Their branding lacks the deep heritage or the extreme scientific rigor needed for ultra-premium positioning. Amroot can outperform them by offering complete supply chain transparency (COAs on blockchain) and a much higher luxury brand appeal."
         },
         
         "portfolio": [
@@ -246,7 +246,7 @@ competitors = {
         
         "strategy": {
             "title": "How to beat Maatru Rasah?",
-            "content": "Maatru Rasah focuses entirely on nostalgia and 'handmade' heritage. They are extremely strong in the 'traditional purity' segment but lack modern clinical validation. Paradise OS can beat them by combining traditional sourcing with modern clinical validation (lab tests, precise curcumin profiling, heavy metal testing) to capture the modern, science-driven consumer."
+            "content": "Maatru Rasah focuses entirely on nostalgia and 'handmade' heritage. They are extremely strong in the 'traditional purity' segment but lack modern clinical validation. AmrootOS can beat them by combining traditional sourcing with modern clinical validation (lab tests, precise curcumin profiling, heavy metal testing) to capture the modern, science-driven consumer."
         },
         
         "portfolio": [
@@ -309,7 +309,7 @@ competitors = {
         
         "strategy": {
             "title": "How to beat Two Brothers Organic Farms?",
-            "content": "Two Brothers dominates the regenerative/organic mass-premium market in India. Their strength is their massive distribution and authentic farmer story. However, their branding is still highly 'farm-centric'. To beat them, Paradise must pivot away from 'farm aesthetics' and lean entirely into 'Clinical Luxury'. We don't compete as farmers; we compete as an elite, science-backed neutraceutical brand."
+            "content": "Two Brothers dominates the regenerative/organic mass-premium market in India. Their strength is their massive distribution and authentic farmer story. However, their branding is still highly 'farm-centric'. To beat them, Amroot must pivot away from 'farm aesthetics' and lean entirely into 'Clinical Luxury'. We don't compete as farmers; we compete as an elite, science-backed neutraceutical brand."
         },
         
         "portfolio": [
@@ -372,7 +372,7 @@ competitors = {
         
         "strategy": {
             "title": "How to beat Trinay Ayurveda?",
-            "content": "Trinay competes in the standard Ayurvedic supplement market. They do not have the high-end luxury appeal or the verifiable Lakadong GI story. Paradise can out-position them purely on brand aesthetics, modern science, and absolute premium quality, treating turmeric as an advanced nutraceutical rather than a basic herbal powder."
+            "content": "Trinay competes in the standard Ayurvedic supplement market. They do not have the high-end luxury appeal or the verifiable Lakadong GI story. Amroot can out-position them purely on brand aesthetics, modern science, and absolute premium quality, treating turmeric as an advanced nutraceutical rather than a basic herbal powder."
         },
         
         "portfolio": [
@@ -434,7 +434,7 @@ new_competitors = {
         
         "strategy": {
             "title": "How to beat Jaintia Gold?",
-            "content": "Jaintia Gold acts more as a regional identifier/cooperative brand for Lakadong. They have immense authenticity but lack national D2C brand equity and modern premium packaging. Paradise OS can leverage the same geographic authenticity but wrap it in an ultra-premium, trusted, clinically-tested brand."
+            "content": "Jaintia Gold acts more as a regional identifier/cooperative brand for Lakadong. They have immense authenticity but lack national D2C brand equity and modern premium packaging. AmrootOS can leverage the same geographic authenticity but wrap it in an ultra-premium, trusted, clinically-tested brand."
         }
     },
     "naki": {
@@ -488,7 +488,7 @@ new_competitors = {
         
         "strategy": {
             "title": "How to beat NAKI?",
-            "content": "NAKI has a strong value proposition with single-origin Lakadong at a competitive price (₹149/100g). Paradise OS should emphasize clinical superiority (3rd party COAs) and elevate the packaging to ultra-luxury to justify a higher price point, moving out of direct price competition."
+            "content": "NAKI has a strong value proposition with single-origin Lakadong at a competitive price (₹149/100g). AmrootOS should emphasize clinical superiority (3rd party COAs) and elevate the packaging to ultra-luxury to justify a higher price point, moving out of direct price competition."
         }
     },
     "neetacha": {
@@ -542,7 +542,7 @@ new_competitors = {
         
         "strategy": {
             "title": "How to beat Neetacha Spices?",
-            "content": "Neetacha wins on processing tech (cryogenic grinding). Paradise OS can counter this by emphasizing the actual raw material superiority (Lakadong GI vs generic Himalayan) and matching their processing claims, while offering a vastly superior luxury brand experience."
+            "content": "Neetacha wins on processing tech (cryogenic grinding). AmrootOS can counter this by emphasizing the actual raw material superiority (Lakadong GI vs generic Himalayan) and matching their processing claims, while offering a vastly superior luxury brand experience."
         }
     },
     "organicmandya": {
@@ -596,7 +596,7 @@ new_competitors = {
         
         "strategy": {
             "title": "How to beat Organic Mandya?",
-            "content": "Organic Mandya has strong grassroots authenticity but operates heavily in the regional mass-premium space. Paradise OS should differentiate by positioning as an elite, science-backed global brand, appealing to the top 1% of health-conscious consumers."
+            "content": "Organic Mandya has strong grassroots authenticity but operates heavily in the regional mass-premium space. AmrootOS should differentiate by positioning as an elite, science-backed global brand, appealing to the top 1% of health-conscious consumers."
         }
     },
     "prexports": {
@@ -650,7 +650,7 @@ new_competitors = {
         
         "strategy": {
             "title": "How to beat PR Exports Ltd?",
-            "content": "PR Exports is a B2B supplier, not a direct D2C competitor. Paradise OS could potentially use them (or companies like them) as a supply chain partner, but as a brand, Paradise OS operates in a completely different, consumer-facing luxury tier."
+            "content": "PR Exports is a B2B supplier, not a direct D2C competitor. AmrootOS could potentially use them (or companies like them) as a supply chain partner, but as a brand, AmrootOS operates in a completely different, consumer-facing luxury tier."
         }
     },
     "simplyorganic": {
@@ -704,7 +704,7 @@ new_competitors = {
         
         "strategy": {
             "title": "How to beat Simply Organic?",
-            "content": "Simply Organic is a culinary spice brand with low curcumin content (~4%), not a clinical supplement. Paradise OS targets a different market (health/wellness/supplements). Paradise OS wins by educating the consumer that culinary turmeric is insufficient for clinical health benefits, upselling them to a 10%+ curcumin Lakadong product."
+            "content": "Simply Organic is a culinary spice brand with low curcumin content (~4%), not a clinical supplement. AmrootOS targets a different market (health/wellness/supplements). AmrootOS wins by educating the consumer that culinary turmeric is insufficient for clinical health benefits, upselling them to a 10%+ curcumin Lakadong product."
         }
     },
     "tatvahills": {
@@ -758,7 +758,7 @@ new_competitors = {
         
         "strategy": {
             "title": "How to beat TatvaHills Superfoods?",
-            "content": "TatvaHills correctly incorporates black pepper (piperine) for bioavailability. Paradise OS MUST include a piperine/lipid absorption matrix in its formulation to compete functionally, while vastly outperforming TatvaHills in brand aesthetics, luxury perception, and clinical transparency."
+            "content": "TatvaHills correctly incorporates black pepper (piperine) for bioavailability. AmrootOS MUST include a piperine/lipid absorption matrix in its formulation to compete functionally, while vastly outperforming TatvaHills in brand aesthetics, luxury perception, and clinical transparency."
         }
     },
     "tribalfactory": {
@@ -812,7 +812,7 @@ new_competitors = {
         
         "strategy": {
             "title": "How to beat Tribal Factory?",
-            "content": "Tribal Factory has a phenomenal social impact story. Paradise OS cannot simply 'beat' them on ethics; Paradise must differentiate on *target audience*. Tribal Factory targets the conscious, ethical consumer. Paradise OS targets the bio-hacker, the luxury health fanatic, and the clinical purist, offering an elite product that happens to be ethically sourced."
+            "content": "Tribal Factory has a phenomenal social impact story. AmrootOS cannot simply 'beat' them on ethics; Amroot must differentiate on *target audience*. Tribal Factory targets the conscious, ethical consumer. AmrootOS targets the bio-hacker, the luxury health fanatic, and the clinical purist, offering an elite product that happens to be ethically sourced."
         }
     }
 }

@@ -78,7 +78,7 @@ pr_new = """  "prexportsltd": {
     },
     "strategy": {
       "title": "How to beat PR Exports?",
-      "content": "PR Exports is a bulk B2B player, not a direct D2C competitor. However, their existence proves that large-scale institutional buyers want Lakadong turmeric. Paradise OS can bypass them by offering full farm-to-door traceability and premium storytelling that industrial processors cannot match, thereby capturing the high-margin segment that PR Exports ignores."
+      "content": "PR Exports is a bulk B2B player, not a direct D2C competitor. However, their existence proves that large-scale institutional buyers want Lakadong turmeric. AmrootOS can bypass them by offering full farm-to-door traceability and premium storytelling that industrial processors cannot match, thereby capturing the high-margin segment that PR Exports ignores."
     }
   },"""
 

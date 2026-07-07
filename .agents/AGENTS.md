@@ -1,6 +1,6 @@
-# Paradise OS Data Integrity & Verification Policy
+# AmrootOS Data Integrity & Verification Policy
 
-**This is a non-negotiable policy for all intelligence and data within Paradise OS.**
+**This is a non-negotiable policy for all intelligence and data within AmrootOS.**
 
 ## 1. Never Invent Data
 - Do not hallucinate information, guess missing values, or estimate facts.
@@ -30,7 +30,7 @@ Every data point/record must be auditable with the following metadata:
 ## 5. Change History
 - **Never overwrite information.**
 - When a competitor or supplier changes a field (Packaging, Price, Website, Claims, etc.), create a **new dated version** of the record. 
-- Paradise OS must preserve historical intelligence forever.
+- AmrootOS must preserve historical intelligence forever.
 
 ## 6. Golden Rule
 - Accuracy > Completeness
@@ -62,15 +62,15 @@ Any fabricated value is considered a software bug. Truth over aesthetics.
 
 ---
 
-# PARADISE OS CONSTITUTION
-All AI agents MUST read and strictly adhere to the permanent constitutional rules located in the `.agents/constitution/` directory before taking any significant action. These chapters dictate the entire engineering, philosophy, and architectural paradigm for Paradise OS.
+# AMROOT OS CONSTITUTION
+All AI agents MUST read and strictly adhere to the permanent constitutional rules located in the `.agents/constitution/` directory before taking any significant action. These chapters dictate the entire engineering, philosophy, and architectural paradigm for AmrootOS.
 
 Current Chapters:
-- [Chapter 1: Philosophy & Mission](file:///Users/isachinsingh/Desktop/PARADISE-OS/.agents/constitution/chapter_1_philosophy.md)
-- [Chapter 2: Engineering Constitution](file:///Users/isachinsingh/Desktop/PARADISE-OS/.agents/constitution/chapter_2_engineering.md)
-- [Chapter 3: Research Constitution](file:///Users/isachinsingh/Desktop/PARADISE-OS/.agents/constitution/chapter_3_research.md)
-- [Chapter 4: Product Constitution](file:///Users/isachinsingh/Desktop/PARADISE-OS/.agents/constitution/chapter_4_product.md)
-- [Chapter 5: Intelligence Constitution](file:///Users/isachinsingh/Desktop/PARADISE-OS/.agents/constitution/chapter_5_intelligence.md)
-- [Chapter 6: Operations Constitution](file:///Users/isachinsingh/Desktop/PARADISE-OS/.agents/constitution/chapter_6_operations.md)
-- [Chapter 7: AI Constitution](file:///Users/isachinsingh/Desktop/PARADISE-OS/.agents/constitution/chapter_7_ai.md)
-- [Chapter 8: Paradise Organics Constitution](file:///Users/isachinsingh/Desktop/PARADISE-OS/.agents/constitution/chapter_8_paradise.md)
+- [Chapter 1: Philosophy & Mission](file:///Users/isachinsingh/Desktop/AMROOTOS/.agents/constitution/chapter_1_philosophy.md)
+- [Chapter 2: Engineering Constitution](file:///Users/isachinsingh/Desktop/AMROOTOS/.agents/constitution/chapter_2_engineering.md)
+- [Chapter 3: Research Constitution](file:///Users/isachinsingh/Desktop/AMROOTOS/.agents/constitution/chapter_3_research.md)
+- [Chapter 4: Product Constitution](file:///Users/isachinsingh/Desktop/AMROOTOS/.agents/constitution/chapter_4_product.md)
+- [Chapter 5: Intelligence Constitution](file:///Users/isachinsingh/Desktop/AMROOTOS/.agents/constitution/chapter_5_intelligence.md)
+- [Chapter 6: Operations Constitution](file:///Users/isachinsingh/Desktop/AMROOTOS/.agents/constitution/chapter_6_operations.md)
+- [Chapter 7: AI Constitution](file:///Users/isachinsingh/Desktop/AMROOTOS/.agents/constitution/chapter_7_ai.md)
+- [Chapter 8: Amroot Organics Constitution](file:///Users/isachinsingh/Desktop/AMROOTOS/.agents/constitution/chapter_8_paradise.md)

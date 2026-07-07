@@ -22,7 +22,7 @@ const SECTIONS = [
   "13. Customer Intel",
   "14. Export Intel",
   "15. SWOT",
-  "16. Paradise Strategy"
+  "16. Amroot Strategy"
 ];
 
 const Field = ({ label, value, verified = false }: { label: string, value: string | React.ReactNode | null, verified?: boolean }) => (
@@ -260,7 +260,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
             )}
 
             {/* DOMAIN 16: Strategy */}
-            {activeSection.includes("Paradise Strategy") && (
+            {activeSection.includes("Amroot Strategy") && (
               <div>
                 {intel?.strategy ? (
                   <div className="border border-blue-500/30 bg-blue-500/5 rounded-lg p-6 relative overflow-hidden">

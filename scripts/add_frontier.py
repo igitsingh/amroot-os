@@ -57,7 +57,7 @@ frontier_data = """  "frontier": {
     },
     "strategy": {
       "title": "How to beat Frontier Co-op?",
-      "content": "Frontier focuses on bulk, ethical, and organic supply for everyday use. Paradise OS can beat them in the luxury and clinical segments by offering vastly superior potency, premium glass packaging, and a highly refined consumer brand experience."
+      "content": "Frontier focuses on bulk, ethical, and organic supply for everyday use. AmrootOS can beat them in the luxury and clinical segments by offering vastly superior potency, premium glass packaging, and a highly refined consumer brand experience."
     },
     "portfolio": [
       {

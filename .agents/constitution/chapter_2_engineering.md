@@ -1,4 +1,4 @@
-# Paradise OS Constitution v1.0
+# AmrootOS Constitution v1.0
 
 ## Chapter 2: Engineering Constitution
 
@@ -8,9 +8,9 @@
 3. **Immutability of Intelligence:** Code can be refactored and deleted; intelligence cannot. Engineering must protect the data layer at all costs, ensuring that no historical intelligence is ever lost to an ill-conceived update or migration.
 
 ### 2.2 Architecture Rules
-1. **The Anti-CRUD Architecture:** Paradise OS is an intelligence engine, not a standard web app. Standard "Create, Read, Update, Delete" flows are insufficient. Every data mutation must be treated as an "Intelligence Event" that cascades through the network (e.g., updating a supplier's certification status must automatically flag related products).
+1. **The Anti-CRUD Architecture:** AmrootOS is an intelligence engine, not a standard web app. Standard "Create, Read, Update, Delete" flows are insufficient. Every data mutation must be treated as an "Intelligence Event" that cascades through the network (e.g., updating a supplier's certification status must automatically flag related products).
 2. **The 360° Rule:** Every primary entity page must be architected to query and aggregate all connected nodes. Data must never be siloed. If a user views a Product, the architecture must eagerly fetch the connected Lab Reports, Packaging, Competitor Pricing, and active Tasks.
-3. **Strict Separation of Domains:** Internal Operations (e.g., Paradise Team Tasks) and External Intelligence (e.g., Competitor Tracking) must remain cleanly separated in the application logic, but deeply connected in the relational database.
+3. **Strict Separation of Domains:** Internal Operations (e.g., Amroot Team Tasks) and External Intelligence (e.g., Competitor Tracking) must remain cleanly separated in the application logic, but deeply connected in the relational database.
 
 ### 2.3 Database & Knowledge Graph Standards
 1. **Relational Rigor:** The system uses PostgreSQL and Prisma to enforce strict, unyielding data integrity. Orphaned records and broken foreign keys are considered critical system failures.
@@ -38,7 +38,7 @@ Every critical data point (Pricing, Ingredient Claims, Certifications) must impl
 3. **Provenance:** Every modification must meticulously log the actor (User or AI Agent), the timestamp, and the justification or new source of truth.
 
 ### 2.7 The Five Purposes Rule
-To prevent Paradise OS from degrading into a generic ERP, every new feature must answer one strict question: **"Does this create, verify, enrich, connect, or use knowledge?"**
+To prevent AmrootOS from degrading into a generic ERP, every new feature must answer one strict question: **"Does this create, verify, enrich, connect, or use knowledge?"**
 
 If a proposed feature, page, or database model does not fit one of those five purposes, it must be rejected or deferred to a later operational phase. Engineering must protect the system's core identity as an intelligence platform.
 
@@ -51,4 +51,4 @@ To pass this rule, a feature must satisfy ALL of these constraints:
 
 **Example:** A `Supplier` must structurally connect to `Manufacturer`, `Product`, `Sample`, `Laboratory`, `Country`, `Importer`, `Research Job`, `Documents`, and `Certifications`. 
 
-If an entity exists in a vacuum, it is an orphan and violates the architectural integrity of Paradise OS. No orphan entities. No orphan pages. No orphan features.
+If an entity exists in a vacuum, it is an orphan and violates the architectural integrity of AmrootOS. No orphan entities. No orphan pages. No orphan features.

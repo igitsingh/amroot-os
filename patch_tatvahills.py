@@ -78,7 +78,7 @@ tatvahills_new = """  "tatvahills": {
     },
     "strategy": {
       "title": "How to beat TatvaHills?",
-      "content": "TatvaHills competes on sustainability and pre-mixed formulations (turmeric + pepper). Paradise OS can surpass them by offering pure, unblended Lakadong with explicit lab reports and a much stronger digital community presence, appealing to consumers who want absolute purity and control over their supplementation."
+      "content": "TatvaHills competes on sustainability and pre-mixed formulations (turmeric + pepper). AmrootOS can surpass them by offering pure, unblended Lakadong with explicit lab reports and a much stronger digital community presence, appealing to consumers who want absolute purity and control over their supplementation."
     }
   },"""
 

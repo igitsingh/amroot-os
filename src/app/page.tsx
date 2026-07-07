@@ -55,10 +55,10 @@ export default async function CommandCenterPage() {
     <div className="flex flex-col w-full space-y-6 pb-10">
       
       {/* Header */}
-      <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
+      <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D3142]/10 pb-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Command Center</h1>
-          <p className="text-white/60 text-sm max-w-2xl">
+          <h1 className="text-3xl font-bold tracking-tight text-[#2D3142] mb-2">Command Center</h1>
+          <p className="text-[#2D3142]/60 text-sm max-w-2xl">
             Real-time intelligence synthesis. Monitor critical alerts, active research jobs, and global knowledge graph coverage.
           </p>
         </div>
@@ -73,52 +73,52 @@ export default async function CommandCenterPage() {
       {/* Primary KPI Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Coverage Score */}
-        <div className="bg-black/40 border border-white/10 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-amber-500/30 transition-colors">
+        <div className="bg-white border border-[#2D3142]/10 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-amber-500/30 transition-colors">
           <div className="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/20 blur-2xl rounded-full group-hover:bg-amber-500/30 transition-colors" />
           <div className="flex items-start justify-between mb-2">
-            <h3 className="text-white/60 text-xs font-semibold uppercase tracking-wider">KG Coverage</h3>
-            <Database className="w-4 h-4 text-amber-500" />
+            <h3 className="text-[#2D3142]/60 text-xs font-semibold uppercase tracking-wider">KG Coverage</h3>
+            <Database className="w-4 h-4 text-[#F59E0B]" />
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-white">{globalCoverage}%</span>
-            <span className="text-emerald-400 flex items-center text-xs font-medium">
+            <span className="text-3xl font-bold text-[#2D3142]">{globalCoverage}%</span>
+            <span className="text-[#034F46] flex items-center text-xs font-medium">
               <TrendingUp className="w-3 h-3 mr-1" /> +2.4%
             </span>
           </div>
-          <p className="text-white/40 text-xs mt-2">Verified entities across supply chain.</p>
+          <p className="text-[#2D3142]/40 text-xs mt-2">Verified entities across supply chain.</p>
         </div>
 
         {/* Entities Tracked */}
-        <div className="bg-black/40 border border-white/10 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-white/20 transition-colors">
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-blue-500/10 blur-2xl rounded-full group-hover:bg-blue-500/20 transition-colors" />
+        <div className="bg-white border border-[#2D3142]/10 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-white/20 transition-colors">
+          <div className="absolute -right-6 -top-6 w-24 h-24 bg-[#F16775]/10 blur-2xl rounded-full group-hover:bg-[#F16775]/20 transition-colors" />
           <div className="flex items-start justify-between mb-2">
-            <h3 className="text-white/60 text-xs font-semibold uppercase tracking-wider">Active Entities</h3>
-            <Globe className="w-4 h-4 text-blue-500" />
+            <h3 className="text-[#2D3142]/60 text-xs font-semibold uppercase tracking-wider">Active Entities</h3>
+            <Globe className="w-4 h-4 text-[#F16775]" />
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-white">{(totalSuppliers + totalCompetitors + totalProducts).toLocaleString()}</span>
+            <span className="text-3xl font-bold text-[#2D3142]">{(totalSuppliers + totalCompetitors + totalProducts).toLocaleString()}</span>
           </div>
-          <div className="flex gap-3 text-white/40 text-xs mt-2">
+          <div className="flex gap-3 text-[#2D3142]/40 text-xs mt-2">
             <span>{totalSuppliers} Suppliers</span>
             <span>{totalCompetitors} Competitors</span>
           </div>
         </div>
 
         {/* Active Research */}
-        <div className="bg-black/40 border border-white/10 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-fuchsia-500/30 transition-colors">
+        <div className="bg-white border border-[#2D3142]/10 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-fuchsia-500/30 transition-colors">
           <div className="absolute -right-6 -top-6 w-24 h-24 bg-fuchsia-500/20 blur-2xl rounded-full group-hover:bg-fuchsia-500/30 transition-colors" />
           <div className="flex items-start justify-between mb-2">
-            <h3 className="text-white/60 text-xs font-semibold uppercase tracking-wider">Research Jobs</h3>
+            <h3 className="text-[#2D3142]/60 text-xs font-semibold uppercase tracking-wider">Research Jobs</h3>
             <Activity className="w-4 h-4 text-fuchsia-500" />
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-white">{activeResearchJobs}</span>
+            <span className="text-3xl font-bold text-[#2D3142]">{activeResearchJobs}</span>
           </div>
-          <p className="text-white/40 text-xs mt-2">Jobs currently queued or in-progress.</p>
+          <p className="text-[#2D3142]/40 text-xs mt-2">Jobs currently queued or in-progress.</p>
         </div>
 
         {/* Critical Alerts */}
-        <div className="bg-black/40 border border-red-500/30 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-red-500/50 transition-colors">
+        <div className="bg-white border border-red-500/30 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-red-500/50 transition-colors">
           <div className="absolute -right-6 -top-6 w-24 h-24 bg-red-500/20 blur-2xl rounded-full group-hover:bg-red-500/30 transition-colors" />
           <div className="flex items-start justify-between mb-2">
             <h3 className="text-red-400/80 text-xs font-semibold uppercase tracking-wider">Critical Alerts</h3>
@@ -137,13 +137,13 @@ export default async function CommandCenterPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1 min-h-0">
         
         {/* Left Column: AI Assistant Embedded (takes 2/3 width) */}
-        <div className="lg:col-span-2 bg-[#0A0A0A] border border-white/5 rounded-2xl flex flex-col overflow-hidden relative shadow-2xl h-[600px]">
-          <div className="px-5 py-4 border-b border-white/5 bg-white/[0.02] flex items-center justify-between">
+        <div className="lg:col-span-2 bg-white border border-[#2D3142]/5 rounded-2xl flex flex-col overflow-hidden relative shadow-2xl h-[600px]">
+          <div className="px-5 py-4 border-b border-[#2D3142]/5 bg-white/[0.02] flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-white/50" />
-              <h2 className="text-sm font-semibold text-white/80">Paradise Assistant</h2>
+              <Briefcase className="w-4 h-4 text-[#2D3142]/50" />
+              <h2 className="text-sm font-semibold text-[#2D3142]/80">Amroot Assistant</h2>
             </div>
-            <span className="text-[10px] uppercase font-mono text-white/40 tracking-wider">Query Graph • Automate</span>
+            <span className="text-[10px] uppercase font-mono text-[#2D3142]/40 tracking-wider">Query Graph • Automate</span>
           </div>
           <div className="flex-1 relative overflow-hidden">
              <AiChat />
@@ -155,35 +155,35 @@ export default async function CommandCenterPage() {
           
           {/* Action Required */}
           <div className="bg-gradient-to-b from-red-500/10 to-transparent border border-red-500/20 rounded-2xl p-5 flex-1 relative overflow-hidden">
-            <h2 className="text-sm font-semibold text-white/90 flex items-center gap-2 mb-4">
+            <h2 className="text-sm font-semibold text-[#2D3142]/90 flex items-center gap-2 mb-4">
               <AlertTriangle className="w-4 h-4 text-red-400" />
               Requires Attention
             </h2>
             <div className="space-y-3">
               {evidenceConflicts > 0 ? (
-                <div className="bg-black/50 border border-white/5 p-3 rounded-lg flex items-center justify-between group cursor-pointer hover:border-red-500/50 transition-colors">
+                <div className="bg-white border border-[#2D3142]/5 p-3 rounded-lg flex items-center justify-between group cursor-pointer hover:border-red-500/50 transition-colors">
                   <div>
-                    <p className="text-sm text-white/90 font-medium">Evidence Conflicts</p>
-                    <p className="text-xs text-white/50">{evidenceConflicts} records require manual review</p>
+                    <p className="text-sm text-[#2D3142]/90 font-medium">Evidence Conflicts</p>
+                    <p className="text-xs text-[#2D3142]/50">{evidenceConflicts} records require manual review</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-red-400 transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-[#2D3142]/30 group-hover:text-red-400 transition-colors" />
                 </div>
               ) : (
-                <div className="flex items-center gap-2 text-emerald-400/80 text-sm">
+                <div className="flex items-center gap-2 text-[#034F46]/80 text-sm">
                   <CheckCircle className="w-4 h-4" /> No evidence conflicts.
                 </div>
               )}
 
               {blockedTasks > 0 ? (
-                <div className="bg-black/50 border border-white/5 p-3 rounded-lg flex items-center justify-between group cursor-pointer hover:border-amber-500/50 transition-colors">
+                <div className="bg-white border border-[#2D3142]/5 p-3 rounded-lg flex items-center justify-between group cursor-pointer hover:border-amber-500/50 transition-colors">
                   <div>
-                    <p className="text-sm text-white/90 font-medium">Blocked Tasks</p>
-                    <p className="text-xs text-white/50">{blockedTasks} tasks currently blocked</p>
+                    <p className="text-sm text-[#2D3142]/90 font-medium">Blocked Tasks</p>
+                    <p className="text-xs text-[#2D3142]/50">{blockedTasks} tasks currently blocked</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-amber-400 transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-[#2D3142]/30 group-hover:text-[#F59E0B] transition-colors" />
                 </div>
               ) : (
-                <div className="flex items-center gap-2 text-emerald-400/80 text-sm mt-4">
+                <div className="flex items-center gap-2 text-[#034F46]/80 text-sm mt-4">
                   <CheckCircle className="w-4 h-4" /> No blocked tasks.
                 </div>
               )}
@@ -191,20 +191,20 @@ export default async function CommandCenterPage() {
           </div>
 
           {/* Quick Access */}
-          <div className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-5 flex-1">
-            <h2 className="text-sm font-semibold text-white/90 mb-4">Intelligence Modules</h2>
+          <div className="bg-white border border-[#2D3142]/5 rounded-2xl p-5 flex-1">
+            <h2 className="text-sm font-semibold text-[#2D3142]/90 mb-4">Intelligence Modules</h2>
             <div className="grid grid-cols-2 gap-3">
-              <Link href="/suppliers" className="bg-white/5 border border-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors text-center group">
-                <p className="text-sm text-white/80 font-medium group-hover:text-white">Suppliers</p>
+              <Link href="/suppliers" className="bg-[#2D3142]/5 border border-[#2D3142]/5 p-3 rounded-lg hover:bg-[#2D3142]/10 transition-colors text-center group">
+                <p className="text-sm text-[#2D3142]/80 font-medium group-hover:text-[#2D3142]">Suppliers</p>
               </Link>
-              <Link href="/competitors" className="bg-white/5 border border-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors text-center group">
-                <p className="text-sm text-white/80 font-medium group-hover:text-white">Competitors</p>
+              <Link href="/competitors" className="bg-[#2D3142]/5 border border-[#2D3142]/5 p-3 rounded-lg hover:bg-[#2D3142]/10 transition-colors text-center group">
+                <p className="text-sm text-[#2D3142]/80 font-medium group-hover:text-[#2D3142]">Competitors</p>
               </Link>
-              <Link href="/products" className="bg-white/5 border border-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors text-center group">
-                <p className="text-sm text-white/80 font-medium group-hover:text-white">Products</p>
+              <Link href="/products" className="bg-[#2D3142]/5 border border-[#2D3142]/5 p-3 rounded-lg hover:bg-[#2D3142]/10 transition-colors text-center group">
+                <p className="text-sm text-[#2D3142]/80 font-medium group-hover:text-[#2D3142]">Products</p>
               </Link>
-              <Link href="/vault" className="bg-white/5 border border-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors text-center group">
-                <p className="text-sm text-white/80 font-medium group-hover:text-white">Vault</p>
+              <Link href="/vault" className="bg-[#2D3142]/5 border border-[#2D3142]/5 p-3 rounded-lg hover:bg-[#2D3142]/10 transition-colors text-center group">
+                <p className="text-sm text-[#2D3142]/80 font-medium group-hover:text-[#2D3142]">Vault</p>
               </Link>
             </div>
           </div>

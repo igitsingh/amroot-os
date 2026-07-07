@@ -12,12 +12,12 @@ def update_neetacha():
     # We will just replace the strategy block with the strategy block + new fields
     target_str = """    "strategy": {
       "title": "How to beat Neetacha Spices?",
-      "content": "Neetacha wins on processing tech (cryogenic grinding). Paradise OS can counter this by emphasizing the actual raw material superiority (Lakadong GI vs generic Himalayan) and matching their processing claims, while offering a vastly superior luxury brand experience."
+      "content": "Neetacha wins on processing tech (cryogenic grinding). AmrootOS can counter this by emphasizing the actual raw material superiority (Lakadong GI vs generic Himalayan) and matching their processing claims, while offering a vastly superior luxury brand experience."
     }"""
     
     replacement_str = """    "strategy": {
       "title": "How to beat Neetacha Spices?",
-      "content": "Neetacha wins on processing tech (cryogenic grinding). Paradise OS can counter this by emphasizing the actual raw material superiority (Lakadong GI vs generic Himalayan) and matching their processing claims, while offering a vastly superior luxury brand experience."
+      "content": "Neetacha wins on processing tech (cryogenic grinding). AmrootOS can counter this by emphasizing the actual raw material superiority (Lakadong GI vs generic Himalayan) and matching their processing claims, while offering a vastly superior luxury brand experience."
     },
     "socialMedia": {
       "instagram": "Not Publicly Available",

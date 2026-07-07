@@ -78,7 +78,7 @@ mandya_new = """  "organicmandya": {
     },
     "strategy": {
       "title": "How to beat Organic Mandya?",
-      "content": "Organic Mandya wins on community trust and accessible pricing. Paradise OS should position itself as the 'Ultra-Premium' alternative. While they offer standard organic, we offer scientifically validated, lab-tested, and traceability-focused Lakadong. We don't compete on price; we compete on indisputable quality, higher curcumin guarantees, and premium packaging experience."
+      "content": "Organic Mandya wins on community trust and accessible pricing. AmrootOS should position itself as the 'Ultra-Premium' alternative. While they offer standard organic, we offer scientifically validated, lab-tested, and traceability-focused Lakadong. We don't compete on price; we compete on indisputable quality, higher curcumin guarantees, and premium packaging experience."
     }
   },"""
 

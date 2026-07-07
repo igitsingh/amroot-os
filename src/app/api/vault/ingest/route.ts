@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     if (!defaultUser) {
       defaultUser = await prisma.user.create({
         data: {
-          email: 'founder@paradise-os.com',
+          email: 'founder@amrootos.com',
           name: 'Founder',
           role: 'FOUNDER'
         }

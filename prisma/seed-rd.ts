@@ -9,7 +9,7 @@ async function main() {
     data: [
       {
         name: 'Ionic Liquid-Integrated Ultrasound-Assisted Enzymatic Extraction (IL-UAE-EE)',
-        description: 'Currently the most cutting-edge "green" method. Can dramatically increase curcumin solubility (30–50x). Allows Paradise to produce pharmaceutical-grade curcumin without toxic organic solvents.',
+        description: 'Currently the most cutting-edge "green" method. Can dramatically increase curcumin solubility (30–50x). Allows Amroot to produce pharmaceutical-grade curcumin without toxic organic solvents.',
         curcuminYieldPct: 38.0,
         purityPct: 98.0,
         solventUsed: 'Ionic Liquids & Enzymes',

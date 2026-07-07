@@ -58,7 +58,7 @@ bonorgano_data = """  "bonorgano": {
     },
     "strategy": {
       "title": "How to beat Bon Organo?",
-      "content": "Bon Organo relies on the 'raw and unprocessed' narrative. Paradise OS can beat them by elevating the product to a clinical luxury standard, offering transparency through blockchain verifiable lab reports and superior unboxing experiences."
+      "content": "Bon Organo relies on the 'raw and unprocessed' narrative. AmrootOS can beat them by elevating the product to a clinical luxury standard, offering transparency through blockchain verifiable lab reports and superior unboxing experiences."
     },
     "portfolio": [
       {

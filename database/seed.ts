@@ -2,7 +2,7 @@ import { LifecycleStage, VerificationStatus } from '@prisma/client';
 import { prisma } from './client';
 
 async function main() {
-  console.log('🌱 Starting Paradise OS Data Ingestion (Evidence-First)...');
+  console.log('🌱 Starting AmrootOS Data Ingestion (Evidence-First)...');
 
   // 1. Seed Countries (Reference Entities)
   const countries = [
@@ -261,7 +261,7 @@ async function main() {
 
   console.log('✅ Seeded Operations & Logistics data');
 
-  console.log('✅ Ingestion complete. Paradise Knowledge Graph conforms to the Evidence-First Constitution.');
+  console.log('✅ Ingestion complete. Amroot Knowledge Graph conforms to the Evidence-First Constitution.');
 }
 
 main()
