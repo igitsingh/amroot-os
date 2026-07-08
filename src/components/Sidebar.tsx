@@ -75,6 +75,13 @@ export default function Sidebar() {
         <div className="h-6" /> {/* Spacer */}
         {!isCollapsed && <div className="px-3 mb-2 text-[10px] uppercase font-mono text-[#F9F8F6]/50 tracking-wider">Business</div>}
         
+        <Link href="/scratchpad" className={getLinkClasses('/scratchpad')}>
+          <div className="flex items-center gap-3">
+            <PenTool size={16} className={getIconClasses('/scratchpad')} />
+            {!isCollapsed && <span>Scratchpad</span>}
+          </div>
+          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">New</span>}
+        </Link>
         <Link href="/brand" className={getLinkClasses('/brand')}>
           <div className="flex items-center gap-3">
             <ShoppingBag size={16} className={getIconClasses('/brand')} />
@@ -112,13 +119,7 @@ export default function Sidebar() {
         <div className="h-6" /> {/* Spacer */}
         {!isCollapsed && <div className="px-3 mb-2 text-[10px] uppercase font-mono text-[#F9F8F6]/50 tracking-wider">Knowledge</div>}
 
-        <Link href="/scratchpad" className={getLinkClasses('/scratchpad')}>
-          <div className="flex items-center gap-3">
-            <PenTool size={16} className={getIconClasses('/scratchpad')} />
-            {!isCollapsed && <span>Scratchpad</span>}
-          </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">New</span>}
-        </Link>
+
 
         <Link href="/competitors" className={getLinkClasses('/competitors')}>
           <div className="flex items-center gap-3">
