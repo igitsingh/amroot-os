@@ -126,13 +126,6 @@ export default function Sidebar() {
           {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
         </Link>
 
-        <Link href="/requirements" className={getLinkClasses('/requirements')}>
-          <div className="flex items-center gap-3">
-            <BookOpen size={16} className={getIconClasses('/requirements')} />
-            {!isCollapsed && <span>Requirements</span>}
-          </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
-        </Link>
 
         <Link href="/tools" className={getLinkClasses('/tools')}>
           <div className="flex items-center gap-3">
