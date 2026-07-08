@@ -24,6 +24,17 @@ export async function loginAction(prevState: any, formData: FormData) {
   return { error: 'Invalid credentials. Please try again.' }
 }
 
+export async function setAuthCookieAction() {
+  const cookieStore = await cookies()
+  cookieStore.set('amroot_auth_session', 'authenticated', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/',
+    maxAge: 60 * 60 * 24 * 7 // 1 week
+  })
+}
+
 export async function logoutAction() {
   const cookieStore = await cookies()
   cookieStore.delete('amroot_auth_session')

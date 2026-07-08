@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
+import { setAuthCookieAction } from './actions';
 import Image from 'next/image';
 import { Lock, Mail, ArrowRight, ShieldCheck, Eye, EyeOff } from 'lucide-react';
 import { Outfit, Orbitron } from 'next/font/google';
@@ -26,8 +27,9 @@ export default function LoginPage() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // We don't route here anymore! The global AuthContext listener will detect the successful login
-      // and automatically trigger the route transition in the background!
+      await setAuthCookieAction();
+      // We wait for the cookie to be set, then transition
+      router.push('/checklist');
     } catch (err: any) {
       console.error("Firebase Login Error: ", err);
       setError(err.message || 'Invalid email or password. Please try again.');

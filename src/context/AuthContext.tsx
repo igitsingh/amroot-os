@@ -31,9 +31,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setLoading(false);
       
       // Handle automatic routing directly from the auth listener
-      if (currentUser && window.location.pathname === '/login') {
-        router.push('/checklist');
-      } else if (!currentUser && window.location.pathname !== '/login') {
+      if (!currentUser && window.location.pathname !== '/login') {
         router.push('/login');
       }
     });
@@ -42,6 +40,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, [router]);
 
   const signOut = async () => {
+    // Clear cookie via server action or API if needed, but we can also just let the middleware catch it
+    // Actually we should clear the cookie.
+    document.cookie = 'amroot_auth_session=; Max-Age=0; path=/';
     await firebaseSignOut(auth);
     router.push('/login');
   };
