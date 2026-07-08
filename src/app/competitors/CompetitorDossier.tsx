@@ -346,7 +346,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-white/5">
-                        {intel.portfolio.map((prod, idx) => (
+                        {intel.portfolio.map((prod: any, idx: number) => (
                           <tr key={idx} className="hover:bg-white/[0.02]">
                             <td className="px-4 py-3 text-[#2D3142]/90">{prod.name}</td>
                             <td className="px-4 py-3">{prod.variant}</td>
