@@ -441,7 +441,7 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                   <div className="mb-6">
                     <div className="text-[10px] uppercase font-mono text-[#2D3142]/40 tracking-widest mb-3">Core Identity Tags</div>
                     <div className="flex flex-wrap gap-2">
-                      {intel.positioningTags.map((tag, idx) => (
+                      {intel.positioningTags.map((tag: any, idx: number) => (
                         <span key={idx} className="px-3 py-1 bg-[#2D3142]/5 border border-[#2D3142]/10 rounded text-xs text-[#2D3142]/80 font-mono">{tag}</span>
                       ))}
                     </div>

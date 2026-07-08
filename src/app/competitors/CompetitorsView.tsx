@@ -868,9 +868,9 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                   {sortedCompetitors.map((comp) => {
                     const intel = getCompetitorIntel(comp.id);
                     const company = intel?.company?.toUpperCase() || 'UNKNOWN';
-                    const entityType = intel?.entityType?.replace(/ \w/g, l => l.toUpperCase()) || 'Unknown';
-                    const location = intel?.location?.replace(/ \w/g, l => l.toUpperCase()) || 'Unknown';
-                    const marketTier = intel?.marketTier?.replace(/ \w/g, l => l.toUpperCase()) || 'Unknown';
+                    const entityType = intel?.entityType?.replace(/ \w/g, (l: string) => l.toUpperCase()) || 'Unknown';
+                    const location = intel?.location?.replace(/ \w/g, (l: string) => l.toUpperCase()) || 'Unknown';
+                    const marketTier = intel?.marketTier?.replace(/ \w/g, (l: string) => l.toUpperCase()) || 'Unknown';
                     const curcuminDisplay = intel?.curcuminDisplay || 'Unknown';
                     const websiteDisplay = intel?.websiteDisplay && intel.websiteDisplay !== "unknown" ? intel.websiteDisplay : 'website.com';
                     const websiteUrl = intel?.websiteUrl && intel.websiteUrl !== "#" ? intel.websiteUrl : 'https://website.com';
