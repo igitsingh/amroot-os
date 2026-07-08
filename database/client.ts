@@ -9,12 +9,27 @@ const adapter = new PrismaPg(pool)
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient }
 
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    adapter,
-    // Removing 'error' from log array to prevent Next.js from intercepting Prisma internal errors and showing the dev overlay
-    log: ['query', 'info'],
-  })
+// If DATABASE_URL is missing, we create a proxy that instantly rejects all database queries.
+// This prevents Next.js Server Components from hanging on Prisma retries when the DB is down.
+const createMockPrisma = () => {
+  return new Proxy({}, {
+    get(target, prop) {
+      if (prop === '$connect') return async () => {};
+      if (prop === '$disconnect') return async () => {};
+      return new Proxy({}, {
+        get(t, p) {
+          return () => Promise.reject(new Error("Database connection disabled (DATABASE_URL not set). Falling back to JSON."));
+        }
+      });
+    }
+  }) as PrismaClient;
+};
+
+const basePrisma = process.env.DATABASE_URL
+  ? new PrismaClient({ adapter, log: ['query', 'info'] })
+  : createMockPrisma();
+
+export const prisma = globalForPrisma.prisma || basePrisma
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+

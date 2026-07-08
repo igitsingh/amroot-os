@@ -160,7 +160,7 @@ export default function GreenCollarResources() {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {resources.map((res: any, i: number) => (
+                {resources.map((res, i) => (
                   <div key={i} className="bg-[#2D3142]/5 border border-[#2D3142]/10 rounded-2xl p-6 hover:bg-[#2D3142]/10 hover:border-white/20 transition-all group flex flex-col h-full">
                     <div className="flex-1">
                       <div className="w-10 h-10 rounded-lg bg-[#F16775]/10 border border-indigo-500/20 flex items-center justify-center mb-4">

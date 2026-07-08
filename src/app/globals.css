@@ -41,7 +41,7 @@
 body {
   background-color: var(--color-bg-base);
   color: var(--color-text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Orbitron', var(--font-orbitron), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;

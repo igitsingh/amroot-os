@@ -119,7 +119,7 @@ export default function SupplierDossier({ supplier, onClose }: SupplierDossierPr
                   <Globe className="w-4 h-4 text-[#F16775]" /> Digital & Social Presence
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  {Object.entries(supplier.socialMedia).map(([platform, link]: [string, any]) => (
+                  {Object.entries(supplier.socialMedia).map(([platform, link]) => (
                     <div key={platform} className="p-4 rounded border border-[#2D3142]/5 bg-white/[0.02] flex items-center justify-between">
                       <div className="capitalize text-sm text-[#2D3142]/70">{platform}</div>
                       {link !== 'Unknown' && link !== 'Not Active' ? (
@@ -221,7 +221,7 @@ export default function SupplierDossier({ supplier, onClose }: SupplierDossierPr
                   <Globe className="w-4 h-4 text-[#F16775]" /> Marketplace Presence
                 </h3>
                 <div className="grid grid-cols-1 gap-2">
-                  {Object.entries(supplier.marketplace).map(([platform, link]: [string, any]) => (
+                  {Object.entries(supplier.marketplace).map(([platform, link]) => (
                     <div key={platform} className="p-3 rounded border border-[#2D3142]/5 bg-white/[0.02] flex items-center justify-between">
                       <div className="capitalize text-sm text-[#2D3142]/70">{platform}</div>
                       <a href={link as string} target="_blank" rel="noopener noreferrer" className="text-[#F16775] hover:text-blue-300 text-sm truncate max-w-[250px]">

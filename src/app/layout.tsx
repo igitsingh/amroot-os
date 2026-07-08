@@ -1,9 +1,19 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Orbitron, Outfit } from 'next/font/google';
 import './globals.css';
-import Sidebar from '@/components/Sidebar';
+import ClientLayout from '@/components/ClientLayout';
 
-const inter = Inter({ subsets: ['latin'] });
+const orbitron = Orbitron({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-orbitron'
+});
+
+const outfit = Outfit({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-outfit'
+});
 
 export const metadata: Metadata = {
   title: 'AmrootOS',
@@ -17,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#F9F8F6] text-[#2D3142] flex flex-col h-screen overflow-hidden relative`}>
+      <body className={`${outfit.className} ${outfit.variable} ${orbitron.variable} bg-[#F9F8F6] text-[#2D3142] flex flex-col h-screen overflow-hidden relative`}>
         
         {/* Global Ambient Glow */}
         <div className="fixed inset-0 z-0 pointer-events-none flex justify-center items-center mt-7">
@@ -25,14 +35,9 @@ export default function RootLayout({
           <div className="w-[600px] h-[600px] bg-[#F16775]/10 rounded-full blur-[150px] absolute bottom-[-20%] left-[-10%]" />
         </div>
 
-        <div className="flex flex-1 overflow-hidden relative z-10 w-full">
-          <Sidebar />
-          <main className="flex-1 overflow-y-auto relative bg-transparent">
-            <div className="h-full w-full">
-              {children}
-            </div>
-          </main>
-        </div>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );

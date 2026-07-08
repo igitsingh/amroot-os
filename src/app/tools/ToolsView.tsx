@@ -18,7 +18,7 @@ export default function ToolsView({ initialTools = [] }: { initialTools: any[] }
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-        {initialTools.map((tool: any) => (
+        {initialTools.map((tool) => (
           <div key={tool.id} className="bg-[#2D3142]/5 border border-[#2D3142]/10 rounded-2xl p-6 hover:bg-[#2D3142]/10 hover:border-white/20 transition-all group relative overflow-hidden">
             {/* Glow Effect */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-fuchsia-500/10 rounded-full blur-[50px] pointer-events-none group-hover:bg-fuchsia-500/20 transition-all" />
