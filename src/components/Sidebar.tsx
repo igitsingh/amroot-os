@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Outfit } from 'next/font/google';
-import { Search, Sparkles, Calendar, Database, Anchor, FlaskConical, FileText, Settings, PanelLeftClose, PanelLeftOpen, Cpu, BookOpen, ExternalLink, ShoppingBag, ListTodo, LogOut } from 'lucide-react';
+import { Search, Sparkles, Calendar, Database, Anchor, FlaskConical, FileText, Settings, PanelLeftClose, PanelLeftOpen, Cpu, BookOpen, ExternalLink, ShoppingBag, ListTodo, LogOut, PenTool } from 'lucide-react';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 import { logoutAction } from '@/app/login/actions';
@@ -111,6 +111,14 @@ export default function Sidebar() {
 
         <div className="h-6" /> {/* Spacer */}
         {!isCollapsed && <div className="px-3 mb-2 text-[10px] uppercase font-mono text-[#F9F8F6]/50 tracking-wider">Knowledge</div>}
+
+        <Link href="/scratchpad" className={getLinkClasses('/scratchpad')}>
+          <div className="flex items-center gap-3">
+            <PenTool size={16} className={getIconClasses('/scratchpad')} />
+            {!isCollapsed && <span>Scratchpad</span>}
+          </div>
+          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">New</span>}
+        </Link>
 
         <Link href="/competitors" className={getLinkClasses('/competitors')}>
           <div className="flex items-center gap-3">
