@@ -1,7 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import { Outfit } from 'next/font/google';
-import { Leaf, ArrowRight, Sparkles, MapPin, Award, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { Leaf, ArrowRight, Sparkles, MapPin, Award, CheckCircle2, AlertTriangle, Scale, ShieldAlert, FileText, CheckCircle, Info } from 'lucide-react';
+import { trademarkConflicts } from '../../data/trademarks';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 
@@ -523,6 +524,72 @@ export default function AmrootBrandPage() {
                 />
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Trademark Registration & Conflict Audit */}
+        <div className="max-w-6xl mx-auto px-6 py-16 border-t border-[#2D3142]/10">
+          <div className="mb-8">
+            <h2 className="text-3xl font-black text-[#2D3142] mb-4 font-[family-name:var(--font-orbitron)]">Trademark Registration & Conflicts</h2>
+            <p className="text-[#2D3142]/70 max-w-3xl leading-relaxed text-lg mb-6">
+              Tracking our application progress for <strong>"AMROOT"</strong> and <strong>"AMROOT ORGANICS"</strong> under Class 30 (Spices & Food).
+              Below are the phonetic variations and existing filings that could present legal difficulties.
+            </p>
+            
+            <div className="bg-[#1A1A1A] p-6 rounded-2xl text-white mb-10 shadow-lg border border-[#333333]">
+              <h3 className="text-xl font-bold flex items-center gap-2 mb-4 text-[#F4F1EA]">
+                <Scale className="w-5 h-5 text-[#F16775]" />
+                Strategy & Phonetic Defense
+              </h3>
+              <div className="space-y-4 text-sm text-gray-300">
+                <p>
+                  <strong className="text-white">Origin & Phonetics:</strong> "Amroot" is an alternate phonetic spelling/variation of the Hindi word Amrud (अमरूद), which translates to guava. In dialects like Pashto, it means the fruit. Conversely, "Amrut" or “Amruth” (Sanskrit) translates to "immortal" or "nectar" (divine elixir). 
+                </p>
+                <p>
+                  <strong className="text-white">Nirmala Agro and Farms ("NAAF"):</strong> Filings for <em>amrootbynaaf</em> fall under natural/organic food classes (29, 30, 31, 32). They hold a Class 30 application for "amroot" (Formalities Chk Pass).
+                </p>
+                <p>
+                  <strong className="text-white">Solutions & Approach:</strong> To overcome the identical phonetic marks (like GRAMROOT or AMROOT in Class 30), our strategy focuses on:
+                  <br />1. Filing for a strong <strong>Device Mark / Logo</strong> rather than just a Word Mark, embedding the "Amroot Organics" stylized identity.
+                  <br />2. Asserting distinct visual identity and non-competing specific SKUs (Turmeric & Ginger vs Ketchup/Sauces).
+                </p>
+              </div>
+            </div>
+
+            <div className="overflow-x-auto rounded-xl border border-[#2D3142]/10 shadow-sm bg-white">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-[#F4F1EA] text-[#2D3142] text-xs uppercase tracking-wider font-bold">
+                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Wordmark</th>
+                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Class</th>
+                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Proprietor</th>
+                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Status</th>
+                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Date</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm">
+                  {trademarkConflicts.map((tm, idx) => (
+                    <tr key={idx} className="border-b border-[#2D3142]/5 hover:bg-[#F9F8F6] transition-colors group">
+                      <td className="px-4 py-3 font-semibold text-[#034F46]">{tm.wordmark}</td>
+                      <td className="px-4 py-3 text-[#2D3142]/70">{tm.class}</td>
+                      <td className="px-4 py-3 text-[#2D3142]/80 font-medium">{tm.proprietor}</td>
+                      <td className="px-4 py-3">
+                        <span className={`px-2 py-1 rounded text-xs font-bold ${
+                          tm.status === 'Registered' ? 'bg-emerald-100 text-emerald-700' :
+                          tm.status === 'Abandoned' ? 'bg-gray-100 text-gray-500' :
+                          tm.status === 'Objected' ? 'bg-red-100 text-red-600' :
+                          'bg-amber-100 text-amber-700'
+                        }`}>
+                          {tm.status}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-[#2D3142]/50">{tm.applDate}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
           </div>
         </div>
 
