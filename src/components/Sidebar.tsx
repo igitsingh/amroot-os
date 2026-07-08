@@ -85,7 +85,7 @@ export default function Sidebar() {
         <Link href="/brand" className={getLinkClasses('/brand')}>
           <div className="flex items-center gap-3">
             <ShoppingBag size={16} className={getIconClasses('/brand')} />
-            {!isCollapsed && <span>Amroot Organics</span>}
+            {!isCollapsed && <span>Brand</span>}
           </div>
         </Link>
         

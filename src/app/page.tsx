@@ -17,7 +17,6 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 export default async function CommandCenterPage() {
-  redirect('/competitors');
   // Fetch real data from the database
   let totalSuppliers = 0;
   let totalCompetitors = 0;

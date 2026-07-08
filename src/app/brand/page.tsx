@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Outfit } from 'next/font/google';
 import { Leaf, ArrowRight, Sparkles, MapPin, Award, CheckCircle2, AlertTriangle, Scale, ShieldAlert, FileText, CheckCircle, Info } from 'lucide-react';
 import { trademarkConflicts } from '../../data/trademarks';
+import { brandNameIdeas } from '../../data/brandNames';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 
@@ -20,8 +21,7 @@ const similarLogos = [
   "images.png",
   "logo2.jpg",
   "logo4-e1775210501221.png",
-  "original-299e15936ee0efb23ab396388e66d108 (1).png",
-  "original-299e15936ee0efb23ab396388e66d108.webp"
+  "original-299e15936ee0efb23ab396388e66d108 (1).png"
 ];
 
 const INITIAL_BRAND_COLORS = {
@@ -101,7 +101,10 @@ export default function AmrootBrandPage() {
     'Transparent & Traceable'
   ]);
   const [isEditingVoice, setIsEditingVoice] = useState(false);
+  const [selectedBrandName, setSelectedBrandName] = useState('Amroot Organics');
+  const [riskFilter, setRiskFilter] = useState<'All' | 'Low' | 'Medium' | 'High'>('All');
 
+  const filteredBrandNames = brandNameIdeas.filter(idea => riskFilter === 'All' || idea.level === riskFilter);
 
   return (
     <div className={`min-h-screen bg-[#F9F8F6] flex flex-col ${outfit.className}`}>
@@ -123,16 +126,83 @@ export default function AmrootBrandPage() {
               <span style={{ color: brandColors.accent }}>Refined for the World.</span>
             </h1>
             <p className="text-[#F4F1EA]/80 text-lg md:text-xl max-w-xl leading-relaxed">
-              Amroot Organics brings the world's most potent, pure, and traceable spices directly from the pristine hills of Meghalaya.
+              {selectedBrandName} brings the world's most potent, pure, and traceable spices directly from the pristine hills of Meghalaya.
             </p>
           </div>
           
           <div className="hidden md:flex w-72 h-72 rounded-full border border-white/10 items-center justify-center relative shadow-2xl backdrop-blur-sm bg-white/5">
             <div className="absolute inset-2 rounded-full border border-dashed border-white/20 animate-[spin_60s_linear_infinite]" />
             <div className="text-center">
-              <div className="text-6xl font-black text-white tracking-tighter lowercase">amroot</div>
-              <div className="text-sm font-bold uppercase tracking-[0.3em]" style={{ color: brandColors.accent }}>Organics</div>
+              <div className="text-6xl font-black text-white tracking-tighter lowercase">{selectedBrandName.split(' ')[0]}</div>
+              <div className="text-sm font-bold uppercase tracking-[0.3em]" style={{ color: brandColors.accent }}>{selectedBrandName.split(' ').slice(1).join(' ') || 'Organics'}</div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Brand and Proprietary Name Selection */}
+      <div id="name-selection" className="bg-white pt-16 pb-12 px-8 border-b border-[#2D3142]/10 shadow-sm relative z-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8">
+            <div>
+              <h2 className="text-3xl font-black text-[#2D3142] mb-4 font-[family-name:var(--font-orbitron)]">Brand & Proprietary Name Selection</h2>
+              <p className="text-[#2D3142]/70 max-w-3xl leading-relaxed text-lg">
+                Since we have canceled the domain <strong>amrootorganics.com</strong> and the name <strong>"Amroot"</strong> due to severe trademark risks, here is a curated list of 280+ highly distinct, non-trademarked names suitable for a Class 30 Turmeric/Ginger export brand.
+              </p>
+            </div>
+            <div className="min-w-[300px] w-full md:w-auto bg-[#F4F1EA] p-4 rounded-xl border border-[#2D3142]/10">
+              <label className="block text-xs font-bold text-[#F16775] uppercase tracking-wider mb-2">Select Active Brand Name</label>
+              <select
+                value={selectedBrandName}
+                onChange={(e) => setSelectedBrandName(e.target.value)}
+                className="w-full bg-white border border-[#2D3142]/20 text-[#034F46] font-bold px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#034F46] shadow-sm"
+              >
+                <option value="Amroot Organics">Amroot Organics (Deprecated)</option>
+                {brandNameIdeas.map((idea, idx) => (
+                  <option key={idx} value={idea.name}>
+                    {idea.name} — {idea.category}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-2 mb-6 bg-[#F4F1EA] p-2 rounded-xl inline-flex overflow-x-auto max-w-full">
+             <button onClick={() => setRiskFilter('All')} className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${riskFilter === 'All' ? 'bg-white shadow-sm text-[#2D3142]' : 'text-[#2D3142]/60 hover:text-[#2D3142]'}`}>All Names ({brandNameIdeas.length})</button>
+             <button onClick={() => setRiskFilter('Low')} className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${riskFilter === 'Low' ? 'bg-emerald-100 text-emerald-700 shadow-sm border border-emerald-200' : 'text-[#2D3142]/60 hover:text-[#2D3142]'}`}>Low Risk</button>
+             <button onClick={() => setRiskFilter('Medium')} className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${riskFilter === 'Medium' ? 'bg-amber-100 text-amber-700 shadow-sm border border-amber-200' : 'text-[#2D3142]/60 hover:text-[#2D3142]'}`}>Medium Risk</button>
+             <button onClick={() => setRiskFilter('High')} className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${riskFilter === 'High' ? 'bg-red-100 text-red-700 shadow-sm border border-red-200' : 'text-[#2D3142]/60 hover:text-[#2D3142]'}`}>High Risk</button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
+            {filteredBrandNames.map((idea, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => setSelectedBrandName(idea.name)}
+                className={`border rounded-xl p-5 shadow-sm transition-all cursor-pointer flex flex-col justify-between ${selectedBrandName === idea.name ? 'bg-[#034F46]/5 border-[#034F46] shadow-md' : 'bg-white border-[#2D3142]/10 hover:shadow-md hover:border-[#034F46]/50'}`}
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="font-bold text-[#034F46] text-lg leading-tight pr-2">{idea.name}</span>
+                    <span className={`text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider shrink-0 ${
+                      idea.level === 'High' ? 'bg-red-100 text-red-700 border border-red-200' : 
+                      idea.level === 'Medium' ? 'bg-amber-100 text-amber-700 border border-amber-200' : 
+                      'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                    }`}>
+                      {idea.level} Risk
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-bold text-[#F16775] bg-[#F16775]/10 px-2 py-1 rounded-md uppercase tracking-wider inline-block mb-3">{idea.category}</span>
+                </div>
+                
+                <div className="mt-2 pt-3 border-t border-[#2D3142]/10">
+                  <p className="text-xs text-[#2D3142]/70 leading-relaxed font-medium">
+                    <span className="font-bold text-[#2D3142]">IP Audit: </span> 
+                    {idea.reason}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -490,108 +560,6 @@ export default function AmrootBrandPage() {
           </div>
         </div>
 
-        {/* Similar Names / Competitor Brand Audit */}
-        <div className="max-w-6xl mx-auto px-6 py-16 border-t border-[#2D3142]/10">
-          <div className="mb-8 flex items-start justify-between gap-6">
-            <div>
-              <h2 className="text-3xl font-black text-[#2D3142] mb-4 font-[family-name:var(--font-orbitron)]">Brand Collision Audit</h2>
-              <p className="text-[#2D3142]/70 max-w-3xl leading-relaxed text-lg">
-                A comprehensive review of similarly named businesses and competitors (e.g., "Amrut", "Amrood", etc.). This reference ensures our final brand identity, colors, and logo marks remain distinct and avoid trademark or market confusion.
-              </p>
-            </div>
-            <button 
-              onClick={() => setFinalisedAudit(!finalisedAudit)}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-colors shrink-0 ${finalisedAudit ? 'bg-[#034F46] text-white' : 'bg-[#034F46]/5 text-[#034F46] hover:bg-[#034F46]/10'}`}
-            >
-              <CheckCircle2 className="w-4 h-4" />
-              {finalisedAudit ? 'Finalised' : 'Mark Final'}
-            </button>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {similarLogos.map((logo, idx) => (
-              <div key={idx} className="relative bg-white rounded-xl border border-[#2D3142]/10 p-4 flex items-center justify-center aspect-square overflow-hidden hover:shadow-lg transition-shadow">
-                {idx === 0 && (
-                  <div className="absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider shadow-sm z-10 flex items-center gap-1">
-                    <AlertTriangle className="w-3 h-3" />
-                    High Relevance
-                  </div>
-                )}
-                <img 
-                  src={`/SIMILAR NAMES AND THEIR LOGOS/${logo}`} 
-                  alt={`Similar Brand Logo ${idx + 1}`} 
-                  className="w-full h-full object-contain filter hover:grayscale-0 transition-all"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Trademark Registration & Conflict Audit */}
-        <div className="max-w-6xl mx-auto px-6 py-16 border-t border-[#2D3142]/10">
-          <div className="mb-8">
-            <h2 className="text-3xl font-black text-[#2D3142] mb-4 font-[family-name:var(--font-orbitron)]">Trademark Registration & Conflicts</h2>
-            <p className="text-[#2D3142]/70 max-w-3xl leading-relaxed text-lg mb-6">
-              Tracking our application progress for <strong>"AMROOT"</strong> and <strong>"AMROOT ORGANICS"</strong> under Class 30 (Spices & Food).
-              Below are the phonetic variations and existing filings that could present legal difficulties.
-            </p>
-            
-            <div className="bg-[#1A1A1A] p-6 rounded-2xl text-white mb-10 shadow-lg border border-[#333333]">
-              <h3 className="text-xl font-bold flex items-center gap-2 mb-4 text-[#F4F1EA]">
-                <Scale className="w-5 h-5 text-[#F16775]" />
-                Strategy & Phonetic Defense
-              </h3>
-              <div className="space-y-4 text-sm text-gray-300">
-                <p>
-                  <strong className="text-white">Origin & Phonetics:</strong> "Amroot" is an alternate phonetic spelling/variation of the Hindi word Amrud (अमरूद), which translates to guava. In dialects like Pashto, it means the fruit. Conversely, "Amrut" or “Amruth” (Sanskrit) translates to "immortal" or "nectar" (divine elixir). 
-                </p>
-                <p>
-                  <strong className="text-white">Nirmala Agro and Farms ("NAAF"):</strong> Filings for <em>amrootbynaaf</em> fall under natural/organic food classes (29, 30, 31, 32). They hold a Class 30 application for "amroot" (Formalities Chk Pass).
-                </p>
-                <p>
-                  <strong className="text-white">Solutions & Approach:</strong> To overcome the identical phonetic marks (like GRAMROOT or AMROOT in Class 30), our strategy focuses on:
-                  <br />1. Filing for a strong <strong>Device Mark / Logo</strong> rather than just a Word Mark, embedding the "Amroot Organics" stylized identity.
-                  <br />2. Asserting distinct visual identity and non-competing specific SKUs (Turmeric & Ginger vs Ketchup/Sauces).
-                </p>
-              </div>
-            </div>
-
-            <div className="overflow-x-auto rounded-xl border border-[#2D3142]/10 shadow-sm bg-white">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-[#F4F1EA] text-[#2D3142] text-xs uppercase tracking-wider font-bold">
-                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Wordmark</th>
-                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Class</th>
-                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Proprietor</th>
-                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Status</th>
-                    <th className="px-4 py-3 border-b border-[#2D3142]/10">Date</th>
-                  </tr>
-                </thead>
-                <tbody className="text-sm">
-                  {trademarkConflicts.map((tm, idx) => (
-                    <tr key={idx} className="border-b border-[#2D3142]/5 hover:bg-[#F9F8F6] transition-colors group">
-                      <td className="px-4 py-3 font-semibold text-[#034F46]">{tm.wordmark}</td>
-                      <td className="px-4 py-3 text-[#2D3142]/70">{tm.class}</td>
-                      <td className="px-4 py-3 text-[#2D3142]/80 font-medium">{tm.proprietor}</td>
-                      <td className="px-4 py-3">
-                        <span className={`px-2 py-1 rounded text-xs font-bold ${
-                          tm.status === 'Registered' || tm.status === 'Accepted' ? 'bg-emerald-100 text-emerald-700' :
-                          tm.status === 'Abandoned' ? 'bg-gray-100 text-gray-500' :
-                          tm.status === 'Objected' ? 'bg-red-100 text-red-600' :
-                          'bg-amber-100 text-amber-700'
-                        }`}>
-                          {tm.status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-[#2D3142]/50">{tm.applDate}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-        </div>
 
       </div>
     </div>
