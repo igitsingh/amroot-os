@@ -6,7 +6,7 @@ import { Competitor } from '@prisma/client';
 import CompetitorDossier from './CompetitorDossier';
 import { Search, ChevronDown, ChevronRight, Filter, Download, X, 
   Plus, Mail, Users, Building, MapPin, CheckSquare, 
-  Square, Globe, LayoutGrid, ArrowUp, ArrowDown, ArrowUpDown, Eye, Send, Check, Instagram, Facebook
+  Square, Globe, LayoutGrid, ArrowUp, ArrowDown, ArrowUpDown, Eye, Send, Check
 } from 'lucide-react';
 
 const CompetitorPersonnelView = ({ initialCompetitors }: { initialCompetitors: any[] }) => {
@@ -924,12 +924,12 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                                 </a>
                                 {instagramUrl && (
                                   <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
-                                    <Instagram className="w-3 h-3" />
+                                    <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                                   </a>
                                 )}
                                 {facebookUrl && (
                                   <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
-                                    <Facebook className="w-3 h-3" />
+                                    <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                                   </a>
                                 )}
                               </div>
