@@ -328,7 +328,7 @@ export default function LaunchChecklistPage() {
 
                 {/* Tasks List */}
                 <div className="flex flex-col">
-                  {phase.tasks.map((task, i) => {
+                  {phase.tasks.map((task: any, i) => {
                     const isDone = completedTasks.includes(task.id);
                     return (
                       <React.Fragment key={task.id}>
