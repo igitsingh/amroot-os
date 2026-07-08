@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Outfit } from 'next/font/google';
-import { CheckCircle2, Circle, ListTodo, Globe, Box, Rocket, ShieldCheck, ExternalLink } from 'lucide-react';
+import { CheckCircle2, Circle, ListTodo, Globe, Box, Rocket, ShieldCheck, ExternalLink, FlaskConical, FileText } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { db } from '@/lib/firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
@@ -17,30 +17,44 @@ const BRAND_COLORS = {
 const PHASES = [
   {
     id: 'p1',
-    title: 'Phase 1: Foundation & Entity Setup',
+    title: 'Phase 1: Corporate & Brand Foundation',
     icon: <Globe className="w-5 h-5" />,
     tasks: [
-      { id: 't1_1', title: 'Website Domain Registrations', desc: 'Register domain names for the global e-commerce and corporate sites.', action: { label: 'Register', href: 'https://www.hostinger.com', doneHref: 'https://hpanel.hostinger.com/domains' } },
-      { id: 't1_2', title: 'Logo Finalisation', desc: 'Finalize the primary logo design and variations for the brand identity.', action: { label: 'View Options', href: '/brand' } },
       { id: 't1_3', title: 'Company Registration & Bank Account', desc: 'Ensure proper business structure for export operations.', action: { label: 'Apply Now', href: 'https://www.mca.gov.in/' } },
       { id: 't1_4', title: 'GST Registration', desc: 'Goods and Services Tax portal for the business entity. Required for LUT for exports.', action: { label: 'Apply Now', href: 'https://www.gst.gov.in/' } },
+      { id: 't1_2', title: 'Logo Finalisation', desc: 'Finalize the primary logo design and variations for the brand identity.', action: { label: 'View Options', href: '/brand' } },
       { id: 't1_5', title: 'Brand Name Trademark', desc: 'Secure the text trademark for the Amroot Organics brand name.', action: { label: 'Apply Now', href: 'https://ipindia.gov.in/' } },
       { id: 't1_6', title: 'Logo Trademark', desc: 'Secure the visual trademark for the finalized Amroot Organics logo.', action: { label: 'Apply Now', href: 'https://ipindia.gov.in/' } },
+      { id: 't1_1', title: 'Website Domain Registrations', desc: 'Register domain names for the global e-commerce and corporate sites.', action: { label: 'Register', href: 'https://www.hostinger.com', doneHref: 'https://hpanel.hostinger.com/domains' } },
+      { id: 't1_9', title: 'MSME / Udyam', desc: 'Registration for access to government subsidies and trade fairs.', action: { label: 'Apply Now', href: 'https://udyamregistration.gov.in/' } },
+    ]
+  },
+  {
+    id: 'p2',
+    title: 'Phase 2: Export & Regulatory Setup',
+    icon: <FileText className="w-5 h-5" />,
+    tasks: [
       { id: 't1_7', title: 'IEC (Importer Exporter Code)', desc: 'Obtained from the Directorate General of Foreign Trade (DGFT).', action: { label: 'Apply Now', href: 'https://www.dgft.gov.in/CP/' } },
       { id: 't1_8', title: 'FSSAI Central License', desc: 'The highest tier food safety license in India, required for 100% EOUs.', action: { label: 'Apply Now', href: 'https://foscos.fssai.gov.in/' } },
-      { id: 't1_9', title: 'MSME / Udyam', desc: 'Registration for access to government subsidies and trade fairs.', action: { label: 'Apply Now', href: 'https://udyamregistration.gov.in/' } },
       { id: 't1_10', title: 'Spices Board CRES', desc: 'Certificate of Registration as Exporter of Spices. Mandatory for turmeric.', action: { label: 'Apply Now', href: 'https://www.indianspices.com/export/cres-registration.html' } },
       { id: 't1_11', title: 'APEDA RCMC', desc: 'Registration-Cum-Membership Certificate for agricultural products export.', action: { label: 'Apply Now', href: 'https://apeda.gov.in/' } },
       { id: 't1_12', title: 'AD Code Registration', desc: 'Authorized Dealer Code registration at the port of export.', action: { label: 'Apply Now', href: 'https://www.icegate.gov.in/' } },
     ]
   },
   {
-    id: 'p2',
-    title: 'Phase 2: Product Sourcing & Certification',
-    icon: <ShieldCheck className="w-5 h-5" />,
+    id: 'p3',
+    title: 'Phase 3: Sourcing & Product Readiness',
+    icon: <Box className="w-5 h-5" />,
     tasks: [
       { id: 't2_1', title: 'Secure Supply Chain', desc: 'Finalize contracts with farmers in Meghalaya for consistent supply.', action: { label: 'View Suppliers', href: '/suppliers' } },
-      { id: 't2_2', title: 'NPOP/NOP Organic Certification', desc: 'Ensure all products meet domestic and international organic standards.', action: { label: 'View Standard', href: 'https://www.ams.usda.gov/services/organic-certification' } },
+      { id: 't4_1', title: 'Export-Grade Packaging', desc: 'Finalize moisture-proof bulk packaging for oceanic transit.', action: { label: 'View Standard', href: 'https://www.iip-in.com/' } },
+    ]
+  },
+  {
+    id: 'p4',
+    title: 'Phase 4: Lab Testing & Quality Assurance',
+    icon: <FlaskConical className="w-5 h-5" />,
+    tasks: [
       { id: 't2_3', title: 'Lab testing (Curcumin/Gingerol)', desc: 'Validate the active compound profile of Turmeric and Ginger.', action: { label: 'Apply Now', href: 'https://www.indianspices.com/quality/quality-evaluation-lab.html' } },
       { id: 't2_4', title: 'Eurofins Heavy Metal & Contaminants', desc: 'Strict lab testing for Lead, Arsenic, Cadmium, Mycotoxins, and pesticides.', action: { label: 'View Standard', href: 'https://www.eurofins.in/food-testing/' } },
       { id: 't2_5', title: 'ASTA Cleanliness Specs', desc: 'American Spice Trade Association limits on extraneous matter.', action: { label: 'View Standard', href: 'https://www.astaspice.org/food-safety/cleanliness-specifications/' } },
@@ -48,10 +62,11 @@ const PHASES = [
     ]
   },
   {
-    id: 'p3',
-    title: 'Phase 3: Market-Specific Export Readiness',
-    icon: <ListTodo className="w-5 h-5" />,
+    id: 'p5',
+    title: 'Phase 5: Certifications & Market Compliance',
+    icon: <ShieldCheck className="w-5 h-5" />,
     tasks: [
+      { id: 't2_2', title: 'NPOP/NOP Organic Certification', desc: 'Ensure all products meet domestic and international organic standards.', action: { label: 'View Standard', href: 'https://www.ams.usda.gov/services/organic-certification' } },
       { id: 't3_1', title: 'USA: FDA FSMA Compliance', desc: 'Food Safety Modernization Act registration and preventative controls.', action: { label: 'Apply Now', href: 'https://www.fda.gov/food/food-safety-modernization-act-fsma' } },
       { id: 't3_2', title: 'USA: USDA Organic', desc: 'Strict standards for organic farming. Requires NOP compliance.', action: { label: 'View Standard', href: 'https://www.ams.usda.gov/services/organic-certification' } },
       { id: 't3_3', title: 'EU: BRCGS / IFS', desc: 'Global Standard for Food Safety, strictly required by EU retailers.', action: { label: 'View Standard', href: 'https://www.brcgs.com/' } },
@@ -64,22 +79,14 @@ const PHASES = [
     ]
   },
   {
-    id: 'p4',
-    title: 'Phase 4: Logistics, Packaging & Shipping',
-    icon: <Box className="w-5 h-5" />,
-    tasks: [
-      { id: 't4_1', title: 'Export-Grade Packaging', desc: 'Finalize moisture-proof bulk packaging for oceanic transit.', action: { label: 'View Standard', href: 'https://www.iip-in.com/' } },
-      { id: 't4_2', title: 'Finalize Freight Forwarders & CHA', desc: 'Appoint reliable shipping partners and Customs House Agents.', action: { label: 'Apply Now', href: 'https://www.icegate.gov.in/' } },
-      { id: 't4_3', title: 'Marine Insurance', desc: 'Secure comprehensive coverage for international shipments.', action: { label: 'Apply Now', href: 'https://main.ecgc.in/english/' } },
-      { id: 't4_4', title: 'Commercial Invoices & Packing Lists', desc: 'Generate correct documentation for the first consignment.', action: { label: 'Go to Documents', href: '/documents' } },
-    ]
-  },
-  {
-    id: 'p5',
-    title: 'Phase 5: Launch & Operations',
+    id: 'p6',
+    title: 'Phase 6: Logistics, Launch & Shipping',
     icon: <Rocket className="w-5 h-5" />,
     tasks: [
+      { id: 't4_2', title: 'Finalize Freight Forwarders & CHA', desc: 'Appoint reliable shipping partners and Customs House Agents.', action: { label: 'Apply Now', href: 'https://www.icegate.gov.in/' } },
+      { id: 't4_3', title: 'Marine Insurance', desc: 'Secure comprehensive coverage for international shipments.', action: { label: 'Apply Now', href: 'https://main.ecgc.in/english/' } },
       { id: 't5_1', title: 'AmrootOS & Store Live', desc: 'Ensure digital infrastructure is ready to receive and process orders.', action: { label: 'Go to Operations', href: '/operations' } },
+      { id: 't4_4', title: 'Commercial Invoices & Packing Lists', desc: 'Generate correct documentation for the first consignment.', action: { label: 'Go to Documents', href: '/documents' } },
       { id: 't5_2', title: 'First Shipment Dispatched', desc: 'Load and dispatch the first LCL/FCL container.', action: { label: 'Track Shipment', href: 'https://www.icegate.gov.in/TrackAtICES/' } },
       { id: 't5_3', title: 'Post-Arrival Verification', desc: 'Gather buyer feedback and verify quality upon arrival.', action: { label: 'View Research', href: '/research' } },
     ]
