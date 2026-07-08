@@ -89,6 +89,26 @@ export default function Sidebar() {
           </div>
         </Link>
 
+        <div className={`flex items-center justify-between px-3 py-2 text-sm rounded-xl border border-transparent text-[#F9F8F6]/40 cursor-not-allowed font-black tracking-wide ${isCollapsed ? 'justify-center' : ''}`}>
+          <div className="flex items-center gap-3">
+            <Anchor size={16} className="shrink-0 text-[#F9F8F6]/30" />
+            {!isCollapsed && <span>Operations</span>}
+          </div>
+          {!isCollapsed && (
+            <span className="text-[9px] uppercase font-bold tracking-wider bg-[#2D3142]/30 text-[#F9F8F6]/50 px-1.5 py-0.5 rounded">Soon</span>
+          )}
+        </div>
+
+        <div className={`flex items-center justify-between px-3 py-2 text-sm rounded-xl border border-transparent text-[#F9F8F6]/40 cursor-not-allowed font-black tracking-wide ${isCollapsed ? 'justify-center' : ''}`}>
+          <div className="flex items-center gap-3">
+            <FileText size={16} className="shrink-0 text-[#F9F8F6]/30" />
+            {!isCollapsed && <span>Documents</span>}
+          </div>
+          {!isCollapsed && (
+            <span className="text-[9px] uppercase font-bold tracking-wider bg-[#2D3142]/30 text-[#F9F8F6]/50 px-1.5 py-0.5 rounded">Soon</span>
+          )}
+        </div>
+
         <div className="h-6" /> {/* Spacer */}
         {!isCollapsed && <div className="px-3 mb-2 text-[10px] uppercase font-mono text-[#F9F8F6]/50 tracking-wider">Knowledge</div>}
 
@@ -108,15 +128,7 @@ export default function Sidebar() {
           {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
         </Link>
         
-        <div className={`flex items-center justify-between px-3 py-2 text-sm rounded-xl border border-transparent text-[#F9F8F6]/40 cursor-not-allowed font-black tracking-wide ${isCollapsed ? 'justify-center' : ''}`}>
-          <div className="flex items-center gap-3">
-            <Anchor size={16} className="shrink-0 text-[#F9F8F6]/30" />
-            {!isCollapsed && <span>Operations</span>}
-          </div>
-          {!isCollapsed && (
-            <span className="text-[9px] uppercase font-bold tracking-wider bg-[#2D3142]/30 text-[#F9F8F6]/50 px-1.5 py-0.5 rounded">Soon</span>
-          )}
-        </div>
+
         
         <Link href="/rd" className={getLinkClasses('/rd')}>
           <div className="flex items-center gap-3">
@@ -135,15 +147,7 @@ export default function Sidebar() {
           {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
         </Link>
 
-        <div className={`flex items-center justify-between px-3 py-2 text-sm rounded-xl border border-transparent text-[#F9F8F6]/40 cursor-not-allowed font-black tracking-wide ${isCollapsed ? 'justify-center' : ''}`}>
-          <div className="flex items-center gap-3">
-            <FileText size={16} className="shrink-0 text-[#F9F8F6]/30" />
-            {!isCollapsed && <span>Documents</span>}
-          </div>
-          {!isCollapsed && (
-            <span className="text-[9px] uppercase font-bold tracking-wider bg-[#2D3142]/30 text-[#F9F8F6]/50 px-1.5 py-0.5 rounded">Soon</span>
-          )}
-        </div>
+
       </div>
 
       <div className="mt-auto pt-6 border-t border-white/10 flex flex-col gap-1">
