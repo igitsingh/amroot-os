@@ -78,6 +78,9 @@ export default function LoginPage() {
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                 <input 
                   type="email" 
+                  name="email"
+                  id="email"
+                  autoComplete="username"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-[#111111] border border-[#333333] rounded-xl py-3.5 pl-12 pr-4 text-white font-medium focus:outline-none focus:bg-[#151515] focus:border-[#034F46] focus:ring-1 focus:ring-[#034F46] transition-all"
@@ -93,6 +96,9 @@ export default function LoginPage() {
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                 <input 
                   type={showPassword ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-[#111111] border border-[#333333] rounded-xl py-3.5 pl-12 pr-12 text-white font-medium focus:outline-none focus:bg-[#151515] focus:border-[#034F46] focus:ring-1 focus:ring-[#034F46] transition-all"
