@@ -6,7 +6,7 @@ import { Competitor } from '@prisma/client';
 import CompetitorDossier from './CompetitorDossier';
 import { Search, ChevronDown, ChevronRight, Filter, Download, X, 
   Plus, Mail, Users, Building, MapPin, CheckSquare, 
-  Square, Globe, LayoutGrid, ArrowUp, ArrowDown, ArrowUpDown, Eye, Send, Check
+  Square, Globe, LayoutGrid, ArrowUp, ArrowDown, ArrowUpDown, Eye, Send, Check, Instagram, Facebook
 } from 'lucide-react';
 
 const CompetitorPersonnelView = ({ initialCompetitors }: { initialCompetitors: any[] }) => {
@@ -874,6 +874,8 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                     const curcuminDisplay = intel?.curcuminDisplay || 'Unknown';
                     const websiteDisplay = intel?.websiteDisplay && intel.websiteDisplay !== "unknown" ? intel.websiteDisplay : 'website.com';
                     const websiteUrl = intel?.websiteUrl && intel.websiteUrl !== "#" ? intel.websiteUrl : 'https://website.com';
+                    const instagramUrl = intel?.instagramUrl && intel.instagramUrl !== "Not Publicly Available" ? intel.instagramUrl : null;
+                    const facebookUrl = intel?.facebookUrl && intel.facebookUrl !== "Not Publicly Available" ? intel.facebookUrl : null;
                     const isSelected = selectedIds.includes(comp.id);
                     
                     return (
@@ -915,10 +917,22 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                             </div>
                             <div>
                               <div className="text-[#2D3142]/90 text-sm font-medium">{company}</div>
-                              <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className={`text-[11px] ${websiteDisplay !== 'website.com' ? 'text-[#F16775]/80 hover:text-[#F16775]' : 'text-[#2D3142]/30 cursor-not-allowed pointer-events-none'} flex items-center gap-1 mt-0.5`} onClick={(e) => { e.stopPropagation(); if (websiteDisplay === 'website.com') e.preventDefault(); }}>
-                                <Globe className="w-3 h-3" /> 
-                                {websiteDisplay}
-                              </a>
+                              <div className="flex items-center gap-2 mt-0.5">
+                                <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className={`text-[11px] ${websiteDisplay !== 'website.com' ? 'text-[#F16775]/80 hover:text-[#F16775]' : 'text-[#2D3142]/30 cursor-not-allowed pointer-events-none'} flex items-center gap-1`} onClick={(e) => { e.stopPropagation(); if (websiteDisplay === 'website.com') e.preventDefault(); }}>
+                                  <Globe className="w-3 h-3" /> 
+                                  {websiteDisplay}
+                                </a>
+                                {instagramUrl && (
+                                  <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
+                                    <Instagram className="w-3 h-3" />
+                                  </a>
+                                )}
+                                {facebookUrl && (
+                                  <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
+                                    <Facebook className="w-3 h-3" />
+                                  </a>
+                                )}
+                              </div>
                             </div>
                           </div>
                         </td>
