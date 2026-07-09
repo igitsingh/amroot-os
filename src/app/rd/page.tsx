@@ -1,30 +1,30 @@
 import React from 'react';
 import { prisma } from '@database/client';
 import { 
-  FlaskRound, 
   Search, 
-  Microscope, 
-  Library,
   Network,
-  ArrowRight,
-  TestTube,
-  Activity,
-  LineChart
+  Library,
+  Microscope
 } from 'lucide-react';
-import InstitutionalResources from './InstitutionalResources';
-import MarketIntelligenceDashboard from './MarketIntelligenceDashboard';
-import GreenCollarResources from './GreenCollarResources';
-import ExtractionTechnologies from './ExtractionTechnologies';
+import RDView from './RDView';
+import { extractionMethodsData, agritechTrialsData, marketTrendsData } from '../../db/intelligence/rd-data';
+import fs from 'fs/promises';
+import path from 'path';
 
-export default async function RDHubPage() {
+export default async function RDHubPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   let activeResearchJobs = 0;
   let totalResearchPapers = 0;
   let totalTrials = 0;
+  let tools = [];
   
-  let agritechTrials: any[] = [];
-  let extractionMethods: any[] = [];
-  let marketTrends: any[] = [];
-
+  try {
+    const jsonPath = path.join(process.cwd(), 'src/db/intelligence/tools/tools.json');
+    const data = await fs.readFile(jsonPath, 'utf8');
+    tools = JSON.parse(data);
+  } catch (error) {
+    console.error("Failed to load local tools JSON", error);
+  }
+  
   try {
     const results = await Promise.all([
       prisma.researchJob.count({ where: { status: { in: ['QUEUED', 'RESEARCHING'] } } }),
@@ -41,72 +41,27 @@ export default async function RDHubPage() {
   }
 
   return (
-    <div className="flex flex-col w-full space-y-6 pb-10">
-      
+    <div className="h-full flex flex-col bg-white overflow-hidden text-sm">
       {/* Header */}
-      <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D3142]/10 pb-6">
+      <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D3142]/10 p-6 md:p-8 shrink-0">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-[#2D3142] mb-2">R&D Intelligence Hub</h1>
           <p className="text-[#2D3142]/60 text-sm max-w-2xl">
             Track extraction innovations, agritech tool trials, and macro market trends for the Turmeric supply chain.
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 bg-indigo-500/20 border border-indigo-500/30 text-[#F16775] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-500/30 transition-colors">
-            <Search className="w-4 h-4" />
-            Launch AI Synthesizer Job
-          </button>
-        </div>
       </header>
-
-      {/* KPI Dashboard */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* Active Research Jobs */}
-        <div className="bg-white border border-indigo-500/20 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-indigo-500/40 transition-colors">
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-[#F16775]/10 blur-2xl rounded-full group-hover:bg-indigo-500/20 transition-colors" />
-          <div className="flex items-start justify-between mb-2">
-            <h3 className="text-[#F16775] text-xs font-semibold uppercase tracking-wider">Active Agent Jobs</h3>
-            <Network className="w-4 h-4 text-[#F16775]" />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-[#2D3142]">{activeResearchJobs}</span>
-          </div>
-          <p className="text-[#2D3142]/40 text-xs mt-2">Autonomous AI researchers currently active.</p>
-        </div>
-
-        {/* Literature Base */}
-        <div className="bg-white border border-cyan-500/20 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-cyan-500/40 transition-colors">
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-cyan-500/10 blur-2xl rounded-full group-hover:bg-cyan-500/20 transition-colors" />
-          <div className="flex items-start justify-between mb-2">
-            <h3 className="text-cyan-400 text-xs font-semibold uppercase tracking-wider">Scientific Literature</h3>
-            <Library className="w-4 h-4 text-cyan-500" />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-[#2D3142]">{totalResearchPapers}</span>
-          </div>
-          <p className="text-[#2D3142]/40 text-xs mt-2">Ingested peer-reviewed papers.</p>
-        </div>
-
-        {/* Clinical Trials */}
-        <div className="bg-white border border-violet-500/20 backdrop-blur-md p-5 rounded-xl relative overflow-hidden group hover:border-violet-500/40 transition-colors">
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-violet-500/10 blur-2xl rounded-full group-hover:bg-violet-500/20 transition-colors" />
-          <div className="flex items-start justify-between mb-2">
-            <h3 className="text-violet-400 text-xs font-semibold uppercase tracking-wider">Clinical Trials</h3>
-            <Microscope className="w-4 h-4 text-violet-500" />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-[#2D3142]">{totalTrials}</span>
-          </div>
-          <p className="text-[#2D3142]/40 text-xs mt-2">Monitored human and preclinical trials.</p>
-        </div>
-      </div>
       
-      {/* Grand View Research Market Intelligence */}
-      <MarketIntelligenceDashboard />
-
-      <ExtractionTechnologies />
-      <GreenCollarResources />
-      <InstitutionalResources />
+      {/* Table UI */}
+      <div className="flex-1 overflow-hidden min-h-0">
+        <RDView 
+          extractionMethods={extractionMethodsData} 
+          agritechTrials={agritechTrialsData} 
+          marketTrends={marketTrendsData} 
+          agritechTools={tools}
+          initialTab={(searchParams?.tab as string) || 'trends'}
+        />
+      </div>
     </div>
   );
 }

@@ -102,3 +102,315 @@ export const marketTrendsData = [
     url: 'https://www.mfec.in/appreciation-post-a-new-chapter-for-meghalayas-lakadong-begins-now/'
   }
 ];
+
+export const premiumTurmericData = {
+  name: "Premium Lakadong Turmeric Powder",
+  botanicalIdentity: {
+    species: "Curcuma longa",
+    family: "Zingiberaceae",
+    partUsed: "Rhizome",
+    origin: "Lakadong, Meghalaya, India (GI Tagged)"
+  },
+  keyBioactives: [
+    { name: "Curcumin", percentage: "7% - 12%" },
+    { name: "Demethoxycurcumin (DMC)", percentage: "1.5% - 2%" },
+    { name: "Bisdemethoxycurcumin (BDMC)", percentage: "1% - 1.5%" },
+    { name: "Volatile Oils (Turmerone)", percentage: "4% - 6%" }
+  ],
+  nutritionalProfile: {
+    macronutrients: [
+      { name: "Carbohydrates", value: "65g - 69g" },
+      { name: "Dietary Fiber", value: "21g" },
+      { name: "Protein", value: "8g" },
+      { name: "Total Fat", value: "9.8g" },
+      { name: "Energy", value: "312 kcal" }
+    ],
+    minerals: [
+      { name: "Potassium", value: "2500 mg" },
+      { name: "Iron", value: "41.4 mg" },
+      { name: "Magnesium", value: "193 mg" },
+      { name: "Calcium", value: "183 mg" }
+    ],
+    vitamins: [
+      { name: "Vitamin C", value: "25.9 mg" },
+      { name: "Vitamin B6", value: "1.8 mg" },
+      { name: "Vitamin B3 (Niacin)", value: "5.1 mg" },
+      { name: "Vitamin E", value: "3.1 mg" }
+    ]
+  },
+  properties: {
+    appearance: "Deep yellow-orange fine powder",
+    solubility: "Insoluble in water; Soluble in ethanol, acetone, and oils",
+    moistureContent: "< 10%",
+    particleSize: "100% passes through 80 mesh"
+  },
+  sensory: {
+    color: "Golden to deep orange",
+    aroma: "Earthy, slightly musky with hints of citrus",
+    taste: "Warm, slightly bitter, pungent"
+  },
+  safety: {
+    heavyMetals: {
+      lead: "< 2.0 ppm",
+      arsenic: "< 1.0 ppm",
+      cadmium: "< 1.0 ppm",
+      mercury: "< 0.1 ppm"
+    },
+    microbial: {
+      totalPlateCount: "< 10,000 cfu/g",
+      yeastAndMold: "< 1,000 cfu/g",
+      eColi: "Absent in 10g",
+      salmonella: "Absent in 25g"
+    }
+  },
+  adulterants: [
+    "Lead Chromate (yellow dye)",
+    "Metanil Yellow",
+    "Starch (Corn/Cassava)",
+    "Chalk Powder"
+  ],
+  formulation: {
+    synergies: "Black Pepper (Piperine) increases bioavailability by 2000%; Lipids (Coconut oil, ghee) enhance absorption.",
+    stability: "Light-sensitive (degrades rapidly in UV); Heat stable up to 150°C during cooking."
+  },
+  processingAndPackaging: {
+    curingAndDrying: "Boil fresh rhizomes for 45 mins to ensure uniform color and sterilization, then sun/solar dry to < 10% moisture.",
+    milling: "Use cryogenic or low-heat hammer mills to prevent thermal degradation of volatile oils. Sieve to 80 mesh.",
+    packaging: "B2B: 25kg Polyethylene-lined multi-wall kraft bags. Retail: Laminated aluminum foil pouches for absolute UV/moisture block.",
+    shelfLife: "24-36 months if stored < 25°C in airtight, light-proof containers."
+  }
+};
+
+export const organicTurmericData = {
+  name: "Organic Turmeric Powder",
+  botanicalIdentity: {
+    species: "Curcuma longa",
+    family: "Zingiberaceae",
+    partUsed: "Rhizome",
+    origin: "India"
+  },
+  keyBioactives: [
+    { name: "Curcumin", percentage: "2% - 4%" },
+    { name: "Demethoxycurcumin (DMC)", percentage: "0.5% - 1%" },
+    { name: "Bisdemethoxycurcumin (BDMC)", percentage: "0.2% - 0.5%" },
+    { name: "Volatile Oils (Turmerone)", percentage: "1% - 3%" }
+  ],
+  nutritionalProfile: {
+    macronutrients: [
+      { name: "Carbohydrates", value: "65g - 69g" },
+      { name: "Dietary Fiber", value: "21g" },
+      { name: "Protein", value: "8g" },
+      { name: "Total Fat", value: "9.8g" },
+      { name: "Energy", value: "312 kcal" }
+    ],
+    minerals: [
+      { name: "Potassium", value: "2500 mg" },
+      { name: "Iron", value: "41.4 mg" },
+      { name: "Magnesium", value: "193 mg" },
+      { name: "Calcium", value: "183 mg" }
+    ],
+    vitamins: [
+      { name: "Vitamin C", value: "25.9 mg" },
+      { name: "Vitamin B6", value: "1.8 mg" },
+      { name: "Vitamin B3 (Niacin)", value: "5.1 mg" },
+      { name: "Vitamin E", value: "3.1 mg" }
+    ]
+  },
+  properties: {
+    appearance: "Yellow to light orange fine powder",
+    solubility: "Insoluble in water; Soluble in ethanol, acetone, and oils",
+    moistureContent: "< 10%",
+    particleSize: "100% passes through 80 mesh"
+  },
+  sensory: {
+    color: "Yellow to light orange",
+    aroma: "Earthy, mildly mustard-like",
+    taste: "Warm, slightly bitter"
+  },
+  safety: {
+    heavyMetals: {
+      lead: "< 2.0 ppm",
+      arsenic: "< 1.0 ppm",
+      cadmium: "< 1.0 ppm",
+      mercury: "< 0.1 ppm"
+    },
+    microbial: {
+      totalPlateCount: "< 10,000 cfu/g",
+      yeastAndMold: "< 1,000 cfu/g",
+      eColi: "Absent in 10g",
+      salmonella: "Absent in 25g"
+    }
+  },
+  adulterants: [
+    "Lead Chromate (yellow dye)",
+    "Metanil Yellow",
+    "Starch (Corn/Cassava)",
+    "Chalk Powder"
+  ],
+  formulation: {
+    synergies: "Black Pepper (Piperine) increases bioavailability by 2000%; Lipids (Coconut oil, ghee) enhance absorption.",
+    stability: "Light-sensitive (degrades rapidly in UV); Heat stable up to 150°C during cooking."
+  },
+  processingAndPackaging: {
+    curingAndDrying: "Standard curing process, sun/solar dry to < 10% moisture.",
+    milling: "Standard hammer mills. Sieve to 80 mesh.",
+    packaging: "B2B: 25kg Polyethylene-lined multi-wall kraft bags. Retail: Laminated aluminum foil pouches for absolute UV/moisture block.",
+    shelfLife: "24-36 months if stored < 25°C in airtight, light-proof containers."
+  }
+};
+
+export const premiumGingerData = {
+  name: "Premium Jaintia Hills Ginger Powder",
+  botanicalIdentity: {
+    species: "Zingiber rubens (Ing Makhir)",
+    family: "Zingiberaceae",
+    partUsed: "Rhizome",
+    origin: "Jaintia Hills, Meghalaya, India"
+  },
+  keyBioactives: [
+    { name: "6-Gingerol", percentage: "1.5% - 2.5%" },
+    { name: "8-Gingerol", percentage: "0.2% - 0.5%" },
+    { name: "6-Shogaol (formed during drying)", percentage: "0.4% - 1.2%" },
+    { name: "Essential Oils (Zingiberene)", percentage: "1% - 3%" }
+  ],
+  nutritionalProfile: {
+    macronutrients: [
+      { name: "Carbohydrates", value: "71.6g" },
+      { name: "Dietary Fiber", value: "14.1g" },
+      { name: "Protein", value: "8.9g" },
+      { name: "Total Fat", value: "4.2g" },
+      { name: "Energy", value: "335 kcal" }
+    ],
+    minerals: [
+      { name: "Potassium", value: "1320 mg" },
+      { name: "Magnesium", value: "214 mg" },
+      { name: "Calcium", value: "114 mg" },
+      { name: "Iron", value: "19.8 mg" },
+      { name: "Manganese", value: "33.3 mg" }
+    ],
+    vitamins: [
+      { name: "Vitamin C", value: "5 mg" },
+      { name: "Vitamin B3 (Niacin)", value: "9.6 mg" },
+      { name: "Vitamin B6", value: "0.6 mg" },
+      { name: "Vitamin E", value: "18 mg" }
+    ]
+  },
+  properties: {
+    appearance: "Pale yellow to light brown fine powder",
+    solubility: "Partially soluble in water; Soluble in alcohol",
+    moistureContent: "< 10%",
+    particleSize: "100% passes through 60-80 mesh"
+  },
+  sensory: {
+    color: "Light creamy yellow",
+    aroma: "Spicy, fresh, aromatic, slightly sweet",
+    taste: "Hot, pungent, biting, slightly sweet"
+  },
+  safety: {
+    heavyMetals: {
+      lead: "< 2.0 ppm",
+      arsenic: "< 1.0 ppm",
+      cadmium: "< 1.0 ppm",
+      mercury: "< 0.1 ppm"
+    },
+    microbial: {
+      totalPlateCount: "< 10,000 cfu/g",
+      yeastAndMold: "< 1,000 cfu/g",
+      eColi: "Absent in 10g",
+      salmonella: "Absent in 25g"
+    }
+  },
+  adulterants: [
+    "Exhausted Ginger (oil extracted)",
+    "Chili Powder / Capsaicin (for artificial heat)",
+    "Starch / Flour"
+  ],
+  formulation: {
+    synergies: "Lemon, Honey, Turmeric (Anti-inflammatory stack), Mint (Digestive stack).",
+    stability: "Gingerols convert to more pungent Shogaols upon heating or long-term storage."
+  },
+  processingAndPackaging: {
+    curingAndDrying: "Wash thoroughly, slice thinly to maximize surface area, and mechanical dry at 50-60°C to < 10% moisture.",
+    milling: "Low-temperature grinding required. High heat rapidly degrades gingerol content. Sieve to 60-80 mesh.",
+    packaging: "B2B: 25kg PE-lined gunny bags. Retail: PET jars or multi-layer pouches to block oxygen and moisture.",
+    shelfLife: "24 months in a cool, dry, dark environment."
+  }
+};
+
+export const organicGingerData = {
+  name: "Organic Ginger Powder",
+  botanicalIdentity: {
+    species: "Zingiber officinale",
+    family: "Zingiberaceae",
+    partUsed: "Rhizome",
+    origin: "India"
+  },
+  keyBioactives: [
+    { name: "6-Gingerol", percentage: "0.1% - 1.0%" },
+    { name: "8-Gingerol", percentage: "0.05% - 0.2%" },
+    { name: "6-Shogaol (formed during drying)", percentage: "0.1% - 0.4%" },
+    { name: "Essential Oils (Zingiberene)", percentage: "0.5% - 1.5%" }
+  ],
+  nutritionalProfile: {
+    macronutrients: [
+      { name: "Carbohydrates", value: "71.6g" },
+      { name: "Dietary Fiber", value: "14.1g" },
+      { name: "Protein", value: "8.9g" },
+      { name: "Total Fat", value: "4.2g" },
+      { name: "Energy", value: "335 kcal" }
+    ],
+    minerals: [
+      { name: "Potassium", value: "1320 mg" },
+      { name: "Magnesium", value: "214 mg" },
+      { name: "Calcium", value: "114 mg" },
+      { name: "Iron", value: "19.8 mg" },
+      { name: "Manganese", value: "33.3 mg" }
+    ],
+    vitamins: [
+      { name: "Vitamin C", value: "5 mg" },
+      { name: "Vitamin B3 (Niacin)", value: "9.6 mg" },
+      { name: "Vitamin B6", value: "0.6 mg" },
+      { name: "Vitamin E", value: "18 mg" }
+    ]
+  },
+  properties: {
+    appearance: "Pale yellow to light brown fine powder",
+    solubility: "Partially soluble in water; Soluble in alcohol",
+    moistureContent: "< 10%",
+    particleSize: "100% passes through 60-80 mesh"
+  },
+  sensory: {
+    color: "Light creamy yellow",
+    aroma: "Mildly spicy, earthy",
+    taste: "Warm, moderately pungent"
+  },
+  safety: {
+    heavyMetals: {
+      lead: "< 2.0 ppm",
+      arsenic: "< 1.0 ppm",
+      cadmium: "< 1.0 ppm",
+      mercury: "< 0.1 ppm"
+    },
+    microbial: {
+      totalPlateCount: "< 10,000 cfu/g",
+      yeastAndMold: "< 1,000 cfu/g",
+      eColi: "Absent in 10g",
+      salmonella: "Absent in 25g"
+    }
+  },
+  adulterants: [
+    "Exhausted Ginger (oil extracted)",
+    "Chili Powder / Capsaicin (for artificial heat)",
+    "Starch / Flour"
+  ],
+  formulation: {
+    synergies: "Lemon, Honey, Turmeric (Anti-inflammatory stack), Mint (Digestive stack).",
+    stability: "Gingerols convert to more pungent Shogaols upon heating or long-term storage."
+  },
+  processingAndPackaging: {
+    curingAndDrying: "Standard washing and sun drying to < 10% moisture.",
+    milling: "Standard hammer mills. Sieve to 60-80 mesh.",
+    packaging: "B2B: 25kg PE-lined gunny bags. Retail: PET jars or multi-layer pouches to block oxygen and moisture.",
+    shelfLife: "24 months in a cool, dry, dark environment."
+  }
+};

@@ -26,5 +26,61 @@
     "uploadedBy": {
       "name": "Founder"
     }
+  },
+  {
+    "id": "mock-1783635631861",
+    "title": "REFERENCE TRADEMARK REJECTION",
+    "fileUrl": "/vault/1783635631860-REFERENCE_TRADEMARK_REJECTION.png",
+    "documentType": "OTHER",
+    "checksum": "07ee3901a6e1632a9ed5c45e6f6496d4fe15c768f5e1658291c6dced4777a74d",
+    "uploadedById": "mock-founder",
+    "lifecycleStage": "VERIFICATION",
+    "intelligenceScore": 100,
+    "createdAt": "2026-07-09T22:20:31.861Z",
+    "evidence": [
+      {
+        "id": "mock-evidence-1783635639082",
+        "entityType": "DOCUMENT",
+        "entityId": "mock-1783635631861",
+        "fieldName": "Authenticity",
+        "value": "Confirmed",
+        "valueType": "BOOLEAN",
+        "sourceName": "AmrootOS AI Intelligence Engine",
+        "sourceTier": 1,
+        "verificationStatus": "VERIFIED",
+        "confidenceScore": 98.5
+      }
+    ],
+    "uploadedBy": {
+      "name": "Founder"
+    }
+  },
+  {
+    "id": "mock-1783635721332",
+    "title": "aQysta_CHINMOY SHARMA_Business Card",
+    "fileUrl": "/vault/1783635721328-aQysta_CHINMOY_SHARMA_Business_Card.pdf",
+    "documentType": "OTHER",
+    "checksum": "fc25682fc6df1359c04502126c86419d053fd8ba70d5f42e3c157eba955a519a",
+    "uploadedById": "mock-founder",
+    "lifecycleStage": "VERIFICATION",
+    "intelligenceScore": 100,
+    "createdAt": "2026-07-09T22:22:01.332Z",
+    "evidence": [
+      {
+        "id": "mock-evidence-1783635726481",
+        "entityType": "DOCUMENT",
+        "entityId": "mock-1783635721332",
+        "fieldName": "Authenticity",
+        "value": "Confirmed",
+        "valueType": "BOOLEAN",
+        "sourceName": "AmrootOS AI Intelligence Engine",
+        "sourceTier": 1,
+        "verificationStatus": "VERIFIED",
+        "confidenceScore": 98.5
+      }
+    ],
+    "uploadedBy": {
+      "name": "Founder"
+    }
   }
 ]

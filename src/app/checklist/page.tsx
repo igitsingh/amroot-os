@@ -20,7 +20,7 @@ const PHASES = [
     title: 'Phase 1: Pre-Registration Document Collection',
     icon: <FileText className="w-5 h-5" />,
     tasks: [
-      { id: 't0_0', title: 'Brand & Proprietary Name Selection', desc: 'Select a distinct, non-trademarked name for the brand.', why: 'Avoids costly trademark disputes and rebranding. Amroot and Amroot Organics present severe risks due to existing similar marks. A highly distinctive name ensures clear registration in Class 30.', actions: [{ label: 'View 280+ Name Options', href: '/brand#name-selection' }] },
+      { id: 't0_0', title: 'Brand & Proprietary Name Selection', desc: 'Select a distinct, non-trademarked name for the brand.', actions: [{ label: 'View 280+ Name Options', href: '/brand#name-selection' }] },
       { id: 't0_1', mutexGroup: 'company_types', subheading: 'COMPANY REGISTRATION TYPES', title: 'Individual / Proprietorship Docs', desc: 'Name, Postal Address, PAN, and Aadhaar.', why: 'Used by solo founders at the very early ideation stage to test the market. It requires minimal compliance but carries unlimited personal liability.', actions: [{ label: 'Proprietorship Guide', href: 'https://www.startupindia.gov.in/' }, { label: 'MSME Udyam Portal', href: 'https://udyamregistration.gov.in/' }, { label: 'GST Portal', href: 'https://www.gst.gov.in/' }] },
       { id: 't0_2', mutexGroup: 'company_types', title: 'Partnership Firm Docs', desc: 'Partnership Deed, Firm PAN, Address Proof.', why: 'Used by 2+ founders seeking a simple, traditional structure to pool resources. Often used in family businesses. Partners share unlimited liability.', actions: [{ label: 'Partnership Act (PDF)', href: 'https://www.mca.gov.in/Ministry/actsbills/pdf/Partnership_Act_1932.pdf' }, { label: 'Apply for PAN (Protean)', href: 'https://www.protean-tinpan.com/' }, { label: 'GST Portal', href: 'https://www.gst.gov.in/' }] },
       { id: 't0_3', mutexGroup: 'company_types', title: 'LLP Documents', desc: 'LLP Agreement, LLP PAN, LLPIN.', why: 'Highly recommended for bootstrapping SMEs. Used by service or trading agencies that want personal asset protection but with a lower compliance burden than a Private Limited Company.', actions: [{ label: 'MCA FiLLiP Portal', href: 'https://www.mca.gov.in/content/mca/global/en/mca/fo-llp-services/llp-incorporation.html' }, { label: 'Check Name Availability', href: 'https://www.mca.gov.in/content/mca/global/en/mca/fo-llp-services/company-llp-name-search.html' }, { label: 'Find a CA/CS', href: 'https://www.icai.org/' }] },
@@ -36,9 +36,9 @@ const PHASES = [
       { id: 't1_3', title: 'Company Registration & Bank Account', desc: 'Ensure proper business structure for export operations.', action: { label: 'MCA Login Portal', href: 'https://www.mca.gov.in/content/mca/global/en/home.html' } },
       { id: 't1_4', title: 'GST Registration', desc: 'Goods and Services Tax portal for the business entity. Required for LUT for exports.', action: { label: 'Apply Now', href: 'https://www.gst.gov.in/' } },
       { id: 't1_2', title: 'Logo Finalisation', desc: 'Finalize the primary logo design and variations for the brand identity.', action: { label: 'View Options', href: '/brand' } },
-      { id: 't0_6', title: 'Trademark Representation', desc: 'Exact trademark image/text for filing. 💡 Hint: File under Class 30 (Spices). A distinct brand protects your IP and builds global trust.', action: { label: 'IP India Portal', href: 'https://ipindia.gov.in/' }, optional: 'NOT NECESSARY UNTIL YOU HAVE SHIPPED ATLEAST 10+ ORDERS' },
-      { id: 't1_5', title: 'Brand Name Trademark', desc: 'Secure the text trademark for the Amroot Organics brand name.', action: { label: 'Apply Now', href: 'https://ipindia.gov.in/' }, optional: 'NOT NECESSARY UNTIL YOU HAVE SHIPPED ATLEAST 10+ ORDERS' },
-      { id: 't1_6', title: 'Logo Trademark', desc: 'Secure the visual trademark for the finalized Amroot Organics logo.', action: { label: 'Apply Now', href: 'https://ipindia.gov.in/' }, optional: 'NOT NECESSARY UNTIL YOU HAVE SHIPPED ATLEAST 10+ ORDERS' },
+      { id: 't0_6', inactive: true, title: 'Trademark Representation', desc: 'Exact trademark image/text for filing. 💡 Hint: File under Class 30 (Spices). A distinct brand protects your IP and builds global trust.', action: { label: 'IP India Portal', href: 'https://ipindia.gov.in/' }, optional: 'NOT NECESSARY UNTIL YOU HAVE SHIPPED ATLEAST 10+ ORDERS' },
+      { id: 't1_5', inactive: true, title: 'Brand Name Trademark', desc: 'Secure the text trademark for the Amroot Organics brand name.', action: { label: 'Apply Now', href: 'https://ipindia.gov.in/' }, optional: 'NOT NECESSARY UNTIL YOU HAVE SHIPPED ATLEAST 10+ ORDERS' },
+      { id: 't1_6', inactive: true, title: 'Logo Trademark', desc: 'Secure the visual trademark for the finalized Amroot Organics logo.', action: { label: 'Apply Now', href: 'https://ipindia.gov.in/' }, optional: 'NOT NECESSARY UNTIL YOU HAVE SHIPPED ATLEAST 10+ ORDERS' },
       { id: 't1_1', title: 'Website Domain Registrations', desc: 'Register domain names for the global e-commerce and corporate sites.', action: { label: 'Register', href: 'https://www.hostinger.com', doneHref: 'https://hpanel.hostinger.com/domains' } },
       { id: 't1_9', title: 'MSME / Udyam', desc: 'Registration for access to government subsidies and trade fairs.', action: { label: 'Apply Now', href: 'https://udyamregistration.gov.in/' } },
     ]
@@ -167,10 +167,8 @@ export default function LaunchChecklistPage() {
       updated = updated.filter(id => id !== taskId);
     } else {
       if (task?.mutexGroup) {
-        const otherTaskIds = phase.tasks
-          .filter((t: any) => t.mutexGroup === task.mutexGroup && t.id !== taskId)
-          .map((t: any) => t.id);
-        updated = updated.filter(id => !otherTaskIds.includes(id));
+        const isMutexDisabled = phase.tasks.some((t: any) => t.mutexGroup === task.mutexGroup && t.id !== taskId && completedTasks.includes(t.id));
+        if (isMutexDisabled) return;
       }
       updated.push(taskId);
     }
@@ -204,13 +202,29 @@ export default function LaunchChecklistPage() {
 
   const totalTasks = PHASES.reduce((acc, phase) => {
     // @ts-ignore
-    return acc + (phase.isMutuallyExclusive ? 1 : phase.tasks.length);
+    const activeTasks = phase.tasks.filter(t => !t.inactive);
+    // @ts-ignore
+    const mutexGroups = new Set(activeTasks.map(t => t.mutexGroup).filter(Boolean));
+    // @ts-ignore
+    const standardTasks = activeTasks.filter(t => !t.mutexGroup).length;
+    return acc + standardTasks + mutexGroups.size;
   }, 0);
   
   const completedCount = PHASES.reduce((acc, phase) => {
-    const doneInPhase = phase.tasks.filter(t => completedTasks.includes(t.id)).length;
     // @ts-ignore
-    return acc + (phase.isMutuallyExclusive ? Math.min(doneInPhase, 1) : doneInPhase);
+    const activeTasks = phase.tasks.filter(t => !t.inactive);
+    // @ts-ignore
+    const mutexGroups = new Set(activeTasks.map(t => t.mutexGroup).filter(Boolean));
+    // @ts-ignore
+    const standardTasksDone = activeTasks.filter(t => !t.mutexGroup && completedTasks.includes(t.id)).length;
+    let mutexDone = 0;
+    mutexGroups.forEach(group => {
+       // @ts-ignore
+       if (activeTasks.some(t => t.mutexGroup === group && completedTasks.includes(t.id))) {
+           mutexDone++;
+       }
+    });
+    return acc + standardTasksDone + mutexDone;
   }, 0);
 
   const progressPercentage = Math.round((completedCount / totalTasks) * 100) || 0;
@@ -330,6 +344,7 @@ export default function LaunchChecklistPage() {
                 <div className="flex flex-col">
                   {phase.tasks.map((task: any, i) => {
                     const isDone = completedTasks.includes(task.id);
+                    const isMutexDisabled = !isDone && task.mutexGroup && phase.tasks.some((t: any) => t.mutexGroup === task.mutexGroup && t.id !== task.id && completedTasks.includes(t.id));
                     return (
                       <React.Fragment key={task.id}>
                         {/* @ts-ignore */}
@@ -340,9 +355,9 @@ export default function LaunchChecklistPage() {
                           </div>
                         )}
                         <div 
-                          onClick={() => toggleTask(task.id, phase)}
+                          onClick={() => !isMutexDisabled && toggleTask(task.id, phase)}
                           // @ts-ignore
-                          className={`group flex items-start gap-4 p-5 cursor-pointer transition-colors hover:bg-[#F4F1EA]/50 ${i !== phase.tasks.length - 1 && (!task.mutexGroup || phase.tasks[i+1]?.mutexGroup !== task.mutexGroup) ? 'border-b border-[#2D3142]/5' : ''}`}
+                          className={`group flex items-start gap-4 p-5 transition-colors ${isMutexDisabled ? 'opacity-40 cursor-not-allowed grayscale' : 'cursor-pointer hover:bg-[#F4F1EA]/50'} ${i !== phase.tasks.length - 1 && (!task.mutexGroup || phase.tasks[i+1]?.mutexGroup !== task.mutexGroup) ? 'border-b border-[#2D3142]/5' : ''}`}
                         >
                         <div className="mt-0.5 shrink-0 transition-transform group-hover:scale-110">
                           {isDone ? (
@@ -421,9 +436,9 @@ export default function LaunchChecklistPage() {
                                   handleSave();
                                 }
                               }}
-                              disabled={isSaving || (isDone && !hasUnsavedChanges)}
+                              disabled={isSaving || (isDone && !hasUnsavedChanges) || isMutexDisabled}
                               className={`inline-flex items-center justify-center min-w-[120px] px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 ml-auto ${
-                                isSaving 
+                                isSaving || isMutexDisabled
                                   ? 'bg-[#2D3142]/10 text-[#2D3142]/40 cursor-not-allowed'
                                   : (isDone && !hasUnsavedChanges)
                                     ? 'bg-[#034F46]/10 text-[#034F46]/50 cursor-not-allowed'

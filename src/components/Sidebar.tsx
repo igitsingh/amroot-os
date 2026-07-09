@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Outfit } from 'next/font/google';
-import { Search, Sparkles, Calendar, Database, Anchor, FlaskConical, FileText, Settings, PanelLeftClose, PanelLeftOpen, Cpu, BookOpen, ExternalLink, ShoppingBag, ListTodo, LogOut, PenTool } from 'lucide-react';
+import { Search, Sparkles, Calendar, Database, Anchor, FlaskConical, FileText, Settings, PanelLeftClose, PanelLeftOpen, Cpu, BookOpen, ExternalLink, ShoppingBag, ListTodo, LogOut, PenTool, ChevronDown, ChevronRight, Package } from 'lucide-react';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 import { logoutAction } from '@/app/login/actions';
@@ -12,6 +12,7 @@ import { logoutAction } from '@/app/login/actions';
 export default function Sidebar() {
   const pathname = usePathname();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isBrandExpanded, setIsBrandExpanded] = useState(true);
 
   if (pathname === '/login') return null;
 
@@ -82,37 +83,66 @@ export default function Sidebar() {
           </div>
           {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">New</span>}
         </Link>
-        <Link href="/brand" className={getLinkClasses('/brand')}>
+        <button 
+          onClick={() => setIsBrandExpanded(!isBrandExpanded)}
+          className={`w-full flex items-center justify-between px-3 py-2 text-sm rounded-xl transition-all ${isCollapsed ? 'justify-center' : ''} group border border-transparent font-bold tracking-wide ${isActive('/brand') ? 'bg-white/10 text-white' : 'text-[#F9F8F6]/70 hover:bg-white/5 hover:text-white hover:border-white/10'}`}
+        >
           <div className="flex items-center gap-3">
             <ShoppingBag size={16} className={getIconClasses('/brand')} />
             {!isCollapsed && <span>Brand</span>}
           </div>
-        </Link>
-        
-        <Link href="/checklist" className={getLinkClasses('/checklist')}>
-          <div className="flex items-center gap-3">
-            <ListTodo size={16} className={getIconClasses('/checklist')} />
-            {!isCollapsed && <span>Launch Checklist</span>}
-          </div>
-        </Link>
-
-        <div className={`flex items-center justify-between px-3 py-2 text-sm rounded-xl border border-transparent text-[#F9F8F6]/40 cursor-not-allowed font-black tracking-wide ${isCollapsed ? 'justify-center' : ''}`}>
-          <div className="flex items-center gap-3">
-            <Anchor size={16} className="shrink-0 text-[#F9F8F6]/30" />
-            {!isCollapsed && <span>Operations</span>}
-          </div>
           {!isCollapsed && (
-            <span className="text-[9px] uppercase font-bold tracking-wider bg-[#2D3142]/30 text-[#F9F8F6]/50 px-1.5 py-0.5 rounded">Soon</span>
+            isBrandExpanded ? <ChevronDown size={14} className="text-[#F9F8F6]/50 group-hover:text-white" /> : <ChevronRight size={14} className="text-[#F9F8F6]/50 group-hover:text-white" />
           )}
-        </div>
+        </button>
+        
+        {(isBrandExpanded || isCollapsed) && (
+          <div className="flex flex-col space-y-1">
+            <Link href="/brand" className={getLinkClasses('/brand')}>
+              <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
+                <ShoppingBag size={16} className={getIconClasses('/brand')} />
+                {!isCollapsed && <span>Your Brand</span>}
+              </div>
+            </Link>
+            <Link href="/your-product" className={getLinkClasses('/your-product')}>
+              <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
+                <Package size={16} className={getIconClasses('/your-product')} />
+                {!isCollapsed && <span>Your Products</span>}
+              </div>
+            </Link>
+            <Link href="/suppliers" className={getLinkClasses('/suppliers')}>
+              <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
+                <Database size={16} className={getIconClasses('/suppliers')} />
+                {!isCollapsed && <span>Suppliers</span>}
+              </div>
+              {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
+            </Link>
+            <Link href="/checklist" className={getLinkClasses('/checklist')}>
+              <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
+                <ListTodo size={16} className={getIconClasses('/checklist')} />
+                {!isCollapsed && <span>Launch Checklist</span>}
+              </div>
+            </Link>
 
-        <Link href="/vault" className={getLinkClasses('/vault')}>
-          <div className="flex items-center gap-3">
-            <FileText size={16} className={getIconClasses('/vault')} />
-            {!isCollapsed && <span>Documents</span>}
+            <div className={`flex items-center justify-between px-3 py-2 text-sm rounded-xl border border-transparent text-[#F9F8F6]/40 cursor-not-allowed font-black tracking-wide ${isCollapsed ? 'justify-center' : ''}`}>
+              <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
+                <Anchor size={16} className="shrink-0 text-[#F9F8F6]/30" />
+                {!isCollapsed && <span>Operations</span>}
+              </div>
+              {!isCollapsed && (
+                <span className="text-[9px] uppercase font-bold tracking-wider bg-[#2D3142]/30 text-[#F9F8F6]/50 px-1.5 py-0.5 rounded">Soon</span>
+              )}
+            </div>
+
+            <Link href="/vault" className={getLinkClasses('/vault')}>
+              <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
+                <FileText size={16} className={getIconClasses('/vault')} />
+                {!isCollapsed && <span>Documents</span>}
+              </div>
+              {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
+            </Link>
           </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
-        </Link>
+        )}
 
         <div className="h-6" /> {/* Spacer */}
         {!isCollapsed && <div className="px-3 mb-2 text-[10px] uppercase font-mono text-[#F9F8F6]/50 tracking-wider">Knowledge</div>}
@@ -124,16 +154,10 @@ export default function Sidebar() {
             <Database size={16} className={getIconClasses('/competitors')} />
             {!isCollapsed && <span>Competitors</span>}
           </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
+          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">Stable</span>}
         </Link>
 
-        <Link href="/suppliers" className={getLinkClasses('/suppliers')}>
-          <div className="flex items-center gap-3">
-            <Database size={16} className={getIconClasses('/suppliers')} />
-            {!isCollapsed && <span>Suppliers</span>}
-          </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
-        </Link>
+
         
 
         
@@ -142,23 +166,17 @@ export default function Sidebar() {
             <FlaskConical size={16} className={getIconClasses('/rd')} />
             {!isCollapsed && <span>Research</span>}
           </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
+          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">Stable</span>}
         </Link>
 
 
-        <Link href="/tools" className={getLinkClasses('/tools')}>
-          <div className="flex items-center gap-3">
-            <Cpu size={16} className={getIconClasses('/tools')} />
-            {!isCollapsed && <span>Agritech Tools</span>}
-          </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
-        </Link>
+
 
 
       </div>
 
       <div className="mt-auto pt-6 border-t border-white/10 flex flex-col gap-1">
-        <a href="https://amrootorganics.com" target="_blank" rel="noopener noreferrer" className={getLinkClasses('/external-store')}>
+        <a href="https://amroot-organics.vercel.app/" target="_blank" rel="noopener noreferrer" className={getLinkClasses('/external-store')}>
           <div className="flex items-center gap-3">
             <ExternalLink size={16} className={getIconClasses('/external-store')} />
             {!isCollapsed && <span>Live Store</span>}

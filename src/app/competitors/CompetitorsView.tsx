@@ -4,9 +4,10 @@ import React, { useState, useMemo } from "react";
 import { getCompetitorIntel } from '../../data/competitorIntel';
 import { Competitor } from '@prisma/client';
 import CompetitorDossier from './CompetitorDossier';
+import CompareModal from './CompareModal';
 import { Search, ChevronDown, ChevronRight, Filter, Download, X, 
   Plus, Mail, Users, Building, MapPin, CheckSquare, 
-  Square, Globe, LayoutGrid, ArrowUp, ArrowDown, ArrowUpDown, Eye, Send, Check
+  Square, Globe, LayoutGrid, ArrowUp, ArrowDown, ArrowUpDown, Eye, Send, Check, ArrowRightLeft
 } from 'lucide-react';
 
 const CompetitorPersonnelView = ({ initialCompetitors }: { initialCompetitors: any[] }) => {
@@ -240,6 +241,8 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
   const [emailDraft, setEmailDraft] = useState('');
   
+  const [isCompareModalOpen, setIsCompareModalOpen] = useState(false);
+
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
   const [selectedSaveLists, setSelectedSaveLists] = useState<number[]>([]);
   const [newListName, setNewListName] = useState('');
@@ -560,6 +563,13 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
         </div>
       )}
 
+      <CompareModal 
+        isOpen={isCompareModalOpen}
+        onClose={() => setIsCompareModalOpen(false)}
+        selectedIds={selectedIds}
+        competitors={sortedCompetitors}
+      />
+
       {isSaveModalOpen && (
         <div className="absolute inset-0 z-50 bg-[#2D3142]/40 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden flex flex-col animate-in zoom-in-95 duration-200">
@@ -789,6 +799,16 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
               <div className="px-4 py-2 bg-[#F4F1EA] border-t border-[#2D3142]/5 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <button onClick={() => {
+                      if (selectedIds.length === 0) showToast("Select competitors to compare");
+                      else setIsCompareModalOpen(true);
+                    }} 
+                    className="flex items-center gap-2 px-3 py-1.5 rounded bg-[#F16775]/10 hover:bg-[#F16775]/20 text-[#F16775] font-medium border border-[#F16775]/20 transition-colors"
+                  >
+                    <ArrowRightLeft className="w-4 h-4" /> 
+                    <span>Compare Your Brand</span>
+                    <span className="ml-1 px-1.5 py-0.5 rounded text-[8px] font-bold bg-[#F16775] text-white uppercase tracking-wider shadow-sm animate-pulse">New Feature</span>
+                  </button>
+                  <button onClick={() => {
                       if (selectedIds.length === 0) showToast("Select competitors to save");
                       else setIsSaveModalOpen(true);
                     }} 
@@ -875,8 +895,10 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                     const websiteDisplay = intel?.websiteDisplay && intel.websiteDisplay !== "unknown" ? intel.websiteDisplay : 'website.com';
                     const websiteUrl = intel?.websiteUrl && intel.websiteUrl !== "#" ? intel.websiteUrl : 'https://website.com';
                     const instagramUrl = intel?.instagramUrl && intel.instagramUrl !== "Not Publicly Available" ? intel.instagramUrl : null;
+                    const instagramUrl2 = intel?.instagramUrl2 && intel.instagramUrl2 !== "Not Publicly Available" ? intel.instagramUrl2 : null;
                     const facebookUrl = intel?.facebookUrl && intel.facebookUrl !== "Not Publicly Available" && intel.facebookUrl !== "Unknown" ? intel.facebookUrl : null;
                     const youtubeUrl = intel?.youtubeUrl && intel.youtubeUrl !== "Not Publicly Available" && intel.youtubeUrl !== "Unknown" ? intel.youtubeUrl : null;
+                    const linkedinUrl = intel?.linkedinUrl && intel.linkedinUrl !== "Not Publicly Available" && intel.linkedinUrl !== "Unknown" ? intel.linkedinUrl : null;
                     const twitterUrl = intel?.twitterUrl && intel.twitterUrl !== "Not Publicly Available" && intel.twitterUrl !== "Unknown" ? intel.twitterUrl : null;
                     const amazonUrl = intel?.amazonUrl && intel.amazonUrl !== "Not Publicly Available" && intel.amazonUrl !== "Unknown" ? intel.amazonUrl : null;
                     const isSelected = selectedIds.includes(comp.id);
@@ -930,6 +952,11 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                                     <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                                   </a>
                                 )}
+                                {instagramUrl2 && (
+                                  <a href={instagramUrl2} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
+                                    <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                  </a>
+                                )}
                                 {facebookUrl && (
                                   <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
                                     <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -938,6 +965,11 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                                 {youtubeUrl && (
                                   <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
                                     <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" /></svg>
+                                  </a>
+                                )}
+                                {linkedinUrl && (
+                                  <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
+                                    <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                                   </a>
                                 )}
                                 {twitterUrl && (

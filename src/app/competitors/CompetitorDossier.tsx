@@ -203,30 +203,20 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                             <div className="mb-4 p-3 bg-[#F4F1EA]/20 rounded-lg border border-[#2D3142]/5">
                               <div className="text-[9px] uppercase font-mono text-[#2D3142]/30 tracking-widest mb-2">Pricing Intelligence</div>
                               <div className="grid grid-cols-2 gap-2">
-                                {prod.pricing.websitePrice && (
-                                  <div className="text-xs font-mono">
-                                    <span className="text-[#2D3142]/40">Website: </span>
-                                    <span className="text-[#034F46] font-bold">{prod.pricing.websitePrice}</span>
-                                  </div>
-                                )}
-                                {prod.pricing.amazonPrice && prod.pricing.amazonPrice !== 'Not Available' && prod.pricing.amazonPrice !== 'Unknown' && (
-                                  <div className="text-xs font-mono">
-                                    <span className="text-[#2D3142]/40">Amazon: </span>
-                                    <span className="text-orange-400">{prod.pricing.amazonPrice}</span>
-                                  </div>
-                                )}
-                                {prod.pricing.flipkartPrice && prod.pricing.flipkartPrice !== 'Not Available' && prod.pricing.flipkartPrice !== 'Unknown' && (
-                                  <div className="text-xs font-mono">
-                                    <span className="text-[#2D3142]/40">Flipkart: </span>
-                                    <span className="text-[#F16775]">{prod.pricing.flipkartPrice}</span>
-                                  </div>
-                                )}
-                                {prod.pricing.bigBasketPrice && (
-                                  <div className="text-xs font-mono">
-                                    <span className="text-[#2D3142]/40">BigBasket: </span>
-                                    <span className="text-green-400">{prod.pricing.bigBasketPrice}</span>
-                                  </div>
-                                )}
+                                {Object.entries(prod.pricing)
+                                  .filter(([key, val]) => !['dateCollected', 'websitePriceCurrency'].includes(key) && val && val !== 'Not Available' && val !== 'Unknown')
+                                  .map(([key, val]) => {
+                                    let label = key.replace('Price', '').replace(/([A-Z])/g, ' $1').trim();
+                                    label = label.charAt(0).toUpperCase() + label.slice(1);
+                                    if (label.toLowerCase() === 'website') label = 'Website';
+                                    return (
+                                      <div key={key} className="text-xs font-mono">
+                                        <span className="text-[#2D3142]/40">{label}: </span>
+                                        <span className="text-[#034F46] font-medium">{val as string}</span>
+                                      </div>
+                                    );
+                                  })
+                                }
                               </div>
                               <div className="text-[9px] font-mono text-[#2D3142]/20 mt-2">Collected: {prod.pricing.dateCollected?.split('T')[0]}</div>
                             </div>
@@ -245,72 +235,22 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
 
                           {/* One-Click Marketplace Buttons */}
                           <div className="flex flex-wrap gap-2">
-                            {prod.links?.officialWebsite && (
-                              <a
-                                href={prod.links.officialWebsite}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-[#2D3142]/5 hover:bg-[#2D3142]/10 border border-[#2D3142]/10 hover:border-white/20 rounded-lg text-[10px] font-mono text-[#2D3142]/70 hover:text-[#2D3142] transition-all"
-                              >
-                                <Globe className="w-3 h-3" />
-                                Official Website
-                              </a>
-                            )}
-                            {prod.links?.amazon && (
-                              <a
-                                href={prod.links.amazon}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20 hover:border-orange-500/40 rounded-lg text-[10px] font-mono text-orange-400 hover:text-orange-300 transition-all"
-                              >
-                                <ShoppingCart className="w-3 h-3" />
-                                Amazon
-                              </a>
-                            )}
-                            {prod.links?.flipkart && (
-                              <a
-                                href={prod.links.flipkart}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F16775]/10 hover:bg-[#F16775]/20 border border-[#F16775]/20 hover:border-[#F16775]/40 rounded-lg text-[10px] font-mono text-[#F16775] hover:text-blue-300 transition-all"
-                              >
-                                <ShoppingCart className="w-3 h-3" />
-                                Flipkart
-                              </a>
-                            )}
-                            {prod.links?.bigbasket && (
-                              <a
-                                href={prod.links.bigbasket}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 hover:border-green-500/40 rounded-lg text-[10px] font-mono text-green-400 hover:text-green-300 transition-all"
-                              >
-                                <ShoppingCart className="w-3 h-3" />
-                                BigBasket
-                              </a>
-                            )}
-                            {prod.links?.indiamart && (
-                              <a
-                                href={prod.links.indiamart}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 hover:border-purple-500/40 rounded-lg text-[10px] font-mono text-purple-400 hover:text-purple-300 transition-all"
-                              >
-                                <ShoppingCart className="w-3 h-3" />
-                                IndiaMART
-                              </a>
-                            )}
-                            {prod.links?.walmart && (
-                              <a
-                                href={prod.links.walmart}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-600/20 hover:border-blue-600/40 rounded-lg text-[10px] font-mono text-blue-300 hover:text-blue-200 transition-all"
-                              >
-                                <ShoppingCart className="w-3 h-3" />
-                                Walmart
-                              </a>
-                            )}
+                            {prod.links && Object.entries(prod.links).map(([key, url]) => {
+                              if (!url) return null;
+                              const label = key === 'officialWebsite' ? 'Official Website' : key.charAt(0).toUpperCase() + key.slice(1);
+                              return (
+                                <a
+                                  key={key}
+                                  href={url as string}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="flex items-center gap-1.5 px-3 py-1.5 bg-[#2D3142]/5 hover:bg-[#2D3142]/10 border border-[#2D3142]/10 hover:border-[#2D3142]/30 rounded-lg text-[10px] font-mono text-[#2D3142]/70 hover:text-[#2D3142] transition-all"
+                                >
+                                  {key === 'officialWebsite' ? <Globe className="w-3 h-3" /> : <ShoppingCart className="w-3 h-3" />}
+                                  {label}
+                                </a>
+                              );
+                            })}
                           </div>
 
                           <div className="mt-3 text-[9px] font-mono text-[#2D3142]/20">
@@ -499,6 +439,9 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
                 {intel?.socialMedia ? (
                   <div className="grid grid-cols-2 gap-x-8 gap-y-4">
                     <Field label="Instagram" value={renderLink(intel.socialMedia.instagram)} verified={intel.socialMedia.instagram !== "Unknown"} />
+                    {intel.socialMedia.instagram2 && (
+                      <Field label="Instagram (Stories)" value={renderLink(intel.socialMedia.instagram2)} verified={true} />
+                    )}
                     <Field label="Facebook" value={renderLink(intel.socialMedia.facebook)} verified={intel.socialMedia.facebook !== "Unknown"} />
                     <Field label="LinkedIn" value={renderLink(intel.socialMedia.linkedin)} verified={intel.socialMedia.linkedin !== "Not Publicly Available" && intel.socialMedia.linkedin !== "Unknown"} />
                     <Field label="Followers" value={intel.socialMedia.followers} verified={intel.socialMedia.followers !== "Unknown"} />
@@ -573,9 +516,11 @@ export default function CompetitorDossier({ competitor, onClose }: { competitor:
               <div>
                 {intel?.marketplace ? (
                   <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-                    <Field label="Amazon" value={renderLink(intel.marketplace.amazon)} verified />
-                    <Field label="Flipkart" value={renderLink(intel.marketplace.flipkart)} verified />
-                    <Field label="IndiaMart" value={renderLink(intel.marketplace.indiamart)} verified />
+                    {Object.entries(intel.marketplace).map(([key, val]) => {
+                      if (!val || val === "Unknown") return null;
+                      const label = key.charAt(0).toUpperCase() + key.slice(1);
+                      return <Field key={key} label={label} value={renderLink(val as string)} verified={val !== "Unknown"} />;
+                    })}
                   </div>
                 ) : (
                   <div className="p-12 border border-dashed border-[#2D3142]/10 rounded-lg flex flex-col items-center justify-center text-center">

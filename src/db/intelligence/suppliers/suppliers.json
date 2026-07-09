@@ -118,6 +118,41 @@
       "instagram": "https://www.instagram.com/sudashafoods/"
     },
     "intelligenceScore": 85,
+    "parentCompany": "Sudasha Foods Pvt Ltd",
+    "legalEntity": "Private Limited Company",
+    "founder": "Verification Pending",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "2023",
+    "headquarters": "Laban, Shillong, Meghalaya",
+    "manufacturingLocations": "Shillong, Meghalaya",
+    "processingLocations": "Shillong, Meghalaya",
+    "exportMarkets": "Domestic & Emerging Global",
+    "countriesSold": "India",
+    "websiteUrl": "https://www.indiamart.com/sudasha-foods/",
+    "websiteDisplay": "indiamart.com/sudasha-foods",
+    "pricing": {
+      "premiumPositioning": "Wholesale / B2B",
+      "websitePrice": "Verification Pending",
+      "retailPrice": "Verification Pending",
+      "costPer100g": "Verification Pending"
+    },
+    "packaging": {
+      "primaryMaterial": "Bulk Packaging",
+      "labelDesign": "B2B Standard (Anamaya brand)"
+    },
+    "coreNarrative": "A Meghalaya-based wholesaler focused on supplying natural, preservative-free authentic spices and food products from Northeast India.",
+    "positioningTags": [
+      "Wholesaler",
+      "Natural",
+      "Additive-Free",
+      "Northeast Origin"
+    ],
+    "marketplace": {
+      "indiaMart": "https://www.indiamart.com/sudasha-foods/"
+    },
+    "curcuminDisplay": "7.0 - 9.0%",
+    "coaPublished": "No",
+    "organic": "Conventional / Natural",
     "labReports": [
       {
         "id": "lab-c6d9dad3",
@@ -168,6 +203,41 @@
       "instagram": "Not Publicly Available"
     },
     "intelligenceScore": 84,
+    "parentCompany": "Spitex Exports (OPC) Private Limited",
+    "legalEntity": "One Person Company (OPC)",
+    "founder": "Sharan Javeri",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "2021",
+    "headquarters": "Bavdhan, Pune, Maharashtra",
+    "manufacturingLocations": "Jaintia Hills, Meghalaya",
+    "processingLocations": "Jaintia Hills, Meghalaya",
+    "exportMarkets": "Global",
+    "countriesSold": "International",
+    "websiteUrl": "https://spitexexports.com",
+    "websiteDisplay": "spitexexports.com",
+    "pricing": {
+      "premiumPositioning": "B2B Exporter",
+      "websitePrice": "Verification Pending",
+      "retailPrice": "Verification Pending",
+      "costPer100g": "Verification Pending"
+    },
+    "packaging": {
+      "primaryMaterial": "Bulk Export Packaging",
+      "labelDesign": "B2B Standard"
+    },
+    "coreNarrative": "A dedicated B2B exporter sourcing high-quality organic spices directly from farmers in remote regions, specializing in Lakadong Turmeric.",
+    "positioningTags": [
+      "B2B Exporter",
+      "Organic",
+      "Direct Sourcing",
+      "Meghalaya Origin"
+    ],
+    "marketplace": {
+      "spitex": "https://spitexexports.com"
+    },
+    "curcuminDisplay": "7.0 - 12.32%",
+    "coaPublished": "No",
+    "organic": "Organic",
     "labReports": [],
     "shipments": [],
     "importers": []
@@ -197,6 +267,49 @@
       "instagram": "https://instagram.com/chakhao_manipur"
     },
     "intelligenceScore": 89,
+    "primaryContact": {
+      "name": "Verification Pending",
+      "title": "Sales & Inquiries",
+      "phone": "+91-8240182252",
+      "email": "info@chakhao.com"
+    },
+    "parentCompany": "Chak Hao Traders",
+    "legalEntity": "Chak Hao Traders",
+    "founder": "Verification Pending",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "Verification Pending",
+    "headquarters": "Greater Noida, Uttar Pradesh",
+    "manufacturingLocations": "Meghalaya, Manipur, Assam",
+    "processingLocations": "Meghalaya, Manipur, Assam",
+    "exportMarkets": "Global & Domestic",
+    "countriesSold": "India",
+    "websiteUrl": "https://chakhao.com",
+    "websiteDisplay": "chakhao.com",
+    "pricing": {
+      "premiumPositioning": "B2B Wholesale",
+      "websitePrice": "Bulk Pricing",
+      "retailPrice": "Bulk Pricing",
+      "costPer100g": "Bulk Pricing"
+    },
+    "packaging": {
+      "primaryMaterial": "Bulk Packaging",
+      "labelDesign": "B2B Standard"
+    },
+    "coreNarrative": "A wholesale supplier specializing in organic products from Northeast India, bridging the gap between local farming cooperatives and the global market.",
+    "positioningTags": [
+      "B2B Wholesale",
+      "Organic",
+      "Pan-India Dispatch",
+      "Northeast Sourced"
+    ],
+    "marketplace": {
+      "indiaMart": "https://www.indiamart.com/chak-hao-traders-greater-noida/",
+      "chakhaoStore": "https://chakhao.com"
+    },
+    "curcuminDisplay": "8.5%",
+    "coaPublished": "No",
+    "heavyMetalsTested": "Unknown",
+    "organic": "Organic",
     "labReports": [],
     "shipments": [],
     "importers": []
@@ -205,8 +318,14 @@
     "id": "supplier-naki-store",
     "name": "NAKI",
     "country": "India",
-    "location": "Meghalaya",
-    "contact": "Unknown",
+    "location": "Ummulong, Jaintia Hills, Meghalaya",
+    "contact": "Dawhoi Dhar",
+    "primaryContact": {
+      "name": "Dawhoi Dhar",
+      "title": "Founder",
+      "phone": "Verification Pending",
+      "email": "Verification Pending"
+    },
     "discoveryMethod": "Outbound AI Research",
     "entityType": "Supplier",
     "marketTier": "Premium",
@@ -225,6 +344,43 @@
       "instagram": "Not Publicly Available"
     },
     "intelligenceScore": 85,
+    "parentCompany": "NAKI",
+    "legalEntity": "NAKI",
+    "founder": "Dawhoi Dhar",
+    "founderSocialUrl": "Not Publicly Available",
+    "foundingYear": "Verification Pending",
+    "headquarters": "Ummulong, Jaintia Hills, Meghalaya",
+    "manufacturingLocations": "Ummulong, Jaintia Hills, Meghalaya",
+    "processingLocations": "Ummulong, Jaintia Hills, Meghalaya",
+    "exportMarkets": "Domestic & Global",
+    "countriesSold": "India",
+    "websiteUrl": "https://nakistore.in",
+    "websiteDisplay": "nakistore.in",
+    "pricing": {
+      "premiumPositioning": "Premium Indigenous",
+      "websitePrice": "Verification Pending",
+      "retailPrice": "Verification Pending",
+      "costPer100g": "Verification Pending"
+    },
+    "packaging": {
+      "primaryMaterial": "Consumer & Bulk Packaging",
+      "labelDesign": "Authentic Northeast Branding"
+    },
+    "coreNarrative": "Bridging the culinary gap between Northeast India and the rest of the world.",
+    "positioningTags": [
+      "Indigenous",
+      "Organic",
+      "GI Tagged",
+      "Women Co-ops"
+    ],
+    "marketplace": {
+      "indiaMart": "https://www.indiamart.com/naki/",
+      "nakiStore": "https://nakistore.in"
+    },
+    "curcuminDisplay": "7.0 - 12.0%",
+    "coaPublished": "No",
+    "heavyMetalsTested": "Unknown",
+    "organic": "Organic",
     "labReports": [],
     "shipments": [],
     "importers": []
@@ -264,7 +420,7 @@
   },
   {
     "id": "supp_pr_exports",
-    "name": "PR Exports Ltd.",
+    "name": "PR Exports Ltd. (Masala Mundi)",
     "location": "Kolkata, West Bengal",
     "country": "India",
     "entityType": "B2B Supplier / Exporter",
@@ -279,19 +435,19 @@
       "linkedin": "https://www.linkedin.com/search/results/all/?keywords=PR+Exports+Ltd."
     },
     "primaryContact": {
-      "name": "Atul & Charu",
-      "title": "Founders",
-      "phone": "Unknown",
-      "email": "Unknown"
+      "name": "Verification Pending (No 'Atul & Charu' association found)",
+      "title": "Corporate Sales",
+      "phone": "+91-9830545599",
+      "email": "sales@prel.in"
     },
     "labReports": [],
     "certifications": [],
     "parentCompany": "PR Exports Ltd.",
     "legalEntity": "PR Exports Ltd.",
-    "founder": "Atul & Charu",
-    "founderSocialUrl": "https://www.linkedin.com/search/results/all/?keywords=Atul+%26+Charu",
-    "foundingYear": "2020",
-    "headquarters": "Kolkata, West Bengal",
+    "founder": "Verification Pending (No 'Atul & Charu' found)",
+    "founderSocialUrl": "Unknown",
+    "foundingYear": "Verification Pending",
+    "headquarters": "Shree Krishna Chambers, Kolkata, West Bengal",
     "manufacturingLocations": "Kalyani, West Bengal",
     "processingLocations": "Kalyani, West Bengal",
     "exportMarkets": "Global",
@@ -790,24 +946,24 @@
   {
     "id": "supplier-jaintia-gold",
     "name": "Jaintia Gold",
-    "country": "Unknown",
-    "location": "Jaintia Hills, Meghalaya",
-    "contact": "Unknown",
+    "country": "India",
+    "location": "Jaintia Hills, Meghalaya, India",
+    "contact": "Private Brand / No Central Public Entity",
     "primaryContact": {
-      "name": "Unknown",
-      "title": "Sales / Info",
-      "phone": "Unknown",
-      "email": "Unknown"
+      "name": "N/A (Aggregator Brand)",
+      "title": "N/A",
+      "phone": "Verification Pending",
+      "email": "Verification Pending"
     },
     "entityType": "Wholesale / B2B Brand",
     "marketTier": "Premium",
     "curcuminContent": "7.0 - 12.0",
-    "qualitySpecs": "",
+    "qualitySpecs": "Lakadong Variety (GI Tagged)",
     "source": "https://www.indiamart.com",
     "socialMedia": {
-      "website": "https://www.indiamart.com"
+      "website": "Unknown"
     },
-    "intelligenceScore": 85,
+    "intelligenceScore": 60,
     "discoveryMethod": "Competitor Shift",
     "labReports": [],
     "shipments": [],

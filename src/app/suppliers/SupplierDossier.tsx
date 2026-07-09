@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { 
   X, CheckCircle2, AlertTriangle, FileText, Download, 
   MapPin, Globe, Award, ShieldAlert, BookOpen, Clock, BarChart4, Users
@@ -252,9 +253,23 @@ export default function SupplierDossier({ supplier, onClose }: SupplierDossierPr
                           <Clock className="w-3 h-3" /> {report.date}
                         </div>
                       </div>
-                      <button className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#F16775]/10 text-[#F16775] text-xs hover:bg-[#F16775]/20 transition-colors">
-                        <Download className="w-3 h-3" /> PDF
-                      </button>
+                      {report.documentUrl ? (
+                        <a 
+                          href={report.documentUrl} 
+                          download 
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#F16775]/10 text-[#F16775] text-xs hover:bg-[#F16775]/20 transition-colors"
+                        >
+                          <Download className="w-3 h-3" /> PDF
+                        </a>
+                      ) : (
+                        <button 
+                          disabled
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#2D3142]/5 text-[#2D3142]/40 text-xs cursor-not-allowed"
+                          title="No PDF file available"
+                        >
+                          <Download className="w-3 h-3" /> PDF
+                        </button>
+                      )}
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#2D3142]/5">
@@ -283,13 +298,48 @@ export default function SupplierDossier({ supplier, onClose }: SupplierDossierPr
             <h3 className="text-sm font-semibold text-[#2D3142]/90 mb-4 uppercase tracking-wider flex items-center gap-2">
               <ShieldAlert className="w-4 h-4 text-[#F16775]" /> Compliance & Certifications
             </h3>
-            <div className="flex flex-wrap gap-2">
-              {supplier.certifications?.map((cert: string, idx: number) => (
-                <span key={idx} className="px-3 py-1.5 rounded-full border border-[#034F46]/30 bg-[#034F46]/10 text-[#034F46] text-xs font-medium">
-                  {cert}
-                </span>
-              ))}
-            </div>
+            {supplier.certifications?.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {supplier.certifications.map((cert: string, idx: number) => (
+                  cert.includes('AgNext') ? (
+                    <a key={idx} href="https://agnext.com/" target="_blank" rel="noopener noreferrer">
+                      <span className="px-3 py-1.5 rounded-full border border-[#034F46]/30 bg-[#034F46]/10 text-[#034F46] text-xs font-medium hover:bg-[#034F46]/20 transition-colors cursor-pointer block">
+                        {cert}
+                      </span>
+                    </a>
+                  ) : (
+                    <span key={idx} className="px-3 py-1.5 rounded-full border border-[#034F46]/30 bg-[#034F46]/10 text-[#034F46] text-xs font-medium">
+                      {cert}
+                    </span>
+                  )
+                ))}
+              </div>
+            ) : (
+              <div className="p-8 border border-[#2D3142]/5 border-dashed rounded-lg text-center text-[#2D3142]/30">
+                No compliance certifications on file.
+              </div>
+            )}
+          </div>
+        )}
+
+        {activeTab === 'logistics' && (
+          <div className="space-y-6">
+            <h3 className="text-sm font-semibold text-[#2D3142]/90 mb-4 uppercase tracking-wider flex items-center gap-2">
+              <Globe className="w-4 h-4 text-[#F16775]" /> Global Logistics & Shipments
+            </h3>
+            {supplier.shipments?.length > 0 ? (
+              <div className="space-y-4">
+                {supplier.shipments.map((shipment: any, idx: number) => (
+                  <div key={idx} className="p-4 border border-[#2D3142]/10 rounded-lg bg-white/[0.02]">
+                    <div className="font-medium text-[#2D3142]">{shipment.destination}</div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="p-8 border border-[#2D3142]/5 border-dashed rounded-lg text-center text-[#2D3142]/30">
+                No logistics or shipment data on file.
+              </div>
+            )}
           </div>
         )}
 

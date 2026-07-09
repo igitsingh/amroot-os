@@ -511,7 +511,165 @@
     },
     "sourceUrl": "https://www.livingrootsusa.com",
     "confidenceScore": 95,
-    "verificationStatus": "Verified",
-    "dateLastVerified": "2026-07-07T00:00:00.000Z"
+    "verificationStatus": "Verified"
+  },
+  {
+    "id": "prodlink-24mantra-turmeric",
+    "productId": "prod-24mantra-1",
+    "brandId": "brand-24-mantra-organic",
+    "brandName": "24 Mantra Organic",
+    "productName": "Organic Turmeric Powder",
+    "productType": "Powder",
+    "variant": "Organic",
+    "originRegion": "India",
+    "claimedCurcuminPercent": "Unknown",
+    "weightOptions": [
+      "100g",
+      "200g"
+    ],
+    "packaging": "Pouch",
+    "pricing": {
+      "websitePrice": "₹150.00 (200g)",
+      "websitePriceCurrency": "INR",
+      "amazonPrice": "Currently unavailable (200g)",
+      "flipkartPrice": "₹49 (200g)",
+      "bigBasketPrice": "₹55 (100g)",
+      "distacartPrice": "¥1,427 JPY (200g)",
+      "justdialPrice": "₹38 - ₹40 (100g)",
+      "zeptoPrice": "₹101 (200g)",
+      "himkhandPrice": "₹900.00 INR (200g)",
+      "frugivorePrice": "₹150 (200g)",
+      "jagsfreshPrice": "₹150 (200g)",
+      "farmfreshPrice": "₹55.00",
+      "thedesifoodPrice": "USD 12.59 (3x100g)",
+      "ishopindianPrice": "$8.79 (1 lb)",
+      "zilokartPrice": "₹75.00 (100g)",
+      "mystorePrice": "₹32.2 (100g)",
+      "buyhatkePrice": "₹75 (100g)",
+      "farmhoodsPrice": "₹30.00 (100g)",
+      "dateCollected": "2026-07-09T00:00:00Z"
+    },
+    "links": {
+      "officialWebsite": "https://www.purityprayag.com/products/24-mantra-organic-turmeric-powder-200-g",
+      "amazon": "https://www.amazon.in/24-Mantra-Organic-Turmeric-Powder/dp/B00L928MX0?th=1",
+      "flipkart": "https://www.flipkart.com/24-mantra-organic-turmeric-powder-haldi-powder-pasupu-podi/p/itm39eb9f50fa40c",
+      "bigbasket": "https://www.bigbasket.com/pd/279801/24-mantra-organic-powder-turmeric-100-g-pouch/",
+      "blinkit": "https://blinkit.com/prn/24-mantra-organic-turmeric-powder/prid/21620?srsltid=AfmBOoqfCUAJ3_7aoUIl4sp1QMHeguvkWUrJXO1yPwUYeLEgy4a_Lr1U",
+      "distacart": "https://www.distacart.com/en-jp/products/organic-turmeric-powder?srsltid=AfmBOoqcZ_7hQ7EdyhMFDUg6OV22EilNVbsgNnA2auRaXrLgGNWN2ipv&rtkcid=6a4fd9ec89b400d69c57853d&variant=33047800709256",
+      "justdial": "https://www.justdial.com/jdmart/Chennai/24-Mantra-Organic-Organic-Turmeric-Powder-100-gm/pid-222944451/044PXX44-XX44-191116071931-B4A2",
+      "zepto": "https://www.zepto.com/pn/24-mantra-organic-turmeric-haldi-powder/pvid/df194344-16cb-4115-9e92-57468f91dc72?srsltid=AfmBOoprgIXx7rTWuVLVkuvVqIDpbStOyzM7nfFT__bjZ1rj0ymGyDj6",
+      "himkhand": "https://himkhand.com/products/24-mantra-organic-turmeric-powder?srsltid=AfmBOorfCCqxbv837hAVRtyU-zw29uYT02W1cNW7GCcWoMu_l-kxiR7K",
+      "frugivore": "https://www.frugivore.in/product-details/24-mantra-turmeric-powder-organic?srsltid=AfmBOoph0KXiQA5539Jm5KlyFyWolq7xRmauBJTyB02ZlywP30usfOLX",
+      "jagsfresh": "https://jagsfresh.com/product-details/24-mantra-turmeric-powder-organic?srsltid=AfmBOorPY1Snw6NMD5QFm-zl0tJUz7qWA7qQz2SUUkz51umooJxQNiDb",
+      "farmfresh": "https://ff-farmfresh.in/product/24-mantra-organic-turmeric-powder/",
+      "thedesifood": "https://thedesifood.com/products/24-mantra-organic-turmeric-powder-(pack-of-3)",
+      "ishopindian": "https://www.ishopindian.com/24-Mantra-Organic-Turmeric-Powder-1-lb?srsltid=AfmBOoqg6llEYG9-FupMtBiX00G3zVJqdLPOTLAPPJ6aIsvO5piji9YI",
+      "zilokart": "https://zilokart.com/product/24-mantra-organic-turmeric-powder-100-g/",
+      "mystore": "https://www.mystore.in/en/product/24-mantra-organic-organic-powder-turmeric-100-g-pouch?srsltid=AfmBOopiokIeJY9xc--BFDwhjZDH8-TvKqaLPYowLx4-n754WQAcouTW",
+      "buyhatke": "https://buyhatke.com/amazon-24-mantra-organic-turmeric-powder-amazon-in-price-in-india-63-2313248",
+      "farmhoods": "https://farmhoods.com/turmeric-haldi-powder-100g-24-mantra-organic",
+      "indiamart": null,
+      "alibaba": null
+    },
+    "certifications": [
+      "Organic",
+      "USDA Organic",
+      "Jaivik Bharat"
+    ],
+    "source": "Marketplaces",
+    "sourceUrl": "https://24mantraorganic.com",
+    "sourceType": "Official / Marketplace",
+    "dateCollected": "2026-07-09T00:00:00Z",
+    "dateLastVerified": "2026-07-09T00:00:00Z",
+    "confidenceScore": 95,
+    "verificationStatus": "Verified"
+  },
+  {
+    "id": "aamrai-organic-lakadong",
+    "brandId": "brand-aamrai-organic",
+    "productName": "Lakadong Turmeric Powder",
+    "productType": "Turmeric Powder",
+    "variant": "Premium",
+    "claimedCurcuminPercent": "7-12%",
+    "originRegion": "West Jaintia hills in Jowai District of Meghalaya",
+    "weightOptions": ["500gms", "1kg"],
+    "pricing": {
+      "websitePrice": "₹1,990.00 (1kg)",
+      "websitePriceCurrency": "INR",
+      "dateCollected": "2026-07-09T00:00:00Z"
+    },
+    "links": {
+      "officialWebsite": "https://aamrai.com/product/organic-lakadong-turmeric-haldi-powder/"
+    },
+    "certifications": [
+      "Organic"
+    ],
+    "source": "Official Website",
+    "sourceUrl": "https://aamrai.com/product/organic-lakadong-turmeric-haldi-powder/",
+    "sourceType": "Official",
+    "dateCollected": "2026-07-09T00:00:00Z",
+    "dateLastVerified": "2026-07-09T00:00:00Z",
+    "confidenceScore": 100,
+    "verificationStatus": "Verified"
+  },
+  {
+    "id": "amyra-farms-lakadong",
+    "brandId": "brand-amyra-farms",
+    "productName": "Lakadong Turmeric Powder",
+    "productType": "Turmeric Powder",
+    "variant": "Premium",
+    "claimedCurcuminPercent": "Upto 12%",
+    "originRegion": "Meghalaya",
+    "weightOptions": ["250g", "500g", "1kg"],
+    "pricing": {
+      "amazonPrice": "₹332.00 (250g)",
+      "amazonPriceCurrency": "INR",
+      "dateCollected": "2026-07-09T00:00:00Z"
+    },
+    "links": {
+      "amazon": "https://www.amazon.in/Amyra-Farms-Lakadong-Pesticides-Meghalaya/dp/B0CYTF5NNV?th=1",
+      "flipkart": "https://www.flipkart.com/amyra-farms-lakadong-turmeric-powder-meghalaya-organic-haldi-curcumin-upto-12/p/itmf0b52a5a02abc"
+    },
+    "certifications": [
+      "Organic"
+    ],
+    "source": "Amazon & Flipkart",
+    "sourceUrl": "https://www.amazon.in/Amyra-Farms-Lakadong-Pesticides-Meghalaya/dp/B0CYTF5NNV?th=1",
+    "sourceType": "Official",
+    "dateCollected": "2026-07-09T00:00:00Z",
+    "dateLastVerified": "2026-07-09T00:00:00Z",
+    "confidenceScore": 95,
+    "verificationStatus": "Verified"
+  },
+  {
+    "id": "asavi-lakadong",
+    "brandId": "brand-asavi",
+    "productName": "Stone-Crushed Premium Lakadong Turmeric Powder",
+    "productType": "Turmeric Powder",
+    "variant": "Powder",
+    "claimedCurcuminPercent": "High",
+    "originRegion": "Lakadong",
+    "weightOptions": ["100g", "250g"],
+    "pricing": {
+      "websitePrice": "₹99.00 (100g)",
+      "websitePriceCurrency": "INR",
+      "dateCollected": "2026-07-10T00:00:00Z"
+    },
+    "links": {
+      "website": "https://www.asavi.in/products/stone-grounded-lakadong-turmeric",
+      "flipkart": "https://www.flipkart.com/asavi-stonegrounded-lakadong-turmeric-100-natural-stonemade-product-no-color/p/itm50ad4ad9e8689",
+      "silkrute": "https://www.silkrute.com/grocery/spices/powdered-spices/turmeric/asavi-stonegrounded-lakadong-turmeric-i-100-natural-stonemade-product-i-no-color-250g-pack-of-1/?srsltid=AfmBOoqyhGH161fLo15RFk12W8bxpmcwiTXhlo0hkkM-Yns50V63e-bg",
+      "distacart": "https://www.distacart.com/en-id/products/asavi-stonemade-lakadong-turmeric-powder?srsltid=AfmBOopd67jerHkMD_lItGsafLcoy0VFmK1mTAcNUCrCwNfrK_aYrCoQ&rtkcid=6a4ff0bb8de5ca5ea5d1d488"
+    },
+    "certifications": [
+      "FSSAI", "Veg", "100% Natural"
+    ],
+    "source": "Official Website, Silkrute, Distacart, Flipkart",
+    "sourceUrl": "https://www.asavi.in/products/stone-grounded-lakadong-turmeric",
+    "sourceType": "Official",
+    "dateCollected": "2026-07-10T00:00:00Z",
+    "dateLastVerified": "2026-07-10T00:00:00Z",
+    "confidenceScore": 100,
+    "verificationStatus": "Verified"
   }
 ]

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function ToolsView({ initialTools = [] }: { initialTools: any[] }) {
   return (
-    <div className="h-full bg-[#F9F8F6] p-8 overflow-y-auto">
+    <div className="h-full bg-white p-6 md:p-8 overflow-y-auto">
       <div className="flex items-center gap-4 mb-12">
         <div className="w-12 h-12 rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center">
           <Cpu className="w-6 h-6 text-fuchsia-400" />
@@ -19,7 +19,7 @@ export default function ToolsView({ initialTools = [] }: { initialTools: any[] }
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {initialTools.map((tool) => (
-          <div key={tool.id} className="bg-[#2D3142]/5 border border-[#2D3142]/10 rounded-2xl p-6 hover:bg-[#2D3142]/10 hover:border-white/20 transition-all group relative overflow-hidden">
+          <div key={tool.id} className="bg-white border border-[#2D3142]/10 shadow-sm rounded-2xl p-6 hover:shadow-md hover:border-[#2D3142]/20 transition-all group relative overflow-hidden">
             {/* Glow Effect */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-fuchsia-500/10 rounded-full blur-[50px] pointer-events-none group-hover:bg-fuchsia-500/20 transition-all" />
             
