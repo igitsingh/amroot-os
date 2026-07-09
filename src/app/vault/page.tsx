@@ -28,16 +28,29 @@ export default async function VaultWorkspacePage() {
     isDatabaseConnected = true;
   } catch (error) {
     console.warn("Database connection unavailable - rendering empty intelligence state");
+    try {
+      const fs = require('fs/promises');
+      const path = require('path');
+      const jsonDbPath = path.join(process.cwd(), 'data', 'vault_documents.json');
+      const fileData = await fs.readFile(jsonDbPath, 'utf8');
+      documents = JSON.parse(fileData);
+      documents.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    } catch(e) {
+      // JSON file doesn't exist yet, leave documents empty
+    }
   }
 
   const totalDocs = documents.length;
   const verifiedDocs = documents.filter(d => d.evidence.some((e: any) => e.verificationStatus === 'VERIFIED')).length;
 
   return (
-    <div className="flex flex-col w-full space-y-6 pb-10">
-      
+    <div className="flex flex-col w-full space-y-8 p-8 md:p-12 bg-gradient-to-br from-[#F9F8F6] to-[#F4F1EA] min-h-full relative overflow-hidden">
+      {/* Subtle decorative background element */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#034F46]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#F16775]/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+
       {/* Header */}
-      <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D3142]/10 pb-6">
+      <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D3142]/10 pb-6 relative z-10">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-[#2D3142] mb-2">Secure Vault</h1>
           <p className="text-[#2D3142]/60 text-sm max-w-2xl">

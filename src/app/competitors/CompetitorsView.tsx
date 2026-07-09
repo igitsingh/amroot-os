@@ -875,7 +875,10 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                     const websiteDisplay = intel?.websiteDisplay && intel.websiteDisplay !== "unknown" ? intel.websiteDisplay : 'website.com';
                     const websiteUrl = intel?.websiteUrl && intel.websiteUrl !== "#" ? intel.websiteUrl : 'https://website.com';
                     const instagramUrl = intel?.instagramUrl && intel.instagramUrl !== "Not Publicly Available" ? intel.instagramUrl : null;
-                    const facebookUrl = intel?.facebookUrl && intel.facebookUrl !== "Not Publicly Available" ? intel.facebookUrl : null;
+                    const facebookUrl = intel?.facebookUrl && intel.facebookUrl !== "Not Publicly Available" && intel.facebookUrl !== "Unknown" ? intel.facebookUrl : null;
+                    const youtubeUrl = intel?.youtubeUrl && intel.youtubeUrl !== "Not Publicly Available" && intel.youtubeUrl !== "Unknown" ? intel.youtubeUrl : null;
+                    const twitterUrl = intel?.twitterUrl && intel.twitterUrl !== "Not Publicly Available" && intel.twitterUrl !== "Unknown" ? intel.twitterUrl : null;
+                    const amazonUrl = intel?.amazonUrl && intel.amazonUrl !== "Not Publicly Available" && intel.amazonUrl !== "Unknown" ? intel.amazonUrl : null;
                     const isSelected = selectedIds.includes(comp.id);
                     
                     return (
@@ -930,6 +933,21 @@ export default function CompetitorsView({ initialCompetitors }: CompetitorsViewP
                                 {facebookUrl && (
                                   <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
                                     <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                                  </a>
+                                )}
+                                {youtubeUrl && (
+                                  <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
+                                    <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" /></svg>
+                                  </a>
+                                )}
+                                {twitterUrl && (
+                                  <a href={twitterUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
+                                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="none" className="w-3 h-3"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                                  </a>
+                                )}
+                                {amazonUrl && (
+                                  <a href={amazonUrl} target="_blank" rel="noopener noreferrer" className="text-[#F16775]/80 hover:text-[#F16775] transition-colors" onClick={(e) => e.stopPropagation()}>
+                                    <svg viewBox="0 0 448 512" width="12" height="12" fill="currentColor" stroke="none" className="w-3 h-3"><path d="M257.2 162.7c-48.7 1.8-169.5 15.5-169.5 117.5c0 109.5 138.3 114 183.5 43.2c6.5 10.2 35.4 37.5 45.3 46.8l56.8-56S341 288.9 341 261.4V114.3C341 89 316.5 32 228.7 32C140.7 32 94 87 94 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5c40.7-.1 35.5 29.8 35.5 69.1m0 86.8c0 80-84.2 68-84.2 17.2c0-47.2 50.5-56.7 84.2-57.8zm136 163.5c-7.7 10-70 67-174.5 67S34.2 408.5 9.7 379c-6.8-7.7 1-11.3 5.5-8.3C88.5 415.2 203 488.5 387.7 401c7.5-3.7 13.3 2 5.5 12m39.8 2.2c-6.5 15.8-16 26.8-21.2 31c-5.5 4.5-9.5 2.7-6.5-3.8s19.3-46.5 12.7-55c-6.5-8.3-37-4.3-48-3.2c-10.8 1-13 2-14-.3c-2.3-5.7 21.7-15.5 37.5-17.5c15.7-1.8 41-.8 46 5.7c3.7 5.1 0 27.1-6.5 43.1"></path></svg>
                                   </a>
                                 )}
                               </div>

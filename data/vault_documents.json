@@ -1,0 +1,30 @@
+[
+  {
+    "id": "mock-1783592629482",
+    "title": "Paradise Organics Pvt. Ltd. - AMROOT_Full Products Line_09072026",
+    "fileUrl": "/vault/1783592629478-Paradise_Organics_Pvt._Ltd._-_AMROOT_Full_Products_Line_09072026.pdf",
+    "documentType": "PRODUCT_LINE",
+    "checksum": "b224fcd9438a14a644fa35ab40c2935623f893f7316257f7fb7dcceedcd5e44c",
+    "uploadedById": "mock-founder",
+    "lifecycleStage": "VERIFICATION",
+    "intelligenceScore": 100,
+    "createdAt": "2026-07-09T10:23:49.482Z",
+    "evidence": [
+      {
+        "id": "mock-evidence-1783592904181",
+        "entityType": "DOCUMENT",
+        "entityId": "mock-1783592629482",
+        "fieldName": "Authenticity",
+        "value": "Confirmed",
+        "valueType": "BOOLEAN",
+        "sourceName": "AmrootOS AI Intelligence Engine",
+        "sourceTier": 1,
+        "verificationStatus": "VERIFIED",
+        "confidenceScore": 98.5
+      }
+    ],
+    "uploadedBy": {
+      "name": "Founder"
+    }
+  }
+]

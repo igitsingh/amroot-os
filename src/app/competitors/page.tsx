@@ -4,6 +4,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import CompetitorsView from './CompetitorsView';
 import { newCompetitors } from '../../db/intelligence/brands/competitors-rich';
+import { competitorData } from '../../data/competitorIntel';
 
 export default async function CompetitorsWorkspacePage() {
   let competitors: any[] = [];
@@ -56,10 +57,32 @@ export default async function CompetitorsWorkspacePage() {
   // Append our deeply researched competitors unconditionally
   competitors = [...competitors, ...newCompetitors];
 
+  const existingIds = new Set(competitors.map(c => c.id));
+  const existingNames = new Set(competitors.map(c => c.name));
+  
+  Object.values(competitorData).forEach((intel: any) => {
+    const intelId = intel.idKeys && intel.idKeys.length > 0 ? intel.idKeys[0] : intel.name;
+    if (!existingIds.has(intelId) && !existingNames.has(intel.name)) {
+      competitors.push({
+        id: intelId,
+        name: intel.name,
+        description: intel.coreNarrative || 'Pending Review',
+        intelligenceScore: 50,
+        marketTier: intel.marketTier || 'Unknown',
+        products: [],
+        websites: [],
+        socialAccounts: [],
+        tradeShows: []
+      });
+      existingIds.add(intelId);
+      existingNames.add(intel.name);
+    }
+  });
+
   // Sort alphabetically by name
   competitors.sort((a, b) => a.name.localeCompare(b.name));
 
   return <CompetitorsView initialCompetitors={competitors} />;
 }
 // Force cache invalidation 1
-// Force cache invalidation Tue Jul  7 16:06:43 IST 2026
+// Force cache invalidation Tue Jul  9 17:53:43 IST 2026
