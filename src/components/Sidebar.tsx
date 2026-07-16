@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Outfit } from 'next/font/google';
-import { Search, Sparkles, Calendar, Database, Anchor, FlaskConical, FileText, Settings, PanelLeftClose, PanelLeftOpen, Cpu, BookOpen, ExternalLink, ShoppingBag, ListTodo, LogOut, PenTool, ChevronDown, ChevronRight, Package } from 'lucide-react';
+import { Search, Sparkles, Calendar, Database, Anchor, FlaskConical, FileText, Settings, PanelLeftClose, PanelLeftOpen, Cpu, BookOpen, ExternalLink, ShoppingBag, ListTodo, LogOut, PenTool, ChevronDown, ChevronRight, Package, Globe } from 'lucide-react';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 import { logoutAction } from '@/app/login/actions';
@@ -23,7 +23,7 @@ export default function Sidebar() {
 
   const getLinkClasses = (path: string) => {
     const active = isActive(path);
-    return `flex items-center justify-between px-3 py-2 text-sm rounded-xl transition-all ${isCollapsed ? 'justify-center' : ''} group border border-transparent font-bold tracking-wide ${active ? 'bg-white/10 text-white' : 'text-[#F9F8F6]/70 hover:bg-white/5 hover:text-white hover:border-white/10'}`;
+    return `flex items-center justify-between px-3 h-[40px] text-sm rounded-xl transition-all ${isCollapsed ? 'justify-center' : ''} group border border-transparent font-bold tracking-wide ${active ? 'bg-white/10 text-white' : 'text-[#F9F8F6]/70 hover:bg-white/5 hover:text-white hover:border-white/10'}`;
   };
 
   const getIconClasses = (path: string) => {
@@ -81,11 +81,10 @@ export default function Sidebar() {
             <PenTool size={16} className={getIconClasses('/scratchpad')} />
             {!isCollapsed && <span>Scratchpad</span>}
           </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">New</span>}
         </Link>
         <button 
           onClick={() => setIsBrandExpanded(!isBrandExpanded)}
-          className={`w-full flex items-center justify-between px-3 py-2 text-sm rounded-xl transition-all ${isCollapsed ? 'justify-center' : ''} group border border-transparent font-bold tracking-wide ${isActive('/brand') ? 'bg-white/10 text-white' : 'text-[#F9F8F6]/70 hover:bg-white/5 hover:text-white hover:border-white/10'}`}
+          className={`w-full flex items-center justify-between px-3 h-[40px] text-sm rounded-xl transition-all ${isCollapsed ? 'justify-center' : ''} group border border-transparent font-bold tracking-wide ${isActive('/brand') ? 'bg-white/10 text-white' : 'text-[#F9F8F6]/70 hover:bg-white/5 hover:text-white hover:border-white/10'}`}
         >
           <div className="flex items-center gap-3">
             <ShoppingBag size={16} className={getIconClasses('/brand')} />
@@ -110,12 +109,12 @@ export default function Sidebar() {
                 {!isCollapsed && <span>Your Products</span>}
               </div>
             </Link>
-            <Link href="/suppliers" className={getLinkClasses('/suppliers')}>
+            <Link href="/buyers" className={`flex items-center justify-between px-3 h-[40px] text-sm rounded-xl transition-all ${isCollapsed ? 'justify-center' : ''} group border border-[#F16775]/30 bg-[#F16775]/10 text-[#F16775] font-bold tracking-wide hover:bg-[#F16775]/20`}>
               <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
-                <Database size={16} className={getIconClasses('/suppliers')} />
-                {!isCollapsed && <span>Suppliers</span>}
+                <Globe size={16} className="shrink-0 transition-colors text-[#F16775]" />
+                {!isCollapsed && <span className="whitespace-nowrap">Global Buyers</span>}
               </div>
-              {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
+              {!isCollapsed && <span className="text-[9px] leading-none uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded flex items-center">New</span>}
             </Link>
             <Link href="/checklist" className={getLinkClasses('/checklist')}>
               <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
@@ -124,7 +123,7 @@ export default function Sidebar() {
               </div>
             </Link>
 
-            <div className={`flex items-center justify-between px-3 py-2 text-sm rounded-xl border border-transparent text-[#F9F8F6]/40 cursor-not-allowed font-black tracking-wide ${isCollapsed ? 'justify-center' : ''}`}>
+            <div className={`flex items-center justify-between px-3 h-[40px] text-sm rounded-xl border border-transparent text-[#F9F8F6]/40 cursor-not-allowed font-black tracking-wide ${isCollapsed ? 'justify-center' : ''}`}>
               <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
                 <Anchor size={16} className="shrink-0 text-[#F9F8F6]/30" />
                 {!isCollapsed && <span>Operations</span>}
@@ -139,7 +138,6 @@ export default function Sidebar() {
                 <FileText size={16} className={getIconClasses('/vault')} />
                 {!isCollapsed && <span>Documents</span>}
               </div>
-              {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded">Beta</span>}
             </Link>
           </div>
         )}
@@ -154,19 +152,19 @@ export default function Sidebar() {
             <Database size={16} className={getIconClasses('/competitors')} />
             {!isCollapsed && <span>Competitors</span>}
           </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">Stable</span>}
+        </Link>
+        <Link href="/suppliers" className={getLinkClasses('/suppliers')}>
+          <div className="flex items-center gap-3">
+            <Database size={16} className={getIconClasses('/suppliers')} />
+            {!isCollapsed && <span>Suppliers</span>}
+          </div>
         </Link>
 
-
-        
-
-        
         <Link href="/rd" className={getLinkClasses('/rd')}>
           <div className="flex items-center gap-3">
             <FlaskConical size={16} className={getIconClasses('/rd')} />
             {!isCollapsed && <span>Research</span>}
           </div>
-          {!isCollapsed && <span className="text-[9px] uppercase font-bold tracking-wider bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">Stable</span>}
         </Link>
 
 
@@ -176,9 +174,9 @@ export default function Sidebar() {
       </div>
 
       <div className="mt-auto pt-6 border-t border-white/10 flex flex-col gap-1">
-        <a href="https://amroot-organics.vercel.app/" target="_blank" rel="noopener noreferrer" className={getLinkClasses('/external-store')}>
+        <a href="https://amroot-organics.vercel.app/" target="_blank" rel="noopener noreferrer" className={`flex items-center justify-between px-3 h-[40px] text-sm rounded-xl transition-all ${isCollapsed ? 'justify-center' : ''} group border border-[#F16775]/30 bg-[#F16775]/10 text-[#F16775] font-bold tracking-wide hover:bg-[#F16775]/20`}>
           <div className="flex items-center gap-3">
-            <ExternalLink size={16} className={getIconClasses('/external-store')} />
+            <ExternalLink size={16} className="shrink-0 transition-colors text-[#F16775]" />
             {!isCollapsed && <span>Live Store</span>}
           </div>
         </a>
@@ -189,7 +187,7 @@ export default function Sidebar() {
           </div>
         </Link>
         <form action={logoutAction}>
-          <button type="submit" className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-xl transition-all border border-transparent text-[#F9F8F6]/50 hover:bg-white/5 hover:text-white group ${isCollapsed ? 'justify-center' : ''}`}>
+          <button type="submit" className={`w-full flex items-center gap-3 px-3 h-[40px] text-sm rounded-xl transition-all border border-transparent text-[#F9F8F6]/50 hover:bg-white/5 hover:text-white group ${isCollapsed ? 'justify-center' : ''}`}>
             <LogOut size={16} className="shrink-0 text-[#F9F8F6]/30 group-hover:text-white transition-colors" />
             {!isCollapsed && <span>Secure Logout</span>}
           </button>

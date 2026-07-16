@@ -1,0 +1,5 @@
+google-antigravity
+psycopg2-binary
+beautifulsoup4
+requests
+duckduckgo-search

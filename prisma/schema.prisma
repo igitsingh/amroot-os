@@ -215,6 +215,7 @@ model Country {
   createdAt             DateTime       @default(now())
   updatedAt             DateTime       @updatedAt
   processors            Processor[]
+  buyers                Buyer[]
 }
 
 model TradeShow {
@@ -227,6 +228,7 @@ model TradeShow {
   competitors Competitor[]
   suppliers   Supplier[]
   importers   Importer[]
+  buyers      Buyer[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -248,6 +250,8 @@ model Website {
   importer     Importer?   @relation(fields: [importerId], references: [id])
   retailerId   String?
   retailer     Retailer?   @relation(fields: [retailerId], references: [id])
+  buyerId      String?
+  buyer        Buyer?      @relation(fields: [buyerId], references: [id])
 
   websiteIntelligence WebsiteIntelligence?
 
@@ -265,6 +269,8 @@ model SocialAccount {
   competitor   Competitor? @relation(fields: [competitorId], references: [id])
   supplierId   String?
   supplier     Supplier?   @relation(fields: [supplierId], references: [id])
+  buyerId      String?
+  buyer        Buyer?      @relation(fields: [buyerId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -578,6 +584,8 @@ model Certification {
 
   productId String?
   product   Product? @relation(fields: [productId], references: [id])
+  buyerId   String?
+  buyer     Buyer?   @relation(fields: [buyerId], references: [id])
 
   lifecycleStage        LifecycleStage @default(DISCOVERED)
   intelligenceScore     Float          @default(0.0)
@@ -642,6 +650,8 @@ model Shipment {
 
   importerId String?
   importer   Importer? @relation(fields: [importerId], references: [id])
+  buyerId    String?
+  buyer      Buyer?    @relation(fields: [buyerId], references: [id])
 
   qualityCheckpoints QualityCheckpoint[]
   risks              LogisticsRisk[]
@@ -711,6 +721,8 @@ model Meeting {
   importer     Importer?   @relation(fields: [importerId], references: [id])
   competitorId String?
   competitor   Competitor? @relation(fields: [competitorId], references: [id])
+  buyerId      String?
+  buyer        Buyer?      @relation(fields: [buyerId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -964,4 +976,91 @@ model MarketTrend {
   source            String?
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// NEW: BUYER INTELLIGENCE MODULE
+// -----------------------------------------------------------------------------
+
+model Buyer {
+  id              String  @id @default(uuid())
+  name            String  @unique
+  companyType     String? // Importer, Distributor, Retailer, etc.
+  countryId       String?
+  country         Country? @relation(fields: [countryId], references: [id])
+  city            String?
+  address         String?
+  description     String? @db.Text
+  businessSize    String?
+  foundingYear    Int?
+  employeeCount   Int?
+  financialHistory Json?
+  marketFocus     String? // Organic, Premium, Conventional, Bulk Ingredients, etc.
+
+  procurement         BuyerProcurement?
+  productIntelligence BuyerProductIntelligence?
+  decisionMakers      BuyerDecisionMaker[]
+
+  tradeShows      TradeShow[]
+  websites        Website[]
+  socialAccounts  SocialAccount[]
+  meetings        Meeting[]
+  shipments       Shipment[]
+  certifications  Certification[]
+
+  lifecycleStage        LifecycleStage @default(DISCOVERED)
+  intelligenceScore     Float          @default(0.0)
+  completenessBreakdown Json?
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+}
+
+model BuyerProcurement {
+  id              String  @id @default(uuid())
+  buyerId         String  @unique
+  buyer           Buyer   @relation(fields: [buyerId], references: [id])
+  importsTurmeric Boolean @default(false)
+  importsGinger   Boolean @default(false)
+  organic         Boolean @default(false)
+  conventional    Boolean @default(false)
+  privateLabel    Boolean @default(false)
+  bulk            Boolean @default(false)
+  moq             String?
+  importOrigins   String[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model BuyerDecisionMaker {
+  id              String  @id @default(uuid())
+  buyerId         String
+  buyer           Buyer   @relation(fields: [buyerId], references: [id])
+  fullName        String
+  designation     String?
+  linkedinUrl     String?
+  businessEmail   String?
+  businessPhone   String?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model BuyerProductIntelligence {
+  id                     String  @id @default(uuid())
+  buyerId                String  @unique
+  buyer                  Buyer   @relation(fields: [buyerId], references: [id])
+  buysTurmeric           Boolean @default(false)
+  buysLakadong           Boolean @default(false)
+  buysCurcumin           Boolean @default(false)
+  buysGinger             Boolean @default(false)
+  buysOrganicGinger      Boolean @default(false)
+  buysOrganicTurmeric    Boolean @default(false)
+  buysSpices             Boolean @default(false)
+  buysHerbs              Boolean @default(false)
+  buysBotanical          Boolean @default(false)
+  buysFunctional         Boolean @default(false)
+
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
 }
