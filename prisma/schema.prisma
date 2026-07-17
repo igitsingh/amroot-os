@@ -1013,6 +1013,8 @@ model Buyer {
   completenessBreakdown Json?
   createdAt             DateTime       @default(now())
   updatedAt             DateTime       @updatedAt
+
+  customLists           CustomList[]
 }
 
 model BuyerProcurement {
@@ -1064,3 +1066,16 @@ model BuyerProductIntelligence {
   createdAt              DateTime @default(now())
   updatedAt              DateTime @updatedAt
 }
+
+model CustomList {
+  id        String   @id @default(uuid())
+  name      String
+  region    String?
+  color     String?
+  count     Int      @default(0)
+  buyers    Buyer[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+

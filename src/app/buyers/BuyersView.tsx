@@ -11,15 +11,20 @@ import {
 const BuyerPersonnelView = ({ initialBuyers }: { initialBuyers: any[] }) => {
   const [searchQuery, setSearchQuery] = useState('');
   
-  // No fake data as per constitution
-  const personnel: any[] = []; // Real personnel logic would go here
+  const personnel: any[] = initialBuyers.flatMap(buyer => 
+    (buyer.decisionMakers || []).map((dm: any) => ({
+      ...dm,
+      supplierName: buyer.name,
+      country: buyer.country?.name || 'Unknown'
+    }))
+  );
 
   const filteredPersonnel = personnel.filter(p => {
     if (!searchQuery) return true;
     const q = searchQuery.toLowerCase();
-    return (p.name || '').toLowerCase().includes(q) || 
+    return (p.fullName || '').toLowerCase().includes(q) || 
            (p.supplierName || '').toLowerCase().includes(q) || 
-           (p.email || '').toLowerCase().includes(q);
+           (p.businessEmail || '').toLowerCase().includes(q);
   });
 
   return (
@@ -27,7 +32,7 @@ const BuyerPersonnelView = ({ initialBuyers }: { initialBuyers: any[] }) => {
       <div className="w-[280px] border-r border-[#2D3142]/10 flex flex-col bg-[#F4F1EA] shrink-0">
         <div className="p-3 border-b border-[#2D3142]/10 flex items-center justify-between bg-[#F4F1EA]">
           <span className="font-semibold text-[#2D3142]/90">Filters</span>
-          <span className="text-xs text-[#F16775] hover:text-[#E05663] cursor-pointer">Clear</span>
+          <span className="text-xs text-[#F16775] hover:text-[#E05663] cursor-pointer" onClick={() => setSearchQuery('')}>Clear</span>
         </div>
         
         <div className="p-3 border-b border-[#2D3142]/5">
@@ -70,7 +75,29 @@ const BuyerPersonnelView = ({ initialBuyers }: { initialBuyers: any[] }) => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {/* Personnel cards would map here */}
+              {filteredPersonnel.map((p, idx) => (
+                <div key={idx} className="border border-[#2D3142]/10 rounded-xl p-5 hover:shadow-lg transition-all bg-white flex flex-col group cursor-pointer hover:border-[#F16775]/30">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="w-12 h-12 rounded-full bg-[#F4F1EA] flex items-center justify-center text-[#2D3142]/50 font-bold text-lg">
+                      {p.fullName ? p.fullName.charAt(0).toUpperCase() : '?'}
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-[#2D3142] mb-1 group-hover:text-[#F16775] transition-colors">{p.fullName}</h3>
+                  <div className="text-xs text-[#2D3142]/50 font-medium mb-4">{p.designation || 'Key Decision Maker'}</div>
+                  <div className="mt-auto pt-4 border-t border-[#2D3142]/5 text-sm space-y-2">
+                    <div className="flex items-center gap-2 text-[#2D3142]/70">
+                      <Building className="w-4 h-4 text-[#2D3142]/40" />
+                      <span className="truncate">{p.supplierName}</span>
+                    </div>
+                    {p.businessEmail && (
+                      <div className="flex items-center gap-2 text-[#2D3142]/70">
+                        <Mail className="w-4 h-4 text-[#2D3142]/40" />
+                        <span className="truncate">{p.businessEmail}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>
@@ -162,9 +189,10 @@ const BuyerListsView = ({ initialBuyers, customLists, onOpenList }: { initialBuy
 
 interface BuyersViewProps {
   initialBuyers: any[];
+  initialCustomLists?: any[];
 }
 
-export default function BuyersView({ initialBuyers }: BuyersViewProps) {
+export default function BuyersView({ initialBuyers, initialCustomLists = [] }: BuyersViewProps) {
   const [buyers, setBuyers] = useState(initialBuyers);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'total' | 'net_new' | 'saved'>('total');
@@ -196,13 +224,30 @@ export default function BuyersView({ initialBuyers }: BuyersViewProps) {
   const [isSendingEmail, setIsSendingEmail] = useState(false);
   
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
-  const [selectedSaveLists, setSelectedSaveLists] = useState<number[]>([]);
+  const [selectedSaveLists, setSelectedSaveLists] = useState<string[]>([]);
   const [newListName, setNewListName] = useState('');
-  const [customLists, setCustomLists] = useState<{id: number, name: string, count: number, region: string, updated: string, color: string, buyerIds: string[]}[]>([]);
+  const [customLists, setCustomLists] = useState<any[]>(initialCustomLists);
   
-  const [visibleColumns, setVisibleColumns] = useState<Record<string, boolean>>({
-    name: true, quickActions: true, company: true, entityType: true, location: true, marketFocus: true, score: true
+  const [visibleColumns, setVisibleColumns] = useState<Record<string, boolean>>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('buyersVisibleColumns');
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch (e) {
+          console.error("Failed to parse visibleColumns from localStorage", e);
+        }
+      }
+    }
+    return { name: true, quickActions: true, company: true, entityType: true, location: true, marketFocus: true, score: true };
   });
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('buyersVisibleColumns', JSON.stringify(visibleColumns));
+    }
+  }, [visibleColumns]);
+
   const [isColumnDropdownOpen, setIsColumnDropdownOpen] = useState(false);
 
   const filterOptions = useMemo(() => {
@@ -299,8 +344,17 @@ export default function BuyersView({ initialBuyers }: BuyersViewProps) {
 
   // Filter logic
   let filteredBuyers = buyers.filter(buyer => {
-    if (activeTab === 'saved' && !selectedIds.includes(buyer.id)) return false;
-    if (activeTab === 'net_new') return false; 
+    if (activeTab === 'saved') {
+      const inAnyList = customLists.some(list => list.buyerIds?.includes(buyer.id));
+      if (!inAnyList) return false;
+    }
+    if (activeTab === 'net_new') {
+      if (!buyer.createdAt) return false;
+      const createdDate = new Date(buyer.createdAt);
+      const sevenDaysAgo = new Date();
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+      if (createdDate < sevenDaysAgo) return false;
+    }
     
     if (globalSearch) {
       const term = globalSearch.toLowerCase();
@@ -510,21 +564,26 @@ export default function BuyersView({ initialBuyers }: BuyersViewProps) {
                 <label className="text-xs font-semibold text-[#2D3142]/70 mb-2 block">Create New List</label>
                 <div className="flex gap-2">
                   <input type="text" placeholder="Enter list name..." value={newListName} onChange={(e) => setNewListName(e.target.value)} className="flex-1 border border-[#2D3142]/20 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#F16775]" />
-                  <button onClick={() => {
+                  <button onClick={async () => {
                     if (!newListName.trim()) return showToast("Enter a list name");
-                    const newList = {
-                      id: Date.now(),
-                      name: newListName,
-                      count: selectedIds.length,
-                      region: 'Custom',
-                      updated: 'Just now',
-                      color: 'bg-[#F16775]/20 text-[#F16775]',
-                      buyerIds: [...selectedIds]
-                    };
-                    setCustomLists([...customLists, newList]);
-                    setNewListName('');
-                    showToast(`Saved to new list "${newListName}"`);
-                    setIsSaveModalOpen(false);
+                    try {
+                      const response = await fetch('/api/custom-lists', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'create', name: newListName, buyerIds: selectedIds })
+                      });
+                      if (response.ok) {
+                        const newList = await response.json();
+                        setCustomLists([...customLists, newList]);
+                        setNewListName('');
+                        showToast(`Saved to new list "${newListName}"`);
+                        setIsSaveModalOpen(false);
+                      } else {
+                        showToast("Failed to create list");
+                      }
+                    } catch (e) {
+                      showToast("Error creating list");
+                    }
                   }} className="px-4 py-2 bg-[#F4F1EA] hover:bg-[#2D3142]/5 text-[#2D3142] rounded-lg text-sm font-medium transition-colors border border-[#2D3142]/10">Create & Save</button>
                 </div>
               </div>
@@ -534,24 +593,33 @@ export default function BuyersView({ initialBuyers }: BuyersViewProps) {
                 Cancel
               </button>
               <button 
-                onClick={() => {
+                onClick={async () => {
                   if (selectedSaveLists.length === 0) {
                     showToast("Please select at least one list!");
                     return;
                   }
                   
-                  // Update existing lists with new IDs
-                  setCustomLists(prev => prev.map(list => {
-                    if (selectedSaveLists.includes(list.id)) {
-                      const newIds = Array.from(new Set([...(list.buyerIds || []), ...selectedIds]));
-                      return { ...list, count: newIds.length, buyerIds: newIds, updated: 'Just now' };
-                    }
-                    return list;
-                  }));
-                  
-                  showToast(`Successfully saved ${selectedIds.length} buyers to ${selectedSaveLists.length} list(s)!`);
-                  setIsSaveModalOpen(false);
-                  setSelectedSaveLists([]);
+                  try {
+                    const promises = selectedSaveLists.map(listId => 
+                      fetch('/api/custom-lists', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'update', listId, buyerIds: selectedIds })
+                      }).then(res => res.json())
+                    );
+                    const updatedLists = await Promise.all(promises);
+                    
+                    setCustomLists(prev => prev.map(list => {
+                      const updated = updatedLists.find(u => u.id === list.id);
+                      return updated ? updated : list;
+                    }));
+                    
+                    showToast(`Successfully saved ${selectedIds.length} buyers to ${selectedSaveLists.length} list(s)!`);
+                    setIsSaveModalOpen(false);
+                    setSelectedSaveLists([]);
+                  } catch (e) {
+                    showToast("Error updating lists");
+                  }
                 }}
                 className="px-6 py-2 rounded-md font-medium bg-[#F16775] text-white hover:bg-[#E05663] transition-colors shadow-sm"
               >
@@ -619,13 +687,19 @@ export default function BuyersView({ initialBuyers }: BuyersViewProps) {
                   
                   setIsSendingEmail(true);
                   try {
-                    // For demo purposes, we will send the email to a test address or the user's own address.
-                    // If we had real emails in the DB, we would loop over them here.
+                    const selectedBuyers = initialBuyers.filter(b => selectedIds.includes(b.id));
+                    let emails = selectedBuyers.flatMap(b => (b.decisionMakers || []).map((dm: any) => dm.businessEmail)).filter(Boolean);
+                    
+                    if (emails.length === 0) {
+                      // Fallback to test address if no real emails found, as requested in implementation plan
+                      emails = ["singhsachin.work@gmail.com"];
+                    }
+
                     const response = await fetch('/api/email', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({
-                        to: "singhsachin.work@gmail.com", // Send to self to verify it works!
+                        to: emails.join(', '), 
                         subject: emailSubject,
                         text: emailDraft
                       })
