@@ -428,7 +428,7 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
 
   const PRIORITY_COUNTRIES = ['United Kingdom', 'United Arab Emirates', 'Europe', 'Germany'];
 
-  const FilterSection = ({ 
+  const renderFilterSection = ({ 
     title, id, options, selectedOptions, setter, isTextSearch
   }: { 
     title: string, id: string, options?: string[], selectedOptions?: string[], setter?: React.Dispatch<React.SetStateAction<string[]>>, isTextSearch?: boolean
@@ -504,7 +504,7 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
   };
 
 
-  const SortHeader = ({ field, label, className = "" }: { field: string, label: string, className?: string }) => {
+  const renderSortHeader = ({ field, label, className = "" }: { field: string, label: string, className?: string }) => {
     if (!visibleColumns[field]) return null;
     return (
     <th 
@@ -794,10 +794,10 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
             </div>
 
             <div className="flex-1 overflow-y-auto scrollbar-hide pb-10">
-              <FilterSection title="Company Name" id="name" isTextSearch={true} />
-              <FilterSection title="Location (Country)" id="country" options={filterOptions.countries} selectedOptions={selectedCountries} setter={setSelectedCountries} />
-              <FilterSection title="Company Type" id="companyType" options={filterOptions.companyTypes} selectedOptions={selectedCompanyTypes} setter={setSelectedCompanyTypes} />
-              <FilterSection title="Market Focus" id="marketFocus" options={filterOptions.marketFocus} selectedOptions={selectedMarketFocus} setter={setSelectedMarketFocus} />
+              {renderFilterSection({ title: "Company Name", id: "name", isTextSearch: true })}
+              {renderFilterSection({ title: "Location (Country)", id: "country", options: filterOptions.countries, selectedOptions: selectedCountries, setter: setSelectedCountries })}
+              {renderFilterSection({ title: "Company Type", id: "companyType", options: filterOptions.companyTypes, selectedOptions: selectedCompanyTypes, setter: setSelectedCompanyTypes })}
+              {renderFilterSection({ title: "Market Focus", id: "marketFocus", options: filterOptions.marketFocus, selectedOptions: selectedMarketFocus, setter: setSelectedMarketFocus })}
             </div>
           </div>
 
@@ -896,13 +896,13 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
                         onChange={handleSelectAll}
                       />
                     </th>
-                    <SortHeader field="name" label="Buyer Name" className="min-w-[200px]" />
+                    {renderSortHeader({ field: "name", label: "Buyer Name", className: "min-w-[200px]" })}
                     {visibleColumns.quickActions && <th className="px-4 py-3 text-center">Quick Actions</th>}
-                    <SortHeader field="company" label="Company" className="min-w-[150px]" />
-                    <SortHeader field="entityType" label="Entity Type" />
-                    <SortHeader field="location" label="Location" />
-                    <SortHeader field="marketFocus" label="Market Focus" />
-                    <SortHeader field="score" label="Score" />
+                    {renderSortHeader({ field: "company", label: "Company", className: "min-w-[150px]" })}
+                    {renderSortHeader({ field: "entityType", label: "Entity Type" })}
+                    {renderSortHeader({ field: "location", label: "Location" })}
+                    {renderSortHeader({ field: "marketFocus", label: "Market Focus" })}
+                    {renderSortHeader({ field: "score", label: "Score" })}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#2D3142]/5">
