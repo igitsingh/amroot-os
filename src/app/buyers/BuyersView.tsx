@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useDeferredValue } from "react";
 import BuyerDossier from './BuyerDossier';
 import { 
   Search, ChevronDown, ChevronRight, Filter, Download, X, 
@@ -10,6 +10,7 @@ import {
 
 const BuyerPersonnelView = ({ initialBuyers }: { initialBuyers: any[] }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const deferredSearchQuery = useDeferredValue(searchQuery);
   
   const personnel: any[] = initialBuyers.flatMap(buyer => 
     (buyer.decisionMakers || []).map((dm: any) => ({
@@ -20,8 +21,8 @@ const BuyerPersonnelView = ({ initialBuyers }: { initialBuyers: any[] }) => {
   );
 
   const filteredPersonnel = personnel.filter(p => {
-    if (!searchQuery) return true;
-    const q = searchQuery.toLowerCase();
+    if (!deferredSearchQuery) return true;
+    const q = deferredSearchQuery.toLowerCase();
     return (p.fullName || '').toLowerCase().includes(q) || 
            (p.supplierName || '').toLowerCase().includes(q) || 
            (p.businessEmail || '').toLowerCase().includes(q);
@@ -108,10 +109,11 @@ const BuyerPersonnelView = ({ initialBuyers }: { initialBuyers: any[] }) => {
 
 const BuyerListsView = ({ initialBuyers, customLists, onOpenList }: { initialBuyers: any[], customLists: any[], onOpenList: (list: any) => void }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const deferredSearchQuery = useDeferredValue(searchQuery);
 
   const filteredLists = customLists.filter(list => {
-    if (!searchQuery) return true;
-    const q = searchQuery.toLowerCase();
+    if (!deferredSearchQuery) return true;
+    const q = deferredSearchQuery.toLowerCase();
     return list.name.toLowerCase().includes(q) || list.region.toLowerCase().includes(q);
   });
 
@@ -210,7 +212,9 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
 
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [globalSearch, setGlobalSearch] = useState('');
+  const deferredGlobalSearch = useDeferredValue(globalSearch);
   const [nameSearch, setNameSearch] = useState('');
+  const deferredNameSearch = useDeferredValue(nameSearch);
   
   const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
   const [selectedCompanyTypes, setSelectedCompanyTypes] = useState<string[]>([]);
@@ -356,14 +360,14 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
       if (createdDate < sevenDaysAgo) return false;
     }
     
-    if (globalSearch) {
-      const term = globalSearch.toLowerCase();
+    if (deferredGlobalSearch) {
+      const term = deferredGlobalSearch.toLowerCase();
       const matchName = (buyer.name || '').toLowerCase().includes(term);
       const matchLocation = (buyer.country?.name || '').toLowerCase().includes(term) || (buyer.city || '').toLowerCase().includes(term);
       if (!matchName && !matchLocation) return false;
     }
     
-    if (nameSearch && !(buyer.name || '').toLowerCase().includes(nameSearch.toLowerCase())) return false;
+    if (deferredNameSearch && !(buyer.name || '').toLowerCase().includes(deferredNameSearch.toLowerCase())) return false;
     
     if (selectedCountries.length > 0) {
       const EUROPEAN_COUNTRIES = [
@@ -996,9 +1000,11 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
                               <span>{entityType}</span>
                               {buyer.businessSize && (
                                 <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider ${
-                                  buyer.businessSize.toLowerCase() === 'small' ? 'bg-[#E5F5E9] text-[#14833D] border border-[#14833D]/20' :
-                                  buyer.businessSize.toLowerCase() === 'medium' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
-                                  'bg-purple-50 text-purple-600 border border-purple-100'
+                                  buyer.businessSize.toLowerCase() === 'sme' || buyer.businessSize.toLowerCase() === 'small' ? 'bg-[#E5F5E9] text-[#14833D] border border-[#14833D]/20' :
+                                  buyer.businessSize.toLowerCase() === 'mid-market' || buyer.businessSize.toLowerCase() === 'medium' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
+                                  buyer.businessSize.toLowerCase() === 'large' ? 'bg-orange-50 text-orange-600 border border-orange-100' :
+                                  buyer.businessSize.toLowerCase() === 'enterprise' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
+                                  'bg-gray-50 text-gray-600 border border-gray-100'
                                 }`}>
                                   {buyer.businessSize}
                                 </span>

@@ -5,7 +5,7 @@ import { PrismaPg } from '@prisma/adapter-pg';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: false,
+  ssl: process.env.DATABASE_URL?.includes('neon.tech') ? true : false,
   max: 5,
   idleTimeoutMillis: 60000,
   connectionTimeoutMillis: 10000,

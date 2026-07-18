@@ -5,7 +5,7 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: process.env.DATABASE_URL?.includes('neon.tech') ? true : false });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
