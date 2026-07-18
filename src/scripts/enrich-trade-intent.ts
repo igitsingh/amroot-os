@@ -149,7 +149,7 @@ async function main() {
       console.log(`   ✅ Successfully updated ${buyer.name}`);
       updatedCount++;
 
-    } catch (e) {
+    } catch (e: any) {
       console.error(`   ❌ Failed to process ${buyer.name}: ${e.message}`);
     }
     

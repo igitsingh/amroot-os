@@ -48,7 +48,7 @@ async function main() {
       // Create new buyer in Neon
       const { id, createdAt, updatedAt, websites, socialAccounts, countryId, ...buyerData } = buyer;
       
-      const neonCountryId = countryIdMap.get(countryId);
+      const neonCountryId = countryId ? countryIdMap.get(countryId) : null;
       if (!neonCountryId) {
         console.log(`Skipped ${buyer.name}: Country not found in Neon DB`);
         continue;
@@ -57,7 +57,7 @@ async function main() {
       try {
         const newBuyer = await prismaNeon.buyer.create({
           data: {
-            ...buyerData,
+            ...(buyerData as any),
             countryId: neonCountryId,
             websites: {
               connectOrCreate: websites.map(w => ({ where: { url: w.url }, create: { url: w.url } }))
@@ -69,7 +69,7 @@ async function main() {
         });
         created++;
         console.log(`✅ Inserted: ${newBuyer.name}`);
-      } catch (e) {
+      } catch (e: any) {
         console.log(`Error inserting ${buyer.name}: ${e.message}`);
       }
     } else {

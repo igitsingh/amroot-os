@@ -37,8 +37,6 @@ async function main() {
           id: item.id, // preserve the original ID
           name: item.name,
           countryId: ukCountry.id,
-          sourceName: "Restored from uk-companies-list.json",
-          confidenceScore: 90,
           websites: {
             create: [
               { url: item.website }
