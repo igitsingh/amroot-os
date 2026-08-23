@@ -13,6 +13,7 @@ export default async function BuyersPage() {
   // Catching DB errors during build in case the db isn't fully seeded/pushed yet
   let buyers: any[] = [];
   let customLists: any[] = [];
+  let targetRegions: any[] = [];
   try {
     buyers = await prisma.buyer.findMany({
       include: {
@@ -42,9 +43,21 @@ export default async function BuyersPage() {
       buyerIds: list.buyers.map(b => b.id),
       updated: list.updatedAt.toISOString(),
     }));
+
+    targetRegions = await prisma.targetRegion.findMany({
+      include: {
+        country: true,
+        buyers: {
+          include: {
+            websites: true,
+            signals: true,
+          }
+        },
+      }
+    });
   } catch (err) {
     console.error("Error fetching buyers, table might not exist yet:", err);
   }
 
-  return <BuyersView initialBuyers={buyers} initialCustomLists={customLists} />;
+  return <BuyersView initialBuyers={buyers} initialCustomLists={customLists} initialTargetRegions={targetRegions} />;
 }

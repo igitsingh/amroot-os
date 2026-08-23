@@ -216,6 +216,20 @@ model Country {
   updatedAt             DateTime       @updatedAt
   processors            Processor[]
   buyers                Buyer[]
+  targetRegions         TargetRegion[]
+}
+
+model TargetRegion {
+  id        String   @id @default(uuid())
+  countryId String
+  country   Country  @relation(fields: [countryId], references: [id])
+  name      String
+  status    String   @default("RESEARCHING")
+  priority  String   @default("MEDIUM")
+  buyers    Buyer[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model TradeShow {
@@ -338,6 +352,8 @@ model Competitor {
   completenessBreakdown Json?
   createdAt             DateTime       @default(now())
   updatedAt             DateTime       @updatedAt
+
+  buyerStocks           BuyerCompetitorStock[]
 }
 
 model Product {
@@ -1015,6 +1031,27 @@ model Buyer {
   updatedAt             DateTime       @updatedAt
 
   customLists           CustomList[]
+
+  // V2 Fields
+  relationshipStatus     String? @default("NOT_CONTACTED")
+  lastContactDate        DateTime?
+  nextAction             String?
+  nextActionDate         DateTime?
+  ownerId                String?
+
+  revenueMin             Float?
+  revenueMax             Float?
+  estimatedContainerVolume String?
+  estimatedAnnualDemand  String?
+  estimatedMargin        Float?
+  revenueConfidenceScore Float?
+
+  targetRegionId    String?
+  targetRegion      TargetRegion? @relation(fields: [targetRegionId], references: [id])
+
+  productListings        BuyerProductListing[]
+  competitorStocks       BuyerCompetitorStock[]
+  signals                BuyerSignal[]
 }
 
 model BuyerProcurement {
@@ -1043,6 +1080,8 @@ model BuyerDecisionMaker {
   linkedinUrl     String?
   businessEmail   String?
   businessPhone   String?
+  confidenceScore Float?
+  sourceLink      String?
 
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
@@ -1079,3 +1118,48 @@ model CustomList {
   updatedAt DateTime @updatedAt
 }
 
+model BuyerProductListing {
+  id              String   @id @default(uuid())
+  buyerId         String
+  buyer           Buyer    @relation(fields: [buyerId], references: [id])
+  name            String
+  url             String?
+  price           Float?
+  packaging       String?
+  weight          String?
+  platform        String?
+  productCategory String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model BuyerCompetitorStock {
+  id              String     @id @default(uuid())
+  buyerId         String
+  buyer           Buyer      @relation(fields: [buyerId], references: [id])
+  competitorId    String?
+  competitor      Competitor? @relation(fields: [competitorId], references: [id])
+  brandName       String?
+  productName     String?
+  price           Float?
+  websiteUrl      String?
+  marketplaceUrl  String?
+  competitiveRisk String?
+  opportunity     String?    @db.Text
+  
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+model BuyerSignal {
+  id              String   @id @default(uuid())
+  buyerId         String
+  buyer           Buyer    @relation(fields: [buyerId], references: [id])
+  signalType      String
+  description     String   @db.Text
+  dateDetected    DateTime @default(now())
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

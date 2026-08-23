@@ -5,8 +5,95 @@ import BuyerDossier from './BuyerDossier';
 import { 
   Search, ChevronDown, ChevronRight, Filter, Download, X, 
   Plus, Mail, Users, Building, MapPin, CheckSquare, 
-  Square, Globe, LayoutGrid, ArrowUp, ArrowDown, ArrowUpDown, Eye, Send, Check, ShieldAlert
+  Square, Globe, LayoutGrid, ArrowUp, ArrowDown, ArrowUpDown, Eye, Send, Check, ShieldAlert,
+  Activity, TrendingUp, BarChart, ExternalLink, Video
 } from 'lucide-react';
+
+const calculateOpportunityScore = (buyer: any) => {
+  let score = 0;
+  
+  // Product Match
+  if (buyer.productIntelligence?.buysTurmeric) score += 20;
+  if (buyer.productIntelligence?.buysGinger) score += 15;
+  if (buyer.productIntelligence?.buysSpices) score += 5;
+  if (buyer.productIntelligence?.buysOrganicTurmeric || buyer.productIntelligence?.buysOrganicGinger) score += 10;
+  if (buyer.productIntelligence?.buysFunctional) score += 10;
+  
+  // Procurement Match
+  const origins = buyer.procurement?.importOrigins || [];
+  if (origins.includes('India')) score += 20;
+  else if (origins.includes('Asia')) score += 10;
+  
+  // Market Match
+  const focus = (buyer.marketFocus || '').toLowerCase();
+  if (focus.includes('premium')) score += 10;
+  if (focus.includes('organic') || buyer.procurement?.organic) score += 10;
+  
+  // Channel Match
+  const cType = (buyer.companyType || '').toLowerCase();
+  if (cType.includes('distributor') || cType.includes('wholesale')) score += 10;
+  
+  return Math.min(100, score);
+};
+
+const CountryDashboard = ({ buyers }: { buyers: any[] }) => {
+  const PRIORITY_COUNTRIES = ['United Kingdom', 'United Arab Emirates', 'Germany', 'France', 'Netherlands', 'Italy', 'Spain', 'Belgium', 'Switzerland', 'Austria'];
+  
+  const countryStats = useMemo(() => {
+    const stats: Record<string, any> = {};
+    PRIORITY_COUNTRIES.forEach(c => {
+      stats[c] = { total: 0, highOpp: 0, organic: 0, turmeric: 0, ginger: 0, importers: 0, distributors: 0, retailers: 0 };
+    });
+    
+    buyers.forEach(buyer => {
+      const country = buyer.country?.name;
+      if (!country) return;
+      if (!stats[country] && !PRIORITY_COUNTRIES.includes(country)) {
+         stats['Rest of Europe'] = stats['Rest of Europe'] || { total: 0, highOpp: 0, organic: 0, turmeric: 0, ginger: 0, importers: 0, distributors: 0, retailers: 0 };
+      }
+      
+      const target = stats[country] ? stats[country] : stats['Rest of Europe'];
+      if (!target) return;
+      
+      target.total++;
+      if (buyer.intelligenceScore >= 80) target.highOpp++;
+      if (buyer.procurement?.organic) target.organic++;
+      if (buyer.productIntelligence?.buysTurmeric) target.turmeric++;
+      if (buyer.productIntelligence?.buysGinger) target.ginger++;
+      
+      const cType = (buyer.companyType || '').toLowerCase();
+      if (cType.includes('import')) target.importers++;
+      if (cType.includes('distribut')) target.distributors++;
+      if (cType.includes('retail')) target.retailers++;
+    });
+    
+    return stats;
+  }, [buyers]);
+
+  return (
+    <div className="flex gap-4 overflow-x-auto pb-4 pt-4 px-6 bg-[#F4F1EA] border-b border-[#2D3142]/10 scrollbar-hide">
+      {Object.entries(countryStats).filter(([_, s]) => s.total > 0).sort((a,b) => b[1].total - a[1].total).map(([country, stat]) => (
+        <div key={country} className="min-w-[260px] bg-white border border-[#2D3142]/10 rounded-xl p-4 shadow-sm flex-shrink-0 hover:shadow-md transition-shadow">
+          <div className="flex justify-between items-center mb-3">
+             <h3 className="font-bold text-[#2D3142]">{country}</h3>
+             <span className="bg-[#F16775]/10 text-[#F16775] text-xs font-bold px-2 py-1 rounded">{stat.total} Buyers</span>
+          </div>
+          <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-xs">
+            <div className="flex justify-between"><span className="text-[#2D3142]/60">High Opp</span><span className="font-medium text-[#034F46]">{stat.highOpp}</span></div>
+            <div className="flex justify-between"><span className="text-[#2D3142]/60">Organic</span><span className="font-medium">{stat.organic}</span></div>
+            <div className="flex justify-between"><span className="text-[#2D3142]/60">Turmeric</span><span className="font-medium">{stat.turmeric}</span></div>
+            <div className="flex justify-between"><span className="text-[#2D3142]/60">Ginger</span><span className="font-medium">{stat.ginger}</span></div>
+            <div className="flex justify-between col-span-2 pt-2 mt-1 border-t border-[#2D3142]/5">
+              <span className="text-[#2D3142]/60">Imp: {stat.importers}</span>
+              <span className="text-[#2D3142]/60">Dist: {stat.distributors}</span>
+              <span className="text-[#2D3142]/60">Ret: {stat.retailers}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const BuyerPersonnelView = ({ initialBuyers }: { initialBuyers: any[] }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -189,16 +276,242 @@ const BuyerListsView = ({ initialBuyers, customLists, onOpenList }: { initialBuy
   );
 };
 
+const BuyerTerritoriesView = ({ targetRegions }: { targetRegions: any[] }) => {
+  const [selectedRegion, setSelectedRegion] = useState<any | null>(null);
+
+  return (
+    <div className="flex-1 flex overflow-hidden">
+      {/* LEFT SIDEBAR: Region list */}
+      <div className="w-[280px] border-r border-[#2D3142]/10 flex flex-col bg-[#F4F1EA] shrink-0">
+        <div className="p-3 border-b border-[#2D3142]/10 flex items-center justify-between bg-[#F4F1EA]">
+          <span className="font-semibold text-[#2D3142]/90">Regions ({targetRegions.length})</span>
+        </div>
+
+        <div className="flex-1 overflow-auto">
+          {targetRegions.map((region) => {
+            const buyers = region.buyers || [];
+            const isSelected = selectedRegion?.id === region.id;
+            return (
+              <div
+                key={region.id}
+                onClick={() => setSelectedRegion(region)}
+                className={`px-4 py-3 cursor-pointer border-b border-[#2D3142]/5 transition-colors ${isSelected ? 'bg-white border-l-2 border-l-[#F16775]' : 'hover:bg-white/50'}`}
+              >
+                <div className="flex items-center gap-2">
+                  <MapPin className={`w-4 h-4 ${isSelected ? 'text-[#F16775]' : 'text-[#2D3142]/40'}`} />
+                  <span className={`font-semibold text-sm ${isSelected ? 'text-[#F16775]' : 'text-[#2D3142]'}`}>{region.name}</span>
+                </div>
+                <div className="flex items-center justify-between mt-1 ml-6">
+                  <span className="text-xs text-[#2D3142]/50">{region.country?.name}</span>
+                  <span className="text-xs font-bold text-[#034F46]">{buyers.length} stores</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="p-3 border-t border-[#2D3142]/10 bg-[#F4F1EA]">
+          <button className="w-full flex items-center justify-center gap-2 py-2 bg-[#F16775] hover:bg-[#E05663] text-white rounded font-medium transition-colors shadow-sm">
+            <Plus className="w-4 h-4" />
+            Add Territory
+          </button>
+        </div>
+      </div>
+
+      {/* MAIN CONTENT */}
+      <div className="flex-1 flex flex-col bg-white overflow-hidden">
+        {!selectedRegion ? (
+          /* Overview Grid when no region is selected */
+          <>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#2D3142]/10 bg-[#F4F1EA]">
+              <h2 className="text-lg font-semibold text-[#2D3142]">Area-Wise Expansion</h2>
+              <div className="text-sm text-[#2D3142]/50">{targetRegions.length} Regions Targeted</div>
+            </div>
+            <div className="flex-1 overflow-auto p-6 bg-[#F8F9FA]">
+              {targetRegions.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full text-center">
+                  <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
+                    <Globe className="w-8 h-8 text-[#2D3142]/20" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[#2D3142] mb-2">No Territories Defined</h3>
+                  <p className="text-sm text-[#2D3142]/50 max-w-sm">
+                    Add target regions like &quot;New York City&quot; or &quot;Dubai&quot; to track your local distributor expansion.
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {targetRegions.map((region) => {
+                    const buyers = region.buyers || [];
+                    return (
+                      <div
+                        key={region.id}
+                        onClick={() => setSelectedRegion(region)}
+                        className="border border-[#2D3142]/10 rounded-xl p-5 hover:shadow-lg transition-all bg-white flex flex-col group cursor-pointer hover:border-[#F16775]/30"
+                      >
+                        <div className="flex justify-between items-start mb-4">
+                          <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                            <MapPin className="w-6 h-6" />
+                          </div>
+                          <span className={`px-2 py-1 text-[10px] font-bold uppercase rounded ${region.status === 'ESTABLISHED' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
+                            {region.status}
+                          </span>
+                        </div>
+                        <h3 className="font-bold text-[#2D3142] text-lg group-hover:text-[#F16775] transition-colors">{region.name}</h3>
+                        <div className="text-sm text-[#2D3142]/60 font-medium mb-4">{region.country?.name}</div>
+
+                        {/* Show first 3 store names as preview */}
+                        <div className="space-y-1.5 mb-4">
+                          {buyers.slice(0, 3).map((b: any) => (
+                            <div key={b.id} className="flex items-center gap-2 text-xs text-[#2D3142]/70">
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#034F46]" />
+                              <span className="truncate">{b.name}</span>
+                            </div>
+                          ))}
+                          {buyers.length > 3 && (
+                            <div className="text-xs text-[#F16775] font-medium ml-3.5">
+                              +{buyers.length - 3} more stores →
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-4 mt-auto pt-4 border-t border-[#2D3142]/5">
+                          <div>
+                            <div className="text-xs uppercase text-[#2D3142]/50 font-bold mb-1">Total Stores</div>
+                            <div className="text-xl font-bold text-[#034F46]">{buyers.length}</div>
+                          </div>
+                          <div>
+                            <div className="text-xs uppercase text-[#2D3142]/50 font-bold mb-1">Status</div>
+                            <div className="text-sm font-semibold text-orange-600 capitalize">{(region.status || '').toLowerCase().replace('_', ' ')}</div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          /* DETAILED VIEW when a region is selected */
+          <>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#2D3142]/10 bg-[#F4F1EA]">
+              <div className="flex items-center gap-3">
+                <button onClick={() => setSelectedRegion(null)} className="p-1.5 rounded-md hover:bg-[#2D3142]/10 transition-colors">
+                  <ChevronDown className="w-4 h-4 text-[#2D3142]/60 rotate-90" />
+                </button>
+                <div>
+                  <h2 className="text-lg font-semibold text-[#2D3142]">{selectedRegion.name}</h2>
+                  <div className="text-xs text-[#2D3142]/50">{selectedRegion.country?.name} · {(selectedRegion.buyers || []).length} Online Stores & Distributors</div>
+                </div>
+              </div>
+              <span className={`px-3 py-1 text-xs font-bold uppercase rounded ${selectedRegion.status === 'ESTABLISHED' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
+                {selectedRegion.status}
+              </span>
+            </div>
+
+            <div className="flex-1 overflow-auto bg-[#F8F9FA]">
+              <table className="w-full">
+                <thead className="sticky top-0 bg-[#F4F1EA] z-10">
+                  <tr className="text-left text-xs uppercase text-[#2D3142]/60 font-bold">
+                    <th className="px-6 py-3">#</th>
+                    <th className="px-6 py-3">Store Name</th>
+                    <th className="px-6 py-3">Type</th>
+                    <th className="px-6 py-3">Market Focus</th>
+                    <th className="px-6 py-3">Website</th>
+                    <th className="px-6 py-3">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(selectedRegion.buyers || []).map((buyer: any, idx: number) => {
+                    const website = buyer.websites?.[0]?.url || buyer.website || null;
+                    return (
+                      <tr key={buyer.id} className="border-b border-[#2D3142]/5 hover:bg-white transition-colors">
+                        <td className="px-6 py-4 text-sm text-[#2D3142]/40 font-mono">{idx + 1}</td>
+                        <td className="px-6 py-4">
+                          <div className="font-semibold text-[#2D3142] text-sm">{buyer.name}</div>
+                          <div className="text-xs text-[#2D3142]/40 mt-0.5">{buyer.city}</div>
+                          {buyer.signals && buyer.signals.map((signal: any) => {
+                            if (signal.signalType === 'DISCOVERY_SOURCE' && signal.description.includes('YouTube')) {
+                              // Extract URL and timestamp if possible
+                              const urlMatch = signal.description.match(/(https:\/\/www\.youtube\.com\/watch\?v=[^)]+)/);
+                              const tsMatch = signal.description.match(/timestamps ([\d:]+ to [\d:]+)/);
+                              const url = urlMatch ? urlMatch[1] : null;
+                              const timestamp = tsMatch ? tsMatch[1] : '';
+                              return (
+                                <div key={signal.id} className="mt-2 flex items-center gap-1.5 text-[10px] bg-red-50 text-red-700 px-2 py-1 rounded-md max-w-fit">
+                                  <Video className="w-3 h-3" />
+                                  <span>
+                                    Discovered via {url ? <a href={url} target="_blank" rel="noopener noreferrer" className="underline hover:text-red-900 font-semibold">YouTube</a> : 'YouTube'} 
+                                    {timestamp && ` (at ${timestamp})`}
+                                  </span>
+                                </div>
+                              );
+                            }
+                            return null;
+                          })}
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className="px-2 py-1 text-xs font-medium rounded bg-blue-50 text-blue-700 whitespace-nowrap">
+                            {buyer.companyType || 'Unknown'}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-[#2D3142]/70 max-w-[200px] truncate">{buyer.marketFocus || '—'}</td>
+                        <td className="px-6 py-4">
+                          {website ? (
+                            <a
+                              href={website.startsWith('http') ? website : `https://${website}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md bg-[#034F46] text-white hover:bg-[#023D36] transition-colors shadow-sm"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              Visit Store
+                            </a>
+                          ) : (
+                            <span className="text-xs text-[#2D3142]/30 italic">No link</span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className={`px-2 py-1 text-[10px] font-bold uppercase rounded ${
+                            buyer.relationshipStatus === 'CONTACTED' ? 'bg-blue-100 text-blue-700' :
+                            buyer.relationshipStatus === 'IN_PROGRESS' ? 'bg-yellow-100 text-yellow-700' :
+                            buyer.relationshipStatus === 'CONVERTED' ? 'bg-green-100 text-green-700' :
+                            'bg-gray-100 text-gray-600'
+                          }`}>
+                            {(buyer.relationshipStatus || 'NOT_CONTACTED').replace(/_/g, ' ')}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
 interface BuyersViewProps {
   initialBuyers: any[];
   initialCustomLists?: any[];
+  initialTargetRegions?: any[];
 }
 
-export default function BuyersView({ initialBuyers, initialCustomLists = [] }: BuyersViewProps) {
-  const [buyers, setBuyers] = useState(initialBuyers);
+export default function BuyersView({ initialBuyers, initialCustomLists = [], initialTargetRegions = [] }: BuyersViewProps) {
+  const enhancedBuyers = useMemo(() => {
+    return initialBuyers.map(b => ({
+      ...b,
+      intelligenceScore: calculateOpportunityScore(b)
+    }));
+  }, [initialBuyers]);
+
+  const [buyers, setBuyers] = useState(enhancedBuyers);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'total' | 'net_new' | 'saved'>('total');
-  const [mainTab, setMainTab] = useState<'organizations' | 'personnel' | 'lists'>('organizations');
+  const [mainTab, setMainTab] = useState<'organizations' | 'personnel' | 'lists' | 'territories'>('organizations');
   
   const [expandedFilters, setExpandedFilters] = useState<Record<string, boolean>>({
     name: true,
@@ -243,7 +556,7 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
         }
       }
     }
-    return { name: true, quickActions: true, company: true, entityType: true, location: true, marketFocus: true, score: true };
+    return { name: true, quickActions: true, company: true, relationship: true, entityType: true, location: true, marketFocus: true, score: true };
   });
 
   React.useEffect(() => {
@@ -760,11 +1073,19 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
             >
               <LayoutGrid className="w-4 h-4" /> Custom Lists
             </button>
+            <button 
+              onClick={() => setMainTab('territories')}
+              className={`flex items-center gap-2 font-medium text-sm pb-2 -mb-[9px] transition-colors ${mainTab === 'territories' ? 'text-[#F16775] border-b-2 border-[#F16775]' : 'text-[#2D3142]/60 hover:text-[#2D3142] border-b-2 border-transparent'}`}
+            >
+              <Globe className="w-4 h-4" /> Territories
+              <span className="ml-1 bg-[#F16775] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full flex items-center justify-center min-w-[20px]">{initialTargetRegions.length}</span>
+            </button>
           </div>
         </div>
       </div>
 
       {mainTab === 'personnel' && <BuyerPersonnelView initialBuyers={initialBuyers} />}
+      {mainTab === 'territories' && <BuyerTerritoriesView targetRegions={initialTargetRegions} />}
       {mainTab === 'lists' && <BuyerListsView initialBuyers={initialBuyers} customLists={customLists} onOpenList={(list) => {
         setSelectedIds(list.buyerIds || []);
         setMainTab('organizations');
@@ -803,6 +1124,8 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
 
           {/* MAIN DATA TABLE AREA */}
           <div className="flex-1 flex flex-col bg-white overflow-hidden">
+            {activeTab === 'total' && <CountryDashboard buyers={buyers} />}
+            
             <div className="flex flex-col border-b border-[#2D3142]/10 shrink-0 bg-[#F4F1EA]">
               <div className="flex items-center px-6 pt-3">
                 <div className="flex gap-6">
@@ -863,10 +1186,11 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
                         name: 'Buyer Name',
                         quickActions: 'Quick Actions',
                         company: 'Company',
+                        relationship: 'Relationship',
                         entityType: 'Entity Type',
                         location: 'Location',
                         marketFocus: 'Market Focus',
-                        score: 'Intelligence Score'
+                        score: 'Amroot Opp Score'
                       }).map(([key, label]) => (
                         <label key={key} className="flex items-center gap-2 px-2 py-1.5 hover:bg-[#F4F1EA] rounded cursor-pointer group">
                           <input 
@@ -899,10 +1223,11 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
                     {renderSortHeader({ field: "name", label: "Buyer Name", className: "min-w-[200px]" })}
                     {visibleColumns.quickActions && <th className="px-4 py-3 text-center">Quick Actions</th>}
                     {renderSortHeader({ field: "company", label: "Company", className: "min-w-[150px]" })}
+                    {visibleColumns.relationship && renderSortHeader({ field: "relationship", label: "Pipeline" })}
                     {renderSortHeader({ field: "entityType", label: "Entity Type" })}
                     {renderSortHeader({ field: "location", label: "Location" })}
                     {renderSortHeader({ field: "marketFocus", label: "Market Focus" })}
-                    {renderSortHeader({ field: "score", label: "Score" })}
+                    {renderSortHeader({ field: "score", label: "Opp Score" })}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#2D3142]/5">
@@ -926,6 +1251,7 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
                     const entityType = (buyer.companyType || 'Unknown').replace(/ \w/g, (l: string) => l.toUpperCase());
                     const location = (buyer.country?.name || buyer.city || 'Unknown').replace(/ \w/g, (l: string) => l.toUpperCase());
                     const marketFocus = (buyer.marketFocus || 'Unknown').replace(/ \w/g, (l: string) => l.toUpperCase());
+                    const relationship = (buyer.relationshipStatus || 'NOT_CONTACTED').replace(/_/g, ' ');
                     const actualWebsiteUrl = buyer.websites?.[0]?.url;
                     const websiteDisplay = actualWebsiteUrl ? actualWebsiteUrl.replace(/^https?:\/\/(www\.)?/, '') : 'website.com';
                     const websiteUrl = actualWebsiteUrl || '#';
@@ -994,6 +1320,18 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
                           </div>
                         </td>
                         )}
+                        {visibleColumns.relationship && (
+                          <td className="px-4 py-3">
+                            <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider ${
+                              relationship === 'NOT CONTACTED' ? 'bg-gray-100 text-gray-600' :
+                              relationship === 'RESEARCHING' ? 'bg-blue-50 text-blue-600' :
+                              relationship === 'WON' ? 'bg-green-100 text-green-700' :
+                              'bg-orange-50 text-orange-600'
+                            }`}>
+                              {relationship}
+                            </span>
+                          </td>
+                        )}
                         {visibleColumns.entityType && (
                           <td className="px-4 py-3 text-sm text-[#2D3142]/70 font-medium">
                             <div className="flex flex-col items-start gap-1.5">
@@ -1020,7 +1358,7 @@ export default function BuyersView({ initialBuyers, initialCustomLists = [] }: B
                           </span>
                         </td>
                         )}
-                        {visibleColumns.score && <td className="px-4 py-3 text-sm font-mono text-[#034F46] font-semibold">{buyer.intelligenceScore || 0}%</td>}
+                        {visibleColumns.score && <td className="px-4 py-3 text-sm font-mono text-[#034F46] font-bold">{buyer.intelligenceScore || 0}%</td>}
                       </tr>
                     );
                   })

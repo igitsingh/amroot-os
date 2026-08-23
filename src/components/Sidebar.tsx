@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Outfit } from 'next/font/google';
 import { Search, Sparkles, Calendar, Database, Anchor, FlaskConical, FileText, Settings, PanelLeftClose, PanelLeftOpen, Cpu, BookOpen, ExternalLink, ShoppingBag, ListTodo, LogOut, PenTool, ChevronDown, ChevronRight, Package, Globe } from 'lucide-react';
@@ -13,6 +13,18 @@ export default function Sidebar() {
   const pathname = usePathname();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isBrandExpanded, setIsBrandExpanded] = useState(true);
+  const [buyerCount, setBuyerCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch('/api/buyers/count')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.count !== undefined) {
+          setBuyerCount(data.count);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   if (pathname === '/login') return null;
 
@@ -114,7 +126,9 @@ export default function Sidebar() {
                 <Globe size={16} className="shrink-0 transition-colors text-[#F16775]" />
                 {!isCollapsed && <span className="whitespace-nowrap">Global Buyers</span>}
               </div>
-              {!isCollapsed && <span className="text-[9px] leading-none uppercase font-bold tracking-wider bg-[#F16775]/20 text-[#F16775] px-1.5 py-0.5 rounded flex items-center">New</span>}
+              {!isCollapsed && buyerCount !== null && (
+                <span className="text-[10px] bg-[#F16775] text-white font-bold px-1.5 py-0.5 rounded-full min-w-[24px] text-center">{buyerCount}</span>
+              )}
             </Link>
             <Link href="/checklist" className={getLinkClasses('/checklist')}>
               <div className={`flex items-center gap-3 ${!isCollapsed ? 'ml-6' : ''}`}>
