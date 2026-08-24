@@ -279,6 +279,20 @@ const BuyerListsView = ({ initialBuyers, customLists, onOpenList }: { initialBuy
 const BuyerTerritoriesView = ({ targetRegions }: { targetRegions: any[] }) => {
   const [selectedRegion, setSelectedRegion] = useState<any | null>(null);
 
+  const regionsByCountry = useMemo(() => {
+    const groups: Record<string, any[]> = {};
+    targetRegions.forEach(region => {
+      const country = region.country?.name || 'Unknown';
+      if (!groups[country]) groups[country] = [];
+      groups[country].push(region);
+    });
+    // Sort keys alphabetically
+    return Object.keys(groups).sort().reduce((acc, key) => {
+      acc[key] = groups[key];
+      return acc;
+    }, {} as Record<string, any[]>);
+  }, [targetRegions]);
+
   return (
     <div className="flex-1 flex overflow-hidden">
       {/* LEFT SIDEBAR: Region list */}
@@ -288,26 +302,33 @@ const BuyerTerritoriesView = ({ targetRegions }: { targetRegions: any[] }) => {
         </div>
 
         <div className="flex-1 overflow-auto">
-          {targetRegions.map((region) => {
-            const buyers = region.buyers || [];
-            const isSelected = selectedRegion?.id === region.id;
-            return (
-              <div
-                key={region.id}
-                onClick={() => setSelectedRegion(region)}
-                className={`px-4 py-3 cursor-pointer border-b border-[#2D3142]/5 transition-colors ${isSelected ? 'bg-white border-l-2 border-l-[#F16775]' : 'hover:bg-white/50'}`}
-              >
-                <div className="flex items-center gap-2">
-                  <MapPin className={`w-4 h-4 ${isSelected ? 'text-[#F16775]' : 'text-[#2D3142]/40'}`} />
-                  <span className={`font-semibold text-sm ${isSelected ? 'text-[#F16775]' : 'text-[#2D3142]'}`}>{region.name}</span>
-                </div>
-                <div className="flex items-center justify-between mt-1 ml-6">
-                  <span className="text-xs text-[#2D3142]/50">{region.country?.name}</span>
-                  <span className="text-xs font-bold text-[#034F46]">{buyers.length} stores</span>
-                </div>
+          {Object.entries(regionsByCountry).map(([country, regions]) => (
+            <div key={country} className="mb-2">
+              <div className="px-4 py-2 bg-[#F4F1EA] sticky top-0 border-y border-[#2D3142]/5 z-10">
+                <span className="text-xs font-bold text-[#2D3142]/50 uppercase tracking-wider">{country}</span>
               </div>
-            );
-          })}
+              {regions.map((region) => {
+                const buyers = region.buyers || [];
+                const isSelected = selectedRegion?.id === region.id;
+                return (
+                  <div
+                    key={region.id}
+                    onClick={() => setSelectedRegion(region)}
+                    className={`px-4 py-3 cursor-pointer border-b border-[#2D3142]/5 transition-colors ${isSelected ? 'bg-white border-l-2 border-l-[#F16775]' : 'hover:bg-white/50'}`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <MapPin className={`w-4 h-4 ${isSelected ? 'text-[#F16775]' : 'text-[#2D3142]/40'}`} />
+                      <span className={`font-semibold text-sm ${isSelected ? 'text-[#F16775]' : 'text-[#2D3142]'}`}>{region.name}</span>
+                    </div>
+                    <div className="flex items-center justify-between mt-1 ml-6">
+                      <span className="text-xs text-[#2D3142]/50">{region.country?.name}</span>
+                      <span className="text-xs font-bold text-[#034F46]">{buyers.length} stores</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
 
         <div className="p-3 border-t border-[#2D3142]/10 bg-[#F4F1EA]">
@@ -339,54 +360,61 @@ const BuyerTerritoriesView = ({ targetRegions }: { targetRegions: any[] }) => {
                   </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {targetRegions.map((region) => {
-                    const buyers = region.buyers || [];
-                    return (
-                      <div
-                        key={region.id}
-                        onClick={() => setSelectedRegion(region)}
-                        className="border border-[#2D3142]/10 rounded-xl p-5 hover:shadow-lg transition-all bg-white flex flex-col group cursor-pointer hover:border-[#F16775]/30"
-                      >
-                        <div className="flex justify-between items-start mb-4">
-                          <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
-                            <MapPin className="w-6 h-6" />
-                          </div>
-                          <span className={`px-2 py-1 text-[10px] font-bold uppercase rounded ${region.status === 'ESTABLISHED' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
-                            {region.status}
-                          </span>
-                        </div>
-                        <h3 className="font-bold text-[#2D3142] text-lg group-hover:text-[#F16775] transition-colors">{region.name}</h3>
-                        <div className="text-sm text-[#2D3142]/60 font-medium mb-4">{region.country?.name}</div>
-
-                        {/* Show first 3 store names as preview */}
-                        <div className="space-y-1.5 mb-4">
-                          {buyers.slice(0, 3).map((b: any) => (
-                            <div key={b.id} className="flex items-center gap-2 text-xs text-[#2D3142]/70">
-                              <div className="w-1.5 h-1.5 rounded-full bg-[#034F46]" />
-                              <span className="truncate">{b.name}</span>
+                <div className="space-y-8">
+                  {Object.entries(regionsByCountry).map(([country, regions]) => (
+                    <div key={country}>
+                      <h3 className="text-xl font-bold text-[#2D3142] mb-4 border-b border-[#2D3142]/10 pb-2">{country}</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {regions.map((region) => {
+                          const buyers = region.buyers || [];
+                          return (
+                            <div
+                              key={region.id}
+                              onClick={() => setSelectedRegion(region)}
+                              className="border border-[#2D3142]/10 rounded-xl p-5 hover:shadow-lg transition-all bg-white flex flex-col group cursor-pointer hover:border-[#F16775]/30"
+                            >
+                              <div className="flex justify-between items-start mb-4">
+                                <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                                  <MapPin className="w-6 h-6" />
+                                </div>
+                                <span className={`px-2 py-1 text-[10px] font-bold uppercase rounded ${region.status === 'ESTABLISHED' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
+                                  {region.status}
+                                </span>
+                              </div>
+                              <h3 className="font-bold text-[#2D3142] text-lg group-hover:text-[#F16775] transition-colors">{region.name}</h3>
+                              <div className="text-sm text-[#2D3142]/60 font-medium mb-4">{region.country?.name}</div>
+      
+                              {/* Show first 3 store names as preview */}
+                              <div className="space-y-1.5 mb-4">
+                                {buyers.slice(0, 3).map((b: any) => (
+                                  <div key={b.id} className="flex items-center gap-2 text-xs text-[#2D3142]/70">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#034F46]" />
+                                    <span className="truncate">{b.name}</span>
+                                  </div>
+                                ))}
+                                {buyers.length > 3 && (
+                                  <div className="text-xs text-[#F16775] font-medium ml-3.5">
+                                    +{buyers.length - 3} more stores →
+                                  </div>
+                                )}
+                              </div>
+      
+                              <div className="grid grid-cols-2 gap-4 mt-auto pt-4 border-t border-[#2D3142]/5">
+                                <div>
+                                  <div className="text-xs uppercase text-[#2D3142]/50 font-bold mb-1">Total Stores</div>
+                                  <div className="text-xl font-bold text-[#034F46]">{buyers.length}</div>
+                                </div>
+                                <div>
+                                  <div className="text-xs uppercase text-[#2D3142]/50 font-bold mb-1">Status</div>
+                                  <div className="text-sm font-semibold text-orange-600 capitalize">{(region.status || '').toLowerCase().replace('_', ' ')}</div>
+                                </div>
+                              </div>
                             </div>
-                          ))}
-                          {buyers.length > 3 && (
-                            <div className="text-xs text-[#F16775] font-medium ml-3.5">
-                              +{buyers.length - 3} more stores →
-                            </div>
-                          )}
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4 mt-auto pt-4 border-t border-[#2D3142]/5">
-                          <div>
-                            <div className="text-xs uppercase text-[#2D3142]/50 font-bold mb-1">Total Stores</div>
-                            <div className="text-xl font-bold text-[#034F46]">{buyers.length}</div>
-                          </div>
-                          <div>
-                            <div className="text-xs uppercase text-[#2D3142]/50 font-bold mb-1">Status</div>
-                            <div className="text-sm font-semibold text-orange-600 capitalize">{(region.status || '').toLowerCase().replace('_', ' ')}</div>
-                          </div>
-                        </div>
+                          );
+                        })}
                       </div>
-                    );
-                  })}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
